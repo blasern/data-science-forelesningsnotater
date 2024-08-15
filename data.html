@@ -1,0 +1,3387 @@
+
+<!DOCTYPE html>
+
+
+<html lang="nb" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Data &#8212; Innføring i data science</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=87e54e7c" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=507867d0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.0/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'data';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Søk" href="search.html" />
+    <link rel="next" title="Utforskende dataanalyse" href="eda.html" />
+    <link rel="prev" title="Innføring i data science" href="intro.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="nb"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.png" class="logo__image only-light" alt="Innføring i data science - Home"/>
+    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="Innføring i data science - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Søk" aria-label="Søk" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Søk</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Innføring i data science
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="eda.html">Utforskende dataanalyse</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modeling.html">Datamodellering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="variables.html">Manglende data og variabelutvinning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="communication.html">Datakommunikasjon</a></li>
+<li class="toctree-l1"><a class="reference internal" href="implementation.html">Implementere data science løsninger</a></li>
+<li class="toctree-l1"><a class="reference internal" href="studydesign.html">Studiedesign</a></li>
+<li class="toctree-l1"><a class="reference internal" href="recommendation.html">Anbefalingssystemer</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/blasern/dsbook" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/blasern/dsbook/issues/new?title=Issue%20on%20page%20%2Fdata.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/data.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Søk" aria-label="Søk" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Data</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#strukturerte-og-ustrukturerte-data">Strukturerte og ustrukturerte data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variabeltyper">Variabeltyper</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ryddige-data">Ryddige data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#numpy">Numpy</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lage-vektorer-og-matrisser">Lage vektorer og matrisser</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#regning-i-numpy">Regning i numpy</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#undermatrisser">Undermatrisser</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kombinere-data">Kombinere data</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pandas">Pandas</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lese-og-beskrive-data">Lese og beskrive data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#undermengder-av-data">Undermengder av data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#databeskrivelse-med-pandas">Databeskrivelse med pandas</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Kombinere data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reformatere-data">Reformatere data</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="data">
+<span id="sec-data"></span><h1>Data<a class="headerlink" href="#data" title="Link to this heading">#</a></h1>
+<p>Det første kapitelet handler om data og variabler. Det er viktig å tenke på hva slags variabler data inneholder for å forberede og analysere de.</p>
+<p>Det er et velkjent ordtak at folk som jobber med data science bruker 80% av tiden sin for å rense og forberede data i stedet for å faktisk hente ut innsikt. Det finnes ingen god kilde for dette og det riktige tallet er nok lavere enn 80%, men det stemmer at data forberedelse kan være en stor del av et data science prosjekt. Derfor er det viktig å tenke på hva som er målet ved å forberede data hva slags verktøy vi kan bruke for dette.</p>
+<section id="strukturerte-og-ustrukturerte-data">
+<h2>Strukturerte og ustrukturerte data<a class="headerlink" href="#strukturerte-og-ustrukturerte-data" title="Link to this heading">#</a></h2>
+<p>Grovt underdeler vi data i strukturerte og ustrukturerte data. Strukturerte data er all data som kan skrives i en tabell, eller et excel ark. Det kan for eksempel være data om personer og inkludere kolonner som navn, adresse, kjønn, osv. I så fall tenker vi på hver kolonne som en egenskap og hver rad som å representere et datapunkt.</p>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s2">&quot;display.max_columns&quot;</span><span class="p">,</span> <span class="mi">16</span><span class="p">)</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="nb">dict</span><span class="p">(</span><span class="n">navn</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Nora&#39;</span><span class="p">,</span> <span class="s1">&#39;Lucas&#39;</span><span class="p">,</span> <span class="s1">&#39;Isak&#39;</span><span class="p">,</span> <span class="s1">&#39;Ella&#39;</span><span class="p">],</span> <span class="n">alder</span><span class="o">=</span><span class="p">[</span><span class="mi">25</span><span class="p">,</span> <span class="mi">19</span><span class="p">,</span> <span class="mi">23</span><span class="p">,</span> <span class="mi">22</span><span class="p">]))</span>
+<span class="n">df</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>navn</th>
+      <th>alder</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Nora</td>
+      <td>25</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Lucas</td>
+      <td>19</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Isak</td>
+      <td>23</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Ella</td>
+      <td>22</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Her er et eksempel der hver rad representerer en person og kolonnene er egenskapene av personen, i dette tilfelle navn og alder.</p>
+<p>I motsetning til strukturerte data har vi ustrukturerte data som tekst, bilder, audio, video og mange flere.
+For å analysere ustrukturerte data har vi to muligheter. Vi kan omgjøre de til strukturerte data eller vi kan bruke spesielt tilpassete metoder.</p>
+<p>Her er et eksempel med tekstdata. Hvis vi har to tilbakemeldinger av studenter fra data science kurset og prøver å finne ut om de som skrev det likte serien. Data er tekst og kan ikke enkelt skrives i  tabellformat.</p>
+<blockquote>
+<div><p>Student A: Jeg likte kurset godt og jeg lærte mye, men det gikk litt raskt.</p>
+<p>Student B: Tempoet i kurset var altfor raskt, jeg lærte ingenting.</p>
+</div></blockquote>
+<p>Men en måte å oversette det til tabellformat er å ta alle ord som kolonner og bare telle hvor mange ganger ordet dukker opp i tilbakemeldingen. Det har fordelen at det blir strukturerte data, men ulempen at vi mister informasjon om rekkefølge av ordene. Så vi mister en viktig del av informasjonen fra de opprinnelige data.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Student</p></th>
+<th class="head"><p>Jeg</p></th>
+<th class="head"><p>likte</p></th>
+<th class="head"><p>kurset</p></th>
+<th class="head"><p>godt</p></th>
+<th class="head"><p>…</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>A</p></td>
+<td><p>2</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>B</p></td>
+<td><p>1</p></td>
+<td><p>0</p></td>
+<td><p>1</p></td>
+<td><p>0</p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Her er et annet eksempel. Et bilde som dette kan selvfølgelig lages om som en rad i en tabell, der hver kolonne representerer en piksel. Men hvis vi analyserer det på denne måten så har vi mistet informasjonen om hvilke piksler som er ved siden av hverandre. Hvis vi flytter objektet i bildet litt, så endrer piksler seg mye selv om det ikke var en visuelt stor endring.</p>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span> 
+<span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">load_digits</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="c1"># get image</span>
+<span class="n">image</span> <span class="o">=</span> <span class="n">load_digits</span><span class="p">()[</span><span class="s1">&#39;data&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span>
+
+<span class="c1"># shift image</span>
+<span class="n">shifted</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">roll</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+
+<span class="c1"># Plot images</span>
+<span class="n">f</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">sharey</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">gray</span><span class="p">()</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">matshow</span><span class="p">(</span><span class="n">image</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">matshow</span><span class="p">(</span><span class="n">shifted</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<img alt="_images/4bc1a4fb137f35222eed32aac89517c72829c9c5c6f420daf88f019ee76a1cd4.png" src="_images/4bc1a4fb137f35222eed32aac89517c72829c9c5c6f420daf88f019ee76a1cd4.png" />
+</div>
+</div>
+<p>Her er de to bildene: originalet og den som er flyttet litt.</p>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_image</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="nb">dict</span><span class="p">(</span><span class="n">original</span><span class="o">=</span><span class="n">image</span><span class="o">.</span><span class="n">flatten</span><span class="p">(),</span> <span class="n">shifted</span><span class="o">=</span><span class="n">shifted</span><span class="o">.</span><span class="n">flatten</span><span class="p">()))</span><span class="o">.</span><span class="n">T</span>
+<span class="n">df_image</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>0</th>
+      <th>1</th>
+      <th>2</th>
+      <th>3</th>
+      <th>4</th>
+      <th>5</th>
+      <th>6</th>
+      <th>7</th>
+      <th>...</th>
+      <th>56</th>
+      <th>57</th>
+      <th>58</th>
+      <th>59</th>
+      <th>60</th>
+      <th>61</th>
+      <th>62</th>
+      <th>63</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>original</th>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>5.0</td>
+      <td>13.0</td>
+      <td>9.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>...</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>6.0</td>
+      <td>13.0</td>
+      <td>10.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>shifted</th>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>6.0</td>
+      <td>13.0</td>
+      <td>10.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>...</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>2.0</td>
+      <td>14.0</td>
+      <td>5.0</td>
+      <td>10.0</td>
+      <td>12.0</td>
+      <td>0.0</td>
+    </tr>
+  </tbody>
+</table>
+<p>2 rows × 64 columns</p>
+</div></div></div>
+</div>
+<p>Og her er hva som skjer i tabellen, der hver kolonne representerer en piksel.</p>
+<p>Den andre måten å analysere ustrukturerte data på er å bruke spesielt tilpassete metoder. Det er som oftest en bedre løsning fordi den ikke mister informasjon. Men denne løsningen er utenfor omfang av dette kurset. Derfor kommer vi i dette kurset til å se kun på strukturerte data.</p>
+</section>
+<section id="variabeltyper">
+<h2>Variabeltyper<a class="headerlink" href="#variabeltyper" title="Link to this heading">#</a></h2>
+<p>Da er vi klare for å klassifisere strukturerte data.</p>
+<p><img alt="structured_data" src="_images/structured.svg" /></p>
+<p>På den ene siden har vi numeriske data, som underdeles igjen i kontinuerlige og diskrete variabler. Kontinuerlige variabler er data som kan ta hvilken som helst verdi innen et gitt interval. Typiske eksempler av kontinuerlige variabler kan være høyde eller alder. Diskrete variabler er numeriske data som bare kan ha et utvalg av mulige verdier. For eksempel antall barn, eller mål i en fotballkamp. Det gir ingen mening å snakke om 1.3 barn, det er enten ett eller to.
+Denne skillelinjen er ikke så skarp som man kanskje skulle trodd. Hvis jeg måler høyde, så kan jeg kanskje bare måle det med en presisjon av 5 millimeter. I så fall er det bare en diskret antall verdier jeg faktisk kan ha i data. Men vi modellerer høyde likevel som kontinuerlig, fordi det gir mening å si at noen er 175,28 centimeter og høy selv om vi ikke kan måle det.</p>
+<p>På den andre siden har vi kategoriske variabler. Det er data som består av kategorier i stedet for tall. Typiske eksempler er kjønn, eller utdanningsnivå. Blant kategoriske variabler finnes det nominale og ordinale variabler. Nominale variabler er variabler der det ikke finnes noe rekkefølge av kategoriene. For eksempel kjønn eller yrke.</p>
+<p>Ordinale variabler er kategoriske variabler som har en opplagt rekkefølge i kategoriene. For eksempel hvis jeg lager en spørreundersøkelse om hvor godt forelesningsnotatene er likt blant studentene. I så fall er det kanskje svarkategoriene «veldig dårlig», «dårlig», «nøytral», «bra» eller «veldig bra». I så fall gir det mening å si at «veldig bra» er bedre enn «bra», som er bedre enn «nøytral» og så videre.</p>
+<p>Nå har vi hørt litt om forskjellige typer variabler. Men hvorfor bryr vi oss egentlig om dette?</p>
+<p>La oss si at vi har en undersøkelse som vurderer kundetilfredshet med svaralternativ «svært misfornøyd», «misfornøyd», «nøytral», «fornøyd» og «svært fornøyd». Dette er en ordinal variabel fordi det er en naturlig rekkefølge i svarkategoriene, men avstanden mellom dem er ikke nødvendigvis lik. Her er litt eksempeldata:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Kategori</p></th>
+<th class="head"><p>Frekvens</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Svært misfornøyd (1)</p></td>
+<td><p>10</p></td>
+</tr>
+<tr class="row-odd"><td><p>Misfornøyd (2)</p></td>
+<td><p>20</p></td>
+</tr>
+<tr class="row-even"><td><p>Nøytral (3)</p></td>
+<td><p>25</p></td>
+</tr>
+<tr class="row-odd"><td><p>Fornøyd (4)</p></td>
+<td><p>30</p></td>
+</tr>
+<tr class="row-even"><td><p>Svært fornøyd (5)</p></td>
+<td><p>15</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Hvis vi behandler denne ordinalvariabelen som en nominal kategorisk variabel, vil vi ignorere rekkefølgen. Hvis vi skal oppsummere variablen, så konkluderer vi kanskje at kategorien som ble svart mest (mode) er fornøyd (30% av svar).</p>
+<p>Hvis vi behandler denne ordinalvariabelen som en numerisk variabel, antar vi at avstanden mellom kategoriene er lik. Vi bruker altså for eksempel koden 1 for «svært misfornøyd», koden 2 for «misfornøyd», og så videre til koden 5 for svært fornøyd. For å oppsummere variablen vil vi kanskje ta gjennomsnittet (mean). Vi finner altså det er</p>
+<div class="math notranslate nohighlight">
+\[\text{mean}=\frac{(1⋅10)+(2⋅20)+(3⋅25)+(4⋅30)+(5⋅15)}{100}=3.2\]</div>
+<p>Denne gjennomsnittsverdien gir oss et tall, men det gir ikke meningsfull informasjon om kundetilfredsheten, spesielt siden avstanden mellom kategoriene ikke er lik.</p>
+<p>Når vi behandler variabelen som ordinal, tar vi hensyn til rekkefølgen, men ikke nødvendigvis avstanden mellom kategoriene. For eksempel kan vi bruke medianen i stedet for mean for å oppsummere kundetilfredshet. Medianen tar hensyn til rekkefølgen, men ikke avstanden mellom kategoriene.</p>
+<p>Medianen er verdien som deler dataene i to like store deler. I vårt tilfelle, hvis vi sorterer dataene og finner vi at medianen er verdien ved den 50. observasjonen, som i dette tilfellet er «nøytral».</p>
+<p>Nå har vi allerede sett på et eksempel av ordinale data. Hvis vi har nominale data i stedet, så gir det ikke mening si at en kategori er større eller mindre enn en annen.</p>
+<p>La oss ta et eksempel der vi har en dataset med informasjon om studenter og deres studieprogrammer.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head text-center"><p>StudentID</p></th>
+<th class="head text-center"><p>Studieprogram</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-center"><p>abc123</p></td>
+<td class="text-center"><p>Informatikk</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>def456</p></td>
+<td class="text-center"><p>Matematikk</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p>ghi789</p></td>
+<td class="text-center"><p>Fysikk</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>nbl630</p></td>
+<td class="text-center"><p>Kjemi</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p>jbo006</p></td>
+<td class="text-center"><p>Biologi</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>ppa040</p></td>
+<td class="text-center"><p>Matematikk</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p>fze128</p></td>
+<td class="text-center"><p>Informatikk</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>nga042</p></td>
+<td class="text-center"><p>Kjemi</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>I dette tilfellet pleier vi å lage flere såkalte dummy-variabler ut av den kategoriske variablen. Vi bruker så mange variabler som det var kategorier og hver av disse nye kategorivariablene er 1 hvis radet er fra denne kategorien og 0 ellers. Her er hvordan datasetet ser ut etter dummy-koding:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head text-center"><p>StudentID</p></th>
+<th class="head"><p>Informatikk</p></th>
+<th class="head"><p>Matematikk</p></th>
+<th class="head"><p>Fysikk</p></th>
+<th class="head"><p>Kjemi</p></th>
+<th class="head"><p>Biologi</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-center"><p>abc123</p></td>
+<td><p>1</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>def456</p></td>
+<td><p>0</p></td>
+<td><p>1</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p>ghi789</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>1</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>nbl630</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>1</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p>jbo006</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>ppa040</p></td>
+<td><p>0</p></td>
+<td><p>1</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p>fze128</p></td>
+<td><p>1</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>nga042</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>1</p></td>
+<td><p>0</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Fordeler med dummy-variabler er at vi enkelt kan inkludere studieprogrammet i vår statistiske modell og få innsikt i hvordan for eksempel karakterer varierer mellom de forskjellige programmene. Dette lar oss også utføre hypotesetester for å se om det er forskjeller mellom studieprogrammene.</p>
+</section>
+<section id="ryddige-data">
+<span id="sec-ryddig"></span><h2>Ryddige data<a class="headerlink" href="#ryddige-data" title="Link to this heading">#</a></h2>
+<p>Hva mener vi med ryddig data? Prinsippene for ryddig data er egentlig veldig enkle, men det er ofte verdifullt å tenke på de prinsippene. Vi kan spare mye tid hvis vi vet akkurat hvordan vi har lyst å sette opp data. I ryddige data har hver variabel sin egen kolonne og hver observasjon sin egen rad. Det finnes mange eksempler av uryddige data. I så fall må vi først lage data om til et ryddig format før vi kan analysere de. Her finnes det mange eksempler.</p>
+<p>Et eksempel der en kolonne inneholder flere variabler er følgende, der både karakter og antall poeng er i samme kolonnen.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head text-center"><p>StudentID</p></th>
+<th class="head text-center"><p>Matematikk</p></th>
+<th class="head text-center"><p>Fysikk</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-center"><p>abc123</p></td>
+<td class="text-center"><p>A (95 poeng)</p></td>
+<td class="text-center"><p>B (85 poeng)</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>def456</p></td>
+<td class="text-center"><p>B (82 poeng)</p></td>
+<td class="text-center"><p>D (68 poeng)</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p>ghi789</p></td>
+<td class="text-center"><p>C (76 poeng)</p></td>
+<td class="text-center"><p>A (92 poeng)</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>En mer ryddig variant ville delt det opp:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head text-center"><p>StudentID</p></th>
+<th class="head text-center"><p>Matematikk-Karakter</p></th>
+<th class="head text-center"><p>Fysikk-Karakter</p></th>
+<th class="head text-center"><p>Matematikk-Poeng</p></th>
+<th class="head text-center"><p>Fysikk-Poeng</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-center"><p>abc123</p></td>
+<td class="text-center"><p>A</p></td>
+<td class="text-center"><p>B</p></td>
+<td class="text-center"><p>95</p></td>
+<td class="text-center"><p>85</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>def456</p></td>
+<td class="text-center"><p>B</p></td>
+<td class="text-center"><p>D</p></td>
+<td class="text-center"><p>82</p></td>
+<td class="text-center"><p>68</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p>ghi789</p></td>
+<td class="text-center"><p>C</p></td>
+<td class="text-center"><p>A</p></td>
+<td class="text-center"><p>76</p></td>
+<td class="text-center"><p>92</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Det er kanskje mindre åpenbar hva det betyr at hver observasjon skal ha sin egen rad. Hva som er en observasjon avhenger av målet med analysen vår.
+Hvis vi prøver å predikere eksamenskarakteren til studenter i data science, så er følgende ryddige data:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>StudentID</p></th>
+<th class="head"><p>Alder</p></th>
+<th class="head"><p>Studieprogram-Informatikk</p></th>
+<th class="head"><p>Studieprogram-Statistikk</p></th>
+<th class="head"><p>Karakter-Programmering</p></th>
+<th class="head"><p>Karakter-Kalkulus</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>abc123</p></td>
+<td><p>24</p></td>
+<td><p>1</p></td>
+<td><p>0</p></td>
+<td><p>3</p></td>
+<td><p>6</p></td>
+</tr>
+<tr class="row-odd"><td><p>def456</p></td>
+<td><p>21</p></td>
+<td><p>0</p></td>
+<td><p>1</p></td>
+<td><p>5</p></td>
+<td><p>4</p></td>
+</tr>
+<tr class="row-even"><td><p>ghi789</p></td>
+<td><p>32</p></td>
+<td><p>1</p></td>
+<td><p>0</p></td>
+<td><p>5</p></td>
+<td><p>5</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Her prøver vi å predikere ut data science karakter per student, så vi vil ha en rad per student. I tillegg er hver kolonne en variabel som kan hjelpe oss med prediksjonen.</p>
+<p>Et eksempel av samme data på et uryddig format for spørsmålet vi prøver å svare på er følgende:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>StudentID</p></th>
+<th class="head"><p>Alder</p></th>
+<th class="head"><p>Studieprogram</p></th>
+<th class="head"><p>Fag</p></th>
+<th class="head"><p>Karakter</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>abc123</p></td>
+<td><p>24</p></td>
+<td><p>Informatikk</p></td>
+<td><p>Programmering</p></td>
+<td><p>3</p></td>
+</tr>
+<tr class="row-odd"><td><p>def456</p></td>
+<td><p>21</p></td>
+<td><p>Statistikk</p></td>
+<td><p>Programmering</p></td>
+<td><p>5</p></td>
+</tr>
+<tr class="row-even"><td><p>ghi789</p></td>
+<td><p>32</p></td>
+<td><p>Informatikk</p></td>
+<td><p>Programmering</p></td>
+<td><p>5</p></td>
+</tr>
+<tr class="row-odd"><td><p>abc123</p></td>
+<td><p>24</p></td>
+<td><p>Informatikk</p></td>
+<td><p>Kalkulus</p></td>
+<td><p>6</p></td>
+</tr>
+<tr class="row-even"><td><p>def456</p></td>
+<td><p>21</p></td>
+<td><p>Statistikk</p></td>
+<td><p>Kalkulus</p></td>
+<td><p>4</p></td>
+</tr>
+<tr class="row-odd"><td><p>ghi789</p></td>
+<td><p>32</p></td>
+<td><p>Informatikk</p></td>
+<td><p>Kalkulus</p></td>
+<td><p>5</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Det viser akkurat samme data, men her er det to rad per student. Sånn er ikke det enkelt å predikere én karakter per student. I underkapittel <a class="reference internal" href="#sec-pandas"><span class="std std-ref">Pandas</span></a> ser vi hvordan å omformatere data slikt.</p>
+</section>
+<section id="numpy">
+<span id="sec-numpy"></span><h2>Numpy<a class="headerlink" href="#numpy" title="Link to this heading">#</a></h2>
+<p>Denne delen handler om numpy-biblioteket, som vi bruker veldig ofte når vi jobber med data i python. Først er det viktig å huska at man ikke blir flink til å bruke numpy ved å lese om bruken av numpy. Den eneste måten man lærer å programmere er ved å faktisk programmere.</p>
+<p>Numpy er et bibliotek som brukes for å lage vektorer og matrisser. Her lager vi en vektor av som inneholder tall 1 og 2.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">vec</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Hvis vi vil se på vektoren, så kan vi skrive den ut med <code class="docutils literal notranslate"><span class="pre">print</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">vec</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1 2]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Hvis vi vil sjekke hvor mange elementer vektoren inneholder, så kan vi spørre etter shape egenskapen som i det tilfelle gir oss at den har lengde 2.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">vec</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(2,)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Vi kan også lage matrisser. Her lager vi identitetsmatrissen i to dimensjoner.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mat</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">mat</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[1. 0.]
+ [0. 1.]]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Når vi spør etter shape egenskapen får vi vite at matrissen har størrelsen 2 gang 2.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mat</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(2, 2)
+</pre></div>
+</div>
+</div>
+</div>
+<section id="lage-vektorer-og-matrisser">
+<h3>Lage vektorer og matrisser<a class="headerlink" href="#lage-vektorer-og-matrisser" title="Link to this heading">#</a></h3>
+<p>Det finnes mange måter å lage en numpy array. Her viser vi noen eksempler.</p>
+<p>Numpy-funksjonen <code class="docutils literal notranslate"><span class="pre">arange</span></code> er det samme for numpy arrays som <code class="docutils literal notranslate"><span class="pre">range</span></code> er i standard python.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0, 1, 2, 3, 4])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Numpy-funksjonen <code class="docutils literal notranslate"><span class="pre">linspace</span></code> tillater at vi lager en array med fast start, slutt og en fast entall elementer som er jevnlig fordelt mellom starten og slutten.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">stop</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">num</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([2. , 2.5, 3. , 3.5, 4. ])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Vi kan bruke <code class="docutils literal notranslate"><span class="pre">ones</span></code> eller <code class="docutils literal notranslate"><span class="pre">zeros</span></code> for å lage en numpy array med bare enere eller bare nullere.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1., 1., 1., 1., 1.])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[0., 0., 0.],
+       [0., 0., 0.]])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Så finnes det også mange måter å lage tilfeldige tall på. Her er eksempler på hvordan å lage uniform og normal fordelte tall. Vi skall snakke om forskjellige fordelinger i <a class="reference internal" href="eda.html#sec-sannsynlighet"><span class="std std-ref">Sannsynlighet</span></a>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">low</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">high</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.88584774, 0.76976432, 0.36713409, 1.9401761 , 0.1961863 ])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[-0.75431072, -1.32588708, -1.35449161, -0.14305506],
+       [ 0.41135839,  1.24574422,  0.51265912,  2.24111079]])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Data i numpy arrays kan ha forskjellige data type. Vi kan for eksempel lage integer, float eller boolean numpy arrays. Men hele numpy array har alltid samme data type. Her er noen eksempler på forskjellige datatyper:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1, 1, 1, 1])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1., 1., 1., 1.])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">bool</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ True,  True,  True,  True])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">str</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([&#39;1&#39;, &#39;1&#39;, &#39;1&#39;, &#39;1&#39;], dtype=&#39;&lt;U1&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="regning-i-numpy">
+<h3>Regning i numpy<a class="headerlink" href="#regning-i-numpy" title="Link to this heading">#</a></h3>
+<p>Vanligvis når vi regner med numpy arrays, så gjør vi elementvise regninger. Vi kan for eksempel addere to matrisser eller multiplisere en matrisse med et tall.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mat</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">7</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="n">mat</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[1, 2, 3],
+       [4, 5, 6]])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mat</span> <span class="o">+</span> <span class="n">mat</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 2,  4,  6],
+       [ 8, 10, 12]])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">2</span><span class="o">*</span><span class="n">mat</span> <span class="o">+</span> <span class="mi">1</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 3,  5,  7],
+       [ 9, 11, 13]])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Det finnes mange funksjoner som man kan bruke elementvis i numpy, for eksempel <code class="docutils literal notranslate"><span class="pre">sin</span></code>, <code class="docutils literal notranslate"><span class="pre">log</span></code>, <code class="docutils literal notranslate"><span class="pre">negative</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">mat</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 0.84147098,  0.90929743,  0.14112001],
+       [-0.7568025 , -0.95892427, -0.2794155 ]])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">mat</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[0.        , 0.69314718, 1.09861229],
+       [1.38629436, 1.60943791, 1.79175947]])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">negative</span><span class="p">(</span><span class="n">mat</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[-1, -2, -3],
+       [-4, -5, -6]])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Det finnes også mange muligheter for å oppsummere matriser, for eksempel <code class="docutils literal notranslate"><span class="pre">max</span></code>, <code class="docutils literal notranslate"><span class="pre">mean</span></code>, og <code class="docutils literal notranslate"><span class="pre">sum</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">mat</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>6
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">mat</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.5
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">mat</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>21
+</pre></div>
+</div>
+</div>
+</div>
+<p>Hvis vi vil multiplisere en matrisse med en vektor, så må vi være litt forsiktige. Her har vi lagd en identitetsmatrisse <code class="docutils literal notranslate"><span class="pre">mat</span></code> og en vektor <code class="docutils literal notranslate"><span class="pre">vec</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mat</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">vec</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>For å regne ut multiplikasjonen må vi bruke dot-metoden. Da får vi som forventet ut den opprinnelige vektoren v.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mat</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">vec</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1., 2.])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Hvis vi bare bruker mutliplikasjonstegnet, så gjør vi elementvis multiplikasjon. Når dimensjonene ikke er like, så gjør numpy en kolonnevise multiplikasjon. Den første kolonnen av identitetsmatrissen blir altså multiplisert med 1 og den andre kolonnen med 2.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mat</span> <span class="o">*</span> <span class="n">vec</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[1., 0.],
+       [0., 2.]])
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="undermatrisser">
+<h3>Undermatrisser<a class="headerlink" href="#undermatrisser" title="Link to this heading">#</a></h3>
+<p>Når vi har en matrisse, så vil vi ofte bare se på en del eller undermatrisse av den. Det kan vi gjøre ved å spessifisere et enkelt element. Her viser vi matrisen <code class="docutils literal notranslate"><span class="pre">A</span></code> i rad én og kolonne to. Husk at vi begynner å nummerere med 0.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+<span class="n">A</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 0,  1,  2,  3],
+       [ 4,  5,  6,  7],
+       [ 8,  9, 10, 11]])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>6
+</pre></div>
+</div>
+</div>
+</div>
+<p>Vi kan også se på en hel rad eller kolonne ved å bruke kollon-tegnet på den andre dimensjonen.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="p">:]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([4, 5, 6, 7])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1, 5, 9])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Vi kan også angi lister for rad og kolonner og kan bruke en forkortet notasjon i kollon j, som tar med alle radene eller kolonnene fra og inkludert i til men ekskludert j.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span><span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">:]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 0,  1,  2,  3],
+       [ 8,  9, 10, 11]])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 1,  2],
+       [ 5,  6],
+       [ 9, 10]])
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="kombinere-data">
+<h3>Kombinere data<a class="headerlink" href="#kombinere-data" title="Link to this heading">#</a></h3>
+<p>For å kombinere data, dan vi bruke <code class="docutils literal notranslate"><span class="pre">hstack</span></code> og <code class="docutils literal notranslate"><span class="pre">vstack</span></code> funksjonene. <code class="docutils literal notranslate"><span class="pre">hstack</span></code> setter data sammen horisontalt, fungerer altså kun hvis de to numpy arrays vi vil kombinere har samme antall rad. <code class="docutils literal notranslate"><span class="pre">vstack</span></code> setter data sammen vertikalt, fungerer altså hvis de to numpy arrays vi vil kombinere har samme antall kolonner.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">B</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>
+<span class="n">C</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">([</span><span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">((</span><span class="n">A</span><span class="p">,</span> <span class="n">C</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[1., 0., 0., 0., 0., 0.],
+       [0., 1., 0., 0., 0., 0.],
+       [0., 0., 1., 0., 0., 0.],
+       [0., 0., 0., 1., 0., 0.]])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">((</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[1., 0., 0., 0.],
+       [0., 1., 0., 0.],
+       [0., 0., 1., 0.],
+       [0., 0., 0., 1.],
+       [1., 1., 1., 1.],
+       [1., 1., 1., 1.],
+       [1., 1., 1., 1.]])
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="pandas">
+<span id="sec-pandas"></span><h2>Pandas<a class="headerlink" href="#pandas" title="Link to this heading">#</a></h2>
+<p>For å jobbe med tabulære data er det praktisk å bruke pandas.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="lese-og-beskrive-data">
+<h3>Lese og beskrive data<a class="headerlink" href="#lese-og-beskrive-data" title="Link to this heading">#</a></h3>
+<p>Vi begynner ved å lese inn data. Her bruker vi pandas sin <code class="docutils literal notranslate"><span class="pre">read_csv</span></code>-funksjonen. Det er kanskje den mest brukte måten å lese inn data. Men det finnes veldig mange forskjellige typer filer og for de fleste typer finnes det en pandas funksjon for å lese de inn, se i <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/io.html">dokumentasjonen</a>. Avhengig av hvordan data ser ut, så må vi også velge ut hvilke rad og kolonner vi vil lese inn, angi hvilke verdier som skal ansees som manglende verider, hva slags kodering tekstdata har, og mange andre egenskaper av data. Alt dette er mulig med de riktige argumentene til <code class="docutils literal notranslate"><span class="pre">read_csv</span></code>-funksjonen.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data/informatikkemner_uib.csv&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Her leste vi inn data om alle informatikkemner ved Universitetet i Bergen (tilstand 9. august 2024). La oss se litt på det datasettet.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(101, 6)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Først ser vi igjen på shape. Datasettet har atlså 101 rad og 6 kolonner.</p>
+<p>La oss se litt på de første radene ved hjelp av head-metoden. Det er ofte nyttig for å få et inntrykk av data.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>emnekode</th>
+      <th>tittel</th>
+      <th>semester</th>
+      <th>nivå</th>
+      <th>studiepoeng</th>
+      <th>vurdering</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>BINF100</td>
+      <td>Grunnleggande bioinformatikk</td>
+      <td>Vår</td>
+      <td>Lågaregradsemne</td>
+      <td>10.0</td>
+      <td>Skriftleg skuleeksamen</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>BINF200</td>
+      <td>Analyse av biologiske sekvensar og strukturar</td>
+      <td>Haust</td>
+      <td>Lågaregradsemne</td>
+      <td>10.0</td>
+      <td>Mappevurdering</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>BINF201</td>
+      <td>Innføring i omics</td>
+      <td>Haust</td>
+      <td>Lågaregradsemne</td>
+      <td>10.0</td>
+      <td>Mappevurdering</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>BINF301</td>
+      <td>Genom-skala algoritmar</td>
+      <td>Vår</td>
+      <td>Masteremne</td>
+      <td>10.0</td>
+      <td>Skriftleg skuleeksamen</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>BINF305</td>
+      <td>Systembiologi</td>
+      <td>Haust</td>
+      <td>Masteremne</td>
+      <td>10.0</td>
+      <td>Mappevurdering</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Her ser vi at det er informasjon om emnekode, tittel, hvilket semester det blir undervist i, hvilket nivå emnet er, hvor mange studiepoeng studentene for ved bestått emne og vurderingsformen.</p>
+<p>Så skal vi finne ut av hva slags data hver variabel inneholder. I motsettning til <code class="docutils literal notranslate"><span class="pre">numpy</span></code>, så kan <code class="docutils literal notranslate"><span class="pre">pandas</span></code> inneholde flere datatyper. Men hver kolonne består av bare én datatype. Egenskapen <code class="docutils literal notranslate"><span class="pre">dtypes</span></code> gir oss informasjon om data er integer, float eller noe annet. For tekstdata står det <code class="docutils literal notranslate"><span class="pre">object</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">dtypes</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>emnekode        object
+tittel          object
+semester        object
+nivå            object
+studiepoeng    float64
+vurdering       object
+dtype: object
+</pre></div>
+</div>
+</div>
+</div>
+<p>Vi kan bruke describe-metoden for å få litt statistikk om de data vi har lest inn. Her for vi antall målinger, gjennomsnitt, standardavvik, minimum, 25%-kvantil, median, 75%-kvantil og maksimum. Vi går gjennom de begrepene i kapitel <a class="reference internal" href="eda.html#sec-statistikk"><span class="std std-ref">Statistikk</span></a>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>studiepoeng</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>101.000000</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>10.153465</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>6.307037</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>10.000000</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>10.000000</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>10.000000</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>60.000000</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Men her ser vi bare på numeriske data. Vi kan også bruke describe-metoden for å se på kategoriske data, men i så fall må vi bruke opsjonen <code class="docutils literal notranslate"><span class="pre">include=object</span></code>. Da får vi selvfølgelig litt forskjellige informasjon fordi mange av de statistikkene ikke ville gitt mening. Vi får opp antall observasjoner, antall observasjoner som er forskjellige fra hverandre, den mest vanlige observasjonen og hvor vanlig den er.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">describe</span><span class="p">(</span><span class="n">include</span><span class="o">=</span><span class="nb">object</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>emnekode</th>
+      <th>tittel</th>
+      <th>semester</th>
+      <th>nivå</th>
+      <th>vurdering</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>101</td>
+      <td>101</td>
+      <td>101</td>
+      <td>101</td>
+      <td>77</td>
+    </tr>
+    <tr>
+      <th>unique</th>
+      <td>101</td>
+      <td>85</td>
+      <td>4</td>
+      <td>3</td>
+      <td>14</td>
+    </tr>
+    <tr>
+      <th>top</th>
+      <td>BINF100</td>
+      <td>Videregåande emner/seminar i kryptografi</td>
+      <td>Vår</td>
+      <td>Masteremne</td>
+      <td>Skriftleg skuleeksamen</td>
+    </tr>
+    <tr>
+      <th>freq</th>
+      <td>1</td>
+      <td>3</td>
+      <td>35</td>
+      <td>60</td>
+      <td>30</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>En annen viktig ting å se på er hvor mye av data som mangler. Vi kan i utgangspunktet se det delvis på count i describe, men det er greit å rege det ut direkte.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>emnekode        0
+tittel          0
+semester        0
+nivå            0
+studiepoeng     0
+vurdering      24
+dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="undermengder-av-data">
+<h3>Undermengder av data<a class="headerlink" href="#undermengder-av-data" title="Link to this heading">#</a></h3>
+<p>Samme som i numpy array vil vi ofte se på undermengder av data. Her bruker vi <code class="docutils literal notranslate"><span class="pre">.loc</span></code> metoden.</p>
+<p>Vi kan velge ut kolonner ved å angi kolonnenavn.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="p">[</span><span class="s1">&#39;tittel&#39;</span><span class="p">,</span> <span class="s1">&#39;studiepoeng&#39;</span><span class="p">]]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>tittel</th>
+      <th>studiepoeng</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Grunnleggande bioinformatikk</td>
+      <td>10.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Analyse av biologiske sekvensar og strukturar</td>
+      <td>10.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Innføring i omics</td>
+      <td>10.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Genom-skala algoritmar</td>
+      <td>10.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Systembiologi</td>
+      <td>10.0</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>96</th>
+      <td>Metaheuristikkar</td>
+      <td>10.0</td>
+    </tr>
+    <tr>
+      <th>97</th>
+      <td>Metodar for analyse av forsyningskjeder</td>
+      <td>10.0</td>
+    </tr>
+    <tr>
+      <th>98</th>
+      <td>Diskrete strukturar</td>
+      <td>10.0</td>
+    </tr>
+    <tr>
+      <th>99</th>
+      <td>Geometrisk djup læring</td>
+      <td>3.0</td>
+    </tr>
+    <tr>
+      <th>100</th>
+      <td>Masteroppgåve i Programvareutvikling samarbeid...</td>
+      <td>0.0</td>
+    </tr>
+  </tbody>
+</table>
+<p>101 rows × 2 columns</p>
+</div></div></div>
+</div>
+<p>Vi kan da spesifisere rad på samme måten.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[[</span><span class="mi">20</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">60</span><span class="p">],</span> <span class="p">:]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>emnekode</th>
+      <th>tittel</th>
+      <th>semester</th>
+      <th>nivå</th>
+      <th>studiepoeng</th>
+      <th>vurdering</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>20</th>
+      <td>INF112</td>
+      <td>Innføring i systemutvikling</td>
+      <td>Vår</td>
+      <td>Lågaregradsemne</td>
+      <td>10.0</td>
+      <td>Skriftleg eksamen</td>
+    </tr>
+    <tr>
+      <th>40</th>
+      <td>INF234</td>
+      <td>Algoritmer</td>
+      <td>Haust</td>
+      <td>Masteremne</td>
+      <td>10.0</td>
+      <td>Skriftleg skuleeksamen</td>
+    </tr>
+    <tr>
+      <th>60</th>
+      <td>INF272</td>
+      <td>Ikkje-lineær optimering</td>
+      <td>Haust, Vår</td>
+      <td>Masteremne</td>
+      <td>10.0</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Men det er kanskje mer nyttig å angi en betingelse for radene. La oss for eksempel velge ut alle fag med tittel som starter på «Innføring».</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="s1">&#39;tittel&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">&#39;Innføring&#39;</span><span class="p">),</span> <span class="p">:]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>emnekode</th>
+      <th>tittel</th>
+      <th>semester</th>
+      <th>nivå</th>
+      <th>studiepoeng</th>
+      <th>vurdering</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2</th>
+      <td>BINF201</td>
+      <td>Innføring i omics</td>
+      <td>Haust</td>
+      <td>Lågaregradsemne</td>
+      <td>10.0</td>
+      <td>Mappevurdering</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>INF100</td>
+      <td>Innføring i programmering</td>
+      <td>Haust, Vår</td>
+      <td>Lågaregradsemne</td>
+      <td>10.0</td>
+      <td>Skriftleg skuleeksamen (Ny eksamen)</td>
+    </tr>
+    <tr>
+      <th>20</th>
+      <td>INF112</td>
+      <td>Innføring i systemutvikling</td>
+      <td>Vår</td>
+      <td>Lågaregradsemne</td>
+      <td>10.0</td>
+      <td>Skriftleg eksamen</td>
+    </tr>
+    <tr>
+      <th>21</th>
+      <td>INF113</td>
+      <td>Innføring i operativsystem</td>
+      <td>Haust</td>
+      <td>Lågaregradsemne</td>
+      <td>10.0</td>
+      <td>Mappevurdering</td>
+    </tr>
+    <tr>
+      <th>27</th>
+      <td>INF161</td>
+      <td>Innføring i data science</td>
+      <td>Haust</td>
+      <td>Lågaregradsemne</td>
+      <td>10.0</td>
+      <td>Mappevurdering</td>
+    </tr>
+    <tr>
+      <th>37</th>
+      <td>INF225</td>
+      <td>Innføring i programomsetjing</td>
+      <td>Haust</td>
+      <td>Masteremne</td>
+      <td>10.0</td>
+      <td>Munnleg eksamen</td>
+    </tr>
+    <tr>
+      <th>39</th>
+      <td>INF227</td>
+      <td>Innføring i logikk</td>
+      <td>Vår</td>
+      <td>Masteremne</td>
+      <td>10.0</td>
+      <td>Skriftleg skuleeksamen</td>
+    </tr>
+    <tr>
+      <th>50</th>
+      <td>INF247</td>
+      <td>Innføring i kryptoanalyse av symmetriske chiffer</td>
+      <td>Vår</td>
+      <td>Masteremne</td>
+      <td>10.0</td>
+      <td>Skriftleg skuleeksamen</td>
+    </tr>
+    <tr>
+      <th>56</th>
+      <td>INF264</td>
+      <td>Innføring i maskinlæring</td>
+      <td>Haust</td>
+      <td>Masteremne</td>
+      <td>10.0</td>
+      <td>Mappevurdering</td>
+    </tr>
+    <tr>
+      <th>85</th>
+      <td>INF620</td>
+      <td>Innføring i programmering modul 1</td>
+      <td>Haust, Vår</td>
+      <td>Lågaregradsemne</td>
+      <td>5.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>86</th>
+      <td>INF621</td>
+      <td>Innføring i programmering modul 2</td>
+      <td>Haust, Vår</td>
+      <td>Lågaregradsemne</td>
+      <td>5.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>87</th>
+      <td>INF624</td>
+      <td>Innføring i datasikkerheit</td>
+      <td>Haust</td>
+      <td>Lågaregradsemne</td>
+      <td>5.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>88</th>
+      <td>INF626</td>
+      <td>Innføring i kunstig intelligens</td>
+      <td>Vår</td>
+      <td>Lågaregradsemne</td>
+      <td>5.0</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Legg merke til at vi først lager en boolsk variabel og så bruker vi den til å indeksere. Her ser vi først på dette mellomsteget.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">inforings_emner</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="s1">&#39;tittel&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">&#39;Innføring&#39;</span><span class="p">)</span>
+<span class="n">inforings_emner</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0      False
+1      False
+2       True
+3      False
+4      False
+       ...  
+96     False
+97     False
+98     False
+99     False
+100    False
+Name: tittel, Length: 101, dtype: bool
+</pre></div>
+</div>
+</div>
+</div>
+<p>Så kan vi enkelt bruke denne boolsken variabelen til å indeksere datasettet vårt.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">inforings_emner</span><span class="p">,</span> <span class="p">:]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>emnekode</th>
+      <th>tittel</th>
+      <th>semester</th>
+      <th>nivå</th>
+      <th>studiepoeng</th>
+      <th>vurdering</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2</th>
+      <td>BINF201</td>
+      <td>Innføring i omics</td>
+      <td>Haust</td>
+      <td>Lågaregradsemne</td>
+      <td>10.0</td>
+      <td>Mappevurdering</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>INF100</td>
+      <td>Innføring i programmering</td>
+      <td>Haust, Vår</td>
+      <td>Lågaregradsemne</td>
+      <td>10.0</td>
+      <td>Skriftleg skuleeksamen (Ny eksamen)</td>
+    </tr>
+    <tr>
+      <th>20</th>
+      <td>INF112</td>
+      <td>Innføring i systemutvikling</td>
+      <td>Vår</td>
+      <td>Lågaregradsemne</td>
+      <td>10.0</td>
+      <td>Skriftleg eksamen</td>
+    </tr>
+    <tr>
+      <th>21</th>
+      <td>INF113</td>
+      <td>Innføring i operativsystem</td>
+      <td>Haust</td>
+      <td>Lågaregradsemne</td>
+      <td>10.0</td>
+      <td>Mappevurdering</td>
+    </tr>
+    <tr>
+      <th>27</th>
+      <td>INF161</td>
+      <td>Innføring i data science</td>
+      <td>Haust</td>
+      <td>Lågaregradsemne</td>
+      <td>10.0</td>
+      <td>Mappevurdering</td>
+    </tr>
+    <tr>
+      <th>37</th>
+      <td>INF225</td>
+      <td>Innføring i programomsetjing</td>
+      <td>Haust</td>
+      <td>Masteremne</td>
+      <td>10.0</td>
+      <td>Munnleg eksamen</td>
+    </tr>
+    <tr>
+      <th>39</th>
+      <td>INF227</td>
+      <td>Innføring i logikk</td>
+      <td>Vår</td>
+      <td>Masteremne</td>
+      <td>10.0</td>
+      <td>Skriftleg skuleeksamen</td>
+    </tr>
+    <tr>
+      <th>50</th>
+      <td>INF247</td>
+      <td>Innføring i kryptoanalyse av symmetriske chiffer</td>
+      <td>Vår</td>
+      <td>Masteremne</td>
+      <td>10.0</td>
+      <td>Skriftleg skuleeksamen</td>
+    </tr>
+    <tr>
+      <th>56</th>
+      <td>INF264</td>
+      <td>Innføring i maskinlæring</td>
+      <td>Haust</td>
+      <td>Masteremne</td>
+      <td>10.0</td>
+      <td>Mappevurdering</td>
+    </tr>
+    <tr>
+      <th>85</th>
+      <td>INF620</td>
+      <td>Innføring i programmering modul 1</td>
+      <td>Haust, Vår</td>
+      <td>Lågaregradsemne</td>
+      <td>5.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>86</th>
+      <td>INF621</td>
+      <td>Innføring i programmering modul 2</td>
+      <td>Haust, Vår</td>
+      <td>Lågaregradsemne</td>
+      <td>5.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>87</th>
+      <td>INF624</td>
+      <td>Innføring i datasikkerheit</td>
+      <td>Haust</td>
+      <td>Lågaregradsemne</td>
+      <td>5.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>88</th>
+      <td>INF626</td>
+      <td>Innføring i kunstig intelligens</td>
+      <td>Vår</td>
+      <td>Lågaregradsemne</td>
+      <td>5.0</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+<section id="databeskrivelse-med-pandas">
+<h3>Databeskrivelse med pandas<a class="headerlink" href="#databeskrivelse-med-pandas" title="Link to this heading">#</a></h3>
+<p>Typiske ting vi kan gjøre med pandas er å se på beskrivende statistikk, som <code class="docutils literal notranslate"><span class="pre">mean</span></code>, <code class="docutils literal notranslate"><span class="pre">max</span></code> for numeriske variabler.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="s1">&#39;studiepoeng&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>10.153465346534654
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="s1">&#39;studiepoeng&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>60.0
+</pre></div>
+</div>
+</div>
+</div>
+<p>Vi kan også for eksempel se på antall forskjellige verdier.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">nunique</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>emnekode       101
+tittel          85
+semester         4
+nivå             3
+studiepoeng      8
+vurdering       14
+dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<p>For enkle variabler er det også nyttig å se på antall ganger hver verdi forekommer.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="s1">&#39;studiepoeng&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>studiepoeng
+10.0    84
+5.0      6
+2.5      5
+30.0     2
+20.0     1
+60.0     1
+3.0      1
+0.0      1
+Name: count, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<p>Ofte er det også nyttig å gruppere etter en variabel og gjøre utregninger per gruppe. Her ser vi for eksempel på hvor mange unique verdier det er for alle variabler avhengig av semesteret.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;semester&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">nunique</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>emnekode</th>
+      <th>tittel</th>
+      <th>nivå</th>
+      <th>studiepoeng</th>
+      <th>vurdering</th>
+    </tr>
+    <tr>
+      <th>semester</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Haust</th>
+      <td>31</td>
+      <td>30</td>
+      <td>3</td>
+      <td>2</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>Haust, Vår</th>
+      <td>31</td>
+      <td>25</td>
+      <td>3</td>
+      <td>6</td>
+      <td>9</td>
+    </tr>
+    <tr>
+      <th>Uvisst</th>
+      <td>4</td>
+      <td>3</td>
+      <td>2</td>
+      <td>3</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Vår</th>
+      <td>35</td>
+      <td>31</td>
+      <td>3</td>
+      <td>4</td>
+      <td>6</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+<section id="id1">
+<h3>Kombinere data<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+<p>Først trenger vi et datasett som kan kombineres med dataene vi har. Vi kan også lage data frames selv. Den vanligste måten er ved bruk av pandas DataFrame init-metoden og en dictionary som inneholder kolonnene. La oss lage et dataframes som inneholder noen av undervisere for høst 2024.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_undervisere_2024</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="nb">dict</span><span class="p">(</span><span class="n">emne</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;INF161&#39;</span><span class="p">,</span> <span class="s1">&#39;INF264&#39;</span><span class="p">,</span> <span class="s1">&#39;AIKI100&#39;</span><span class="p">],</span> <span class="n">undervisere</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Blaser&#39;</span><span class="p">,</span> <span class="s1">&#39;Malde&#39;</span><span class="p">,</span> <span class="s1">&#39;Pedersen&#39;</span><span class="p">]))</span> 
+<span class="n">df_undervisere_2024</span> 
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>emne</th>
+      <th>undervisere</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>INF161</td>
+      <td>Blaser</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>INF264</td>
+      <td>Malde</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>AIKI100</td>
+      <td>Pedersen</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Nå skal vi kombinere de to dataset. Først må vi sette den kolonnen som skal være lik som indeks-kolonnen. Det gjør at vi kan nå bruke id direkte for å få data rad med denne id-en.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_undervisere_2024</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;emne&#39;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;emnekode&#39;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Nå er vi klar til å kombinere data.</p>
+<p>For å kombinere data må vi først spesifisere de to dataset. Så må vi angi hva å gjøre når de to datasett ikke inneholder de samme studentene. Ved bruk av ’right’, så får vi med alle emner der vi har informasjon om undervisere.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">df_undervisere_2024</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;right&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>tittel</th>
+      <th>semester</th>
+      <th>nivå</th>
+      <th>studiepoeng</th>
+      <th>vurdering</th>
+      <th>undervisere</th>
+    </tr>
+    <tr>
+      <th>emne</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>INF161</th>
+      <td>Innføring i data science</td>
+      <td>Haust</td>
+      <td>Lågaregradsemne</td>
+      <td>10.0</td>
+      <td>Mappevurdering</td>
+      <td>Blaser</td>
+    </tr>
+    <tr>
+      <th>INF264</th>
+      <td>Innføring i maskinlæring</td>
+      <td>Haust</td>
+      <td>Masteremne</td>
+      <td>10.0</td>
+      <td>Mappevurdering</td>
+      <td>Malde</td>
+    </tr>
+    <tr>
+      <th>AIKI100</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Pedersen</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Hvis vi bruker ’inner’ i stedet, så får vi bare informasjon om de radene som er med i begge datasett.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">df_undervisere_2024</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;inner&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>tittel</th>
+      <th>semester</th>
+      <th>nivå</th>
+      <th>studiepoeng</th>
+      <th>vurdering</th>
+      <th>undervisere</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>INF161</th>
+      <td>Innføring i data science</td>
+      <td>Haust</td>
+      <td>Lågaregradsemne</td>
+      <td>10.0</td>
+      <td>Mappevurdering</td>
+      <td>Blaser</td>
+    </tr>
+    <tr>
+      <th>INF264</th>
+      <td>Innføring i maskinlæring</td>
+      <td>Haust</td>
+      <td>Masteremne</td>
+      <td>10.0</td>
+      <td>Mappevurdering</td>
+      <td>Malde</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Vi kan også bruke ’outer’ og ’left’. Se selv hva som skjer i så fall. Hvilken av de typene joins (altså ’left’, ’right’, ’inner’, eller ’outer’) vi skal bruke avhenger av hva vi vil ha som radene - husk vår diskusjon om <a class="reference internal" href="#sec-ryddig"><span class="std std-ref">Ryddige data</span></a>.</p>
+</section>
+<section id="reformatere-data">
+<h3>Reformatere data<a class="headerlink" href="#reformatere-data" title="Link to this heading">#</a></h3>
+<p>Nå kommer det noen funksjoner som kan være praktisk for å reformatere data på en ryddig måte. Her lager vi eksemplet av uryddig data fra Seksjon <a class="reference internal" href="#sec-ryddig"><span class="std std-ref">Ryddige data</span></a>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_uryddig</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="nb">dict</span><span class="p">(</span><span class="n">StudentID</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;abc123&#39;</span><span class="p">,</span> <span class="s1">&#39;def456&#39;</span><span class="p">,</span> <span class="s1">&#39;ghi789&#39;</span><span class="p">],</span> 
+                               <span class="n">Matematikk</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;A (95 poeng)&#39;</span><span class="p">,</span> <span class="s1">&#39;B (82 poeng)&#39;</span><span class="p">,</span> <span class="s1">&#39;C (76 poeng)&#39;</span><span class="p">],</span> 
+                               <span class="n">Fysikk</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;B (85 poeng)&#39;</span><span class="p">,</span> <span class="s1">&#39;D (68 poeng)&#39;</span><span class="p">,</span> <span class="s1">&#39;A (92 poeng)&#39;</span><span class="p">]))</span>
+<span class="n">df_uryddig</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>StudentID</th>
+      <th>Matematikk</th>
+      <th>Fysikk</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>abc123</td>
+      <td>A (95 poeng)</td>
+      <td>B (85 poeng)</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>def456</td>
+      <td>B (82 poeng)</td>
+      <td>D (68 poeng)</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>ghi789</td>
+      <td>C (76 poeng)</td>
+      <td>A (92 poeng)</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>I dette eksempelet trenger vi igjen <code class="docutils literal notranslate"><span class="pre">str</span></code>-funksjonen for å jobbe med tekst.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_ryddig</span> <span class="o">=</span> <span class="n">df_uryddig</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">df_ryddig</span><span class="p">[[</span><span class="s1">&#39;Matematikk-Karakter&#39;</span><span class="p">,</span> <span class="s1">&#39;Matematikk-Poeng&#39;</span><span class="p">]]</span> <span class="o">=</span> <span class="n">df_ryddig</span><span class="p">[</span><span class="s1">&#39;Matematikk&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">extract</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;([A-F]) \((\d+) poeng\)&#39;</span><span class="p">)</span>
+<span class="n">df_ryddig</span><span class="p">[[</span><span class="s1">&#39;Fysikk-Karakter&#39;</span><span class="p">,</span> <span class="s1">&#39;Fysikk-Poeng&#39;</span><span class="p">]]</span> <span class="o">=</span> <span class="n">df_ryddig</span><span class="p">[</span><span class="s1">&#39;Fysikk&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">extract</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;([A-F]) \((\d+) poeng\)&#39;</span><span class="p">)</span>
+<span class="n">df_ryddig</span> <span class="o">=</span> <span class="n">df_ryddig</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="p">[</span><span class="s1">&#39;StudentID&#39;</span><span class="p">,</span> <span class="s1">&#39;Matematikk-Karakter&#39;</span><span class="p">,</span> <span class="s1">&#39;Fysikk-Karakter&#39;</span><span class="p">,</span> <span class="s1">&#39;Matematikk-Poeng&#39;</span><span class="p">,</span> <span class="s1">&#39;Fysikk-Poeng&#39;</span><span class="p">]]</span>
+<span class="n">df_ryddig</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>StudentID</th>
+      <th>Matematikk-Karakter</th>
+      <th>Fysikk-Karakter</th>
+      <th>Matematikk-Poeng</th>
+      <th>Fysikk-Poeng</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>abc123</td>
+      <td>A</td>
+      <td>B</td>
+      <td>95</td>
+      <td>85</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>def456</td>
+      <td>B</td>
+      <td>D</td>
+      <td>82</td>
+      <td>68</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>ghi789</td>
+      <td>C</td>
+      <td>A</td>
+      <td>76</td>
+      <td>92</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Her endret vi kun på kolonnene, men radene har fortsatt samme betydning som før. I det neste eksempelet bytter vi på betydning av radene også. Her lager vi først datasettet.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_original</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+    <span class="s1">&#39;StudentID&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;abc123&#39;</span><span class="p">,</span> <span class="s1">&#39;def456&#39;</span><span class="p">,</span> <span class="s1">&#39;ghi789&#39;</span><span class="p">],</span>
+    <span class="s1">&#39;Alder&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">24</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="mi">32</span><span class="p">],</span>
+    <span class="s1">&#39;Studieprogram-Informatikk&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+    <span class="s1">&#39;Studieprogram-Statistikk&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+    <span class="s1">&#39;Karakter-Programmering&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span> 
+    <span class="s1">&#39;Karakter-Kalkulus&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">6</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]})</span>
+<span class="n">df_original</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>StudentID</th>
+      <th>Alder</th>
+      <th>Studieprogram-Informatikk</th>
+      <th>Studieprogram-Statistikk</th>
+      <th>Karakter-Programmering</th>
+      <th>Karakter-Kalkulus</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>abc123</td>
+      <td>24</td>
+      <td>1</td>
+      <td>0</td>
+      <td>3</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>def456</td>
+      <td>21</td>
+      <td>0</td>
+      <td>1</td>
+      <td>5</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>ghi789</td>
+      <td>32</td>
+      <td>1</td>
+      <td>0</td>
+      <td>5</td>
+      <td>5</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Som første steg fjerner vi dummy-kolonnene for studieprogramet.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">df_original</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">dummie_columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Studieprogram-Informatikk&#39;</span><span class="p">,</span> <span class="s1">&#39;Studieprogram-Statistikk&#39;</span><span class="p">]</span>
+<span class="n">studieprogram_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">from_dummies</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="n">dummie_columns</span><span class="p">],</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">)</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">dummie_columns</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span> <span class="n">studieprogram_df</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>StudentID</th>
+      <th>Alder</th>
+      <th>Karakter-Programmering</th>
+      <th>Karakter-Kalkulus</th>
+      <th>Studieprogram</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>abc123</td>
+      <td>24</td>
+      <td>3</td>
+      <td>6</td>
+      <td>Informatikk</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>def456</td>
+      <td>21</td>
+      <td>5</td>
+      <td>4</td>
+      <td>Statistikk</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>ghi789</td>
+      <td>32</td>
+      <td>5</td>
+      <td>5</td>
+      <td>Informatikk</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Så lager vi en ny datasett, som inneholder en rad per karakter. Vi må angi hvilke kolonnene som skal til sammen identifisere en rad (<code class="docutils literal notranslate"><span class="pre">id_vars</span></code>) og hva den nye variablen (<code class="docutils literal notranslate"><span class="pre">var_name</span></code>) og verdien (<code class="docutils literal notranslate"><span class="pre">value_name</span></code>) skal hete.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_melted</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">melt</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">id_vars</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;StudentID&#39;</span><span class="p">,</span> <span class="s1">&#39;Alder&#39;</span><span class="p">,</span> <span class="s1">&#39;Studieprogram&#39;</span><span class="p">],</span> <span class="n">var_name</span><span class="o">=</span><span class="s1">&#39;Fag&#39;</span><span class="p">,</span> <span class="n">value_name</span><span class="o">=</span><span class="s1">&#39;Karakter&#39;</span><span class="p">)</span>
+<span class="n">df_melted</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>StudentID</th>
+      <th>Alder</th>
+      <th>Studieprogram</th>
+      <th>Fag</th>
+      <th>Karakter</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>abc123</td>
+      <td>24</td>
+      <td>Informatikk</td>
+      <td>Karakter-Programmering</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>def456</td>
+      <td>21</td>
+      <td>Statistikk</td>
+      <td>Karakter-Programmering</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>ghi789</td>
+      <td>32</td>
+      <td>Informatikk</td>
+      <td>Karakter-Programmering</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>abc123</td>
+      <td>24</td>
+      <td>Informatikk</td>
+      <td>Karakter-Kalkulus</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>def456</td>
+      <td>21</td>
+      <td>Statistikk</td>
+      <td>Karakter-Kalkulus</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>ghi789</td>
+      <td>32</td>
+      <td>Informatikk</td>
+      <td>Karakter-Kalkulus</td>
+      <td>5</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Til slutt kan vi fjerne ’Karakter-’ fra faget.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_melted</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="s1">&#39;Fag&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_melted</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="s1">&#39;Fag&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">df_melted</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>StudentID</th>
+      <th>Alder</th>
+      <th>Studieprogram</th>
+      <th>Fag</th>
+      <th>Karakter</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>abc123</td>
+      <td>24</td>
+      <td>Informatikk</td>
+      <td>Programmering</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>def456</td>
+      <td>21</td>
+      <td>Statistikk</td>
+      <td>Programmering</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>ghi789</td>
+      <td>32</td>
+      <td>Informatikk</td>
+      <td>Programmering</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>abc123</td>
+      <td>24</td>
+      <td>Informatikk</td>
+      <td>Kalkulus</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>def456</td>
+      <td>21</td>
+      <td>Statistikk</td>
+      <td>Kalkulus</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>ghi789</td>
+      <td>32</td>
+      <td>Informatikk</td>
+      <td>Kalkulus</td>
+      <td>5</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Nå har vi omformattert datasettet til et annet format. Kan vi komme tilbake igjen?</p>
+<p>Her bruker vi akkurat de samme stegene men maklengs. Først legger vi til ’Karakter-’ til faget igjen.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_melted</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="s1">&#39;Fag&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Karakter-&#39;</span> <span class="o">+</span> <span class="n">df_melted</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="s1">&#39;Fag&#39;</span><span class="p">]</span>
+<span class="n">df_melted</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>StudentID</th>
+      <th>Alder</th>
+      <th>Studieprogram</th>
+      <th>Fag</th>
+      <th>Karakter</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>abc123</td>
+      <td>24</td>
+      <td>Informatikk</td>
+      <td>Karakter-Programmering</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>def456</td>
+      <td>21</td>
+      <td>Statistikk</td>
+      <td>Karakter-Programmering</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>ghi789</td>
+      <td>32</td>
+      <td>Informatikk</td>
+      <td>Karakter-Programmering</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>abc123</td>
+      <td>24</td>
+      <td>Informatikk</td>
+      <td>Karakter-Kalkulus</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>def456</td>
+      <td>21</td>
+      <td>Statistikk</td>
+      <td>Karakter-Kalkulus</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>ghi789</td>
+      <td>32</td>
+      <td>Informatikk</td>
+      <td>Karakter-Kalkulus</td>
+      <td>5</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Så bruker vi funksjonen <code class="docutils literal notranslate"><span class="pre">pivot</span></code> til å lage flere kolonner ut av en kolonne. Legg merke til at det som var <code class="docutils literal notranslate"><span class="pre">id_vars</span></code> for <code class="docutils literal notranslate"><span class="pre">melt</span></code>-funksjonen blir til <code class="docutils literal notranslate"><span class="pre">index</span></code> nå. Det som var <code class="docutils literal notranslate"><span class="pre">var_name</span></code> blir til <code class="docutils literal notranslate"><span class="pre">columns</span></code> og det som var <code class="docutils literal notranslate"><span class="pre">value_name</span></code> ble til <code class="docutils literal notranslate"><span class="pre">values</span></code>. Her ser godt at <code class="docutils literal notranslate"><span class="pre">pivot</span></code> og <code class="docutils literal notranslate"><span class="pre">melt</span></code> er inverse funkjsoner.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_pivoted</span> <span class="o">=</span> <span class="n">df_melted</span><span class="o">.</span><span class="n">pivot</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;StudentID&#39;</span><span class="p">,</span> <span class="s1">&#39;Alder&#39;</span><span class="p">,</span> <span class="s1">&#39;Studieprogram&#39;</span><span class="p">],</span> <span class="n">columns</span><span class="o">=</span><span class="s1">&#39;Fag&#39;</span><span class="p">,</span> <span class="n">values</span><span class="o">=</span><span class="s1">&#39;Karakter&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+<span class="n">df_pivoted</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Fag</th>
+      <th>StudentID</th>
+      <th>Alder</th>
+      <th>Studieprogram</th>
+      <th>Karakter-Kalkulus</th>
+      <th>Karakter-Programmering</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>abc123</td>
+      <td>24</td>
+      <td>Informatikk</td>
+      <td>6</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>def456</td>
+      <td>21</td>
+      <td>Statistikk</td>
+      <td>4</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>ghi789</td>
+      <td>32</td>
+      <td>Informatikk</td>
+      <td>5</td>
+      <td>5</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Til slutt må vi også lage dummie-variablene igjen.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_tilbake</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">get_dummies</span><span class="p">(</span><span class="n">df_pivoted</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Studieprogram&#39;</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">prefix_sep</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">)</span>
+<span class="n">df_tilbake</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>StudentID</th>
+      <th>Alder</th>
+      <th>Karakter-Kalkulus</th>
+      <th>Karakter-Programmering</th>
+      <th>Studieprogram-Informatikk</th>
+      <th>Studieprogram-Statistikk</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>abc123</td>
+      <td>24</td>
+      <td>6</td>
+      <td>3</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>def456</td>
+      <td>21</td>
+      <td>4</td>
+      <td>5</td>
+      <td>0</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>ghi789</td>
+      <td>32</td>
+      <td>5</td>
+      <td>5</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Nå har vi de samme data som vi begynte med. Vi kan sjkke det ved gjelp av <code class="docutils literal notranslate"><span class="pre">equals</span></code>-funksjonen. Siden kolonne-rekkefølgen har forandret seg bruker vi <code class="docutils literal notranslate"><span class="pre">sort_index</span></code> på begge dataframes.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_original</span><span class="o">.</span><span class="n">sort_index</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">equals</span><span class="p">(</span><span class="n">df_tilbake</span><span class="o">.</span><span class="n">sort_index</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "dsbook"
+        },
+        kernelOptions: {
+            name: "dsbook",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'dsbook'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="intro.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">forrige</p>
+        <p class="prev-next-title">Innføring i data science</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="eda.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">neste</p>
+        <p class="prev-next-title">Utforskende dataanalyse</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#strukturerte-og-ustrukturerte-data">Strukturerte og ustrukturerte data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variabeltyper">Variabeltyper</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ryddige-data">Ryddige data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#numpy">Numpy</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lage-vektorer-og-matrisser">Lage vektorer og matrisser</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#regning-i-numpy">Regning i numpy</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#undermatrisser">Undermatrisser</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kombinere-data">Kombinere data</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pandas">Pandas</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lese-og-beskrive-data">Lese og beskrive data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#undermengder-av-data">Undermengder av data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#databeskrivelse-med-pandas">Databeskrivelse med pandas</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Kombinere data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reformatere-data">Reformatere data</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Nello Blaser
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
