@@ -1,0 +1,14 @@
+# Table of contents
+# Learn more at https://jupyterbook.org/customize/toc.html
+
+format: jb-book
+root: intro
+chapters:
+- file: data
+- file: eda
+- file: modeling
+- file: variables
+- file: communication
+- file: implementation
+- file: studydesign
+- file: recommendation

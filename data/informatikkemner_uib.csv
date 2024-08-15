@@ -1,0 +1,102 @@
+emnekode,tittel,semester,nivå,studiepoeng,vurdering
+BINF100,Grunnleggande bioinformatikk,Vår,Lågaregradsemne,10.0,Skriftleg skuleeksamen 
+BINF200,Analyse av biologiske sekvensar og strukturar,Haust,Lågaregradsemne,10.0,Mappevurdering 
+BINF201,Innføring i omics,Haust,Lågaregradsemne,10.0,Mappevurdering 
+BINF301,Genom-skala algoritmar,Vår,Masteremne,10.0,Skriftleg skuleeksamen 
+BINF305,Systembiologi,Haust,Masteremne,10.0,Mappevurdering 
+BINF389,Utvalde emne i bioinformatikk,"Haust, Vår",Masteremne,10.0,Munnleg eksamen 
+BINFPHD901,Genom-skala algoritmar,Vår,Ph.d.-kurs,10.0,Skriftleg skuleeksamen 
+BINFPHD905,Systembiologi,Haust,Ph.d.-kurs,10.0,Skriftleg skuleeksamen 
+DIGI111,Algoritmar og programmering,"Haust, Vår",Lågaregradsemne,2.5,Skriftlig eksamen heimefrå 
+DIGI112,IKT-sikkerheit,"Haust, Vår",Lågaregradsemne,2.5,Skriftleg eksamen heimefrå 
+DIGI118,Introduksjon til datavisualisering,"Haust, Vår",Lågaregradsemne,2.5,Godkjente øvingar 
+DIGI611,Algoritmar og programmering,Vår,Lågaregradsemne,2.5,
+DIGI612,IKT-sikkerheit,"Haust, Vår",Lågaregradsemne,2.5,Godkjente øvingar 
+DSC219,Praksis i data science,Uvisst,Lågaregradsemne,10.0,
+DSC300,Data science prosjektstyring,Haust,Masteremne,10.0,
+DSC316,Datafordjuping,Uvisst,Masteremne,20.0,
+DSC399K,Masteroppgåve,"Haust, Vår",Masteremne,30.0,
+INF100,Innføring i programmering,"Haust, Vår",Lågaregradsemne,10.0,Skriftleg skuleeksamen (Ny eksamen)
+INF101,Objektorientert programmering,Vår,Lågaregradsemne,10.0,Skriftleg skuleeksamen 
+INF102,"Algoritmar, datastrukturar og programmering",Haust,Lågaregradsemne,10.0,Mappevurdering 
+INF112,Innføring i systemutvikling,Vår,Lågaregradsemne,10.0,Skriftleg eksamen 
+INF113,Innføring i operativsystem,Haust,Lågaregradsemne,10.0,Mappevurdering 
+INF115,Databasar og modellering,Vår,Lågaregradsemne,10.0,Skriftleg skuleeksamen 
+INF122,Funksjonell programmering,Haust,Lågaregradsemne,10.0,Skriftleg skuleeksamen 
+INF140,Introduksjon til datatryggleik,Haust,Lågaregradsemne,10.0,Skriftleg skuleeksamen 
+INF142,Datanett,Vår,Lågaregradsemne,10.0,Skriftleg skuleeksamen 
+INF143A,Anvendt kryptografi,Vår,Lågaregradsemne,10.0,Skriftleg skuleeksamen 
+INF161,Innføring i data science,Haust,Lågaregradsemne,10.0,Mappevurdering 
+INF170,Modellering og optimering,Haust,Lågaregradsemne,10.0,Skriftleg skuleeksamen 
+INF207,Sosial nettverksteori,Haust,Lågaregradsemne,10.0,Skriftleg skuleeksamen 
+INF210,Datamaskinteori,Haust,Masteremne,10.0,Munnleg eksamen 
+INF214,Multiprogrammering,Haust,Lågaregradsemne,10.0,Mappevurdering 
+INF219,Informatikkprosjekt I,"Haust, Vår",Lågaregradsemne,10.0,Skriftlig oppgave og muntlig presentasjon 
+INF220,Programvarespesifikasjon,Haust,Masteremne,10.0,Munnleg eksamen 
+INF221,Avansert funksjonell programmering,Vår,Masteremne,10.0,Oppgåve og rapport 
+INF222,Programmeringsspråk,Vår,Masteremne,10.0,Skriftleg skuleeksamen 
+INF223,Kategoriteori,Vår,Masteremne,10.0,Munnleg eksamen 
+INF225,Innføring i programomsetjing,Haust,Masteremne,10.0,Munnleg eksamen 
+INF226,Programvaresikkerhet,Haust,Lågaregradsemne,10.0,Mappevurdering 
+INF227,Innføring i logikk,Vår,Masteremne,10.0,Skriftleg skuleeksamen 
+INF234,Algoritmer,Haust,Masteremne,10.0,Skriftleg skuleeksamen 
+INF235,Kompleksitetsteori,Vår,Masteremne,10.0,Munnleg eksamen 
+INF236,Parallell programmering,Vår,Masteremne,10.0,Skriftleg skuleeksamen 
+INF237,Algoritmeutvikling,Vår,Masteremne,10.0,Godkjend oppgåve 
+INF240A,Grunnleggjande reiskap for kodeteori og kryptografi,Vår,Masteremne,10.0,Skriftleg skuleeksamen 
+INF241,"Kvanteinformasjon, kvanteberekning og kvantekryptografi",Vår,Masteremne,10.0,Skriftleg skuleeksamen 
+INF242,Informasjonsteori,Haust,Masteremne,10.0,Skriftleg skuleeksamen 
+INF243,Algebraisk kodeteori,Vår,Masteremne,10.0,Skoleeksamen 
+INF244,Grafbasert kodeteori,"Haust, Vår",Masteremne,10.0,
+INF245,Berekningsorientert talteori og asymmetrisk kryptografi,Haust,Masteremne,10.0,Skriftleg skuleeksamen 
+INF247,Innføring i kryptoanalyse av symmetriske chiffer,Vår,Masteremne,10.0,Skriftleg skuleeksamen 
+INF249,Avansert cybersikkerheit,Haust,Lågaregradsemne,10.0,Skriftleg skuleeksamen 
+INF250,Dataorientert visuell berekning,Vår,Masteremne,10.0,Skriftleg skuleeksamen 
+INF251,Grafisk databehandling,Haust,Masteremne,10.0,Mappevurdering 
+INF252,Visualisering,Vår,Masteremne,10.0,Munnleg eksamen 
+INF253,Visuell Data Science,Vår,Masteremne,10.0,Skriftleg skuleeksamen 
+INF264,Innføring i maskinlæring,Haust,Masteremne,10.0,Mappevurdering 
+INF265,Djup læring,Vår,Masteremne,10.0,Skriftleg skuleeksamen 
+INF270,Lineær programmering,Haust,Masteremne,10.0,Skriftleg skuleeksamen 
+INF271,Kombinatorisk optimering,"Haust, Vår",Masteremne,10.0,
+INF272,Ikkje-lineær optimering,"Haust, Vår",Masteremne,10.0,
+INF273,Metaheuristikkar,Vår,Masteremne,10.0,Munnleg eksamen 
+INF289,Utvalde emne i energiinformatikk,Haust,Masteremne,10.0,
+INF311,Utvalgte emner i fagformidling av informatikk,Uvisst,Masteremne,5.0,
+INF312,Utvalgte emner i fagformidling av informatikk,Uvisst,Masteremne,10.0,
+INF319,Informatikkprosjekt II,"Haust, Vår",Masteremne,10.0,Skriftlig oppgave og muntlig presentasjon 
+INF319A,Informatikkprosjekt II,"Haust, Vår",Masteremne,10.0,Skriftlig oppgave og muntlig presentasjon 
+INF328,Programmeringsspråkelementer,"Haust, Vår",Masteremne,5.0,
+INF329,Utvalde emne i programutviklingsteknologi,"Haust, Vår",Masteremne,10.0,
+INF329A,Utvalde emne i programutviklingsteknologi,Haust,Masteremne,10.0,Munnleg eksamen 
+INF334,Videregåande algoritmeteknikkar,Haust,Masteremne,10.0,Munnleg eksamen 
+INF339,Utvalde emne i algoritmer og kompleksitet,"Haust, Vår",Masteremne,10.0,
+INF339A,Utvalde emne i algoritmer og kompleksitet,Haust,Masteremne,10.0,Munnleg eksamen 
+INF347,Videregåande emner/seminar i kryptografi,"Haust, Vår",Masteremne,10.0,Munnleg eksamen 
+INF347A,Videregåande emner/seminar i kryptografi,Haust,Masteremne,10.0,Munnleg eksamen 
+INF348,Videregåande emne/seminar i datatryggleik,"Haust, Vår",Masteremne,10.0,
+INF349,Videregåande emne/seminar i informasjons- og kodeteori,"Haust, Vår",Masteremne,10.0,
+INF358,Seminar i visualisering,Haust,Masteremne,10.0,Oppgåve 
+INF367,Utvalde emne i kunstig intelligens,"Haust, Vår",Masteremne,10.0,Mappevurdering 
+INF367A,Utvalde emne i kunstig intelligens II,Vår,Masteremne,10.0,
+INF368,Utvalde emne i maskinlæring,"Haust, Vår",Masteremne,10.0,Munnleg eksamen 
+INF368A,Utvalde emne i maskinlæring,"Haust, Vår",Masteremne,10.0,Munnleg eksamen 
+INF379,Utvalde emne i optimering,"Haust, Vår",Masteremne,10.0,Munnleg eksamen 
+INF399,Masteroppgåve i informatikk,"Haust, Vår",Masteremne,60.0,Masteroppgåve 
+INF399K,Masteroppgåve i informatikk,"Haust, Vår",Masteremne,30.0,Masteroppgåve 
+INF620,Innføring i programmering modul 1,"Haust, Vår",Lågaregradsemne,5.0,
+INF621,Innføring i programmering modul 2,"Haust, Vår",Lågaregradsemne,5.0,
+INF624,Innføring i datasikkerheit,Haust,Lågaregradsemne,5.0,
+INF626,Innføring i kunstig intelligens,Vår,Lågaregradsemne,5.0,
+INF630,Kurs i grunnleggjande programmering,"Haust, Vår",Lågaregradsemne,10.0,Skriftleg skuleeksamen 
+INFDID210,Informatikkdidaktikk,Vår,Masteremne,10.0,
+INFPHD940A,Grunnleggjande reiskap for kodeteori og kryptografi,Vår,Ph.d.-kurs,10.0,Skriftleg skuleeksamen 
+INFPHD945,Sikre informasjonssystem,Vår,Ph.d.-kurs,10.0,Skriftleg skuleeksamen 
+INFPHD947,Videregåande emner/seminar i kryptografi,"Haust, Vår",Ph.d.-kurs,10.0,Munnleg eksamen 
+INFPHD967,Utvalde emne i kunstig intelligens,"Haust, Vår",Ph.d.-kurs,10.0,Munnleg eksamen 
+INFPHD967A,Utvalde emne i kunstig intelligens II,Vår,Ph.d.-kurs,10.0,Munnleg eksamen 
+INFPHD973,Metaheuristikkar,Vår,Ph.d.-kurs,10.0,Munnleg eksamen 
+IT%C3%98K320,Metodar for analyse av forsyningskjeder,Vår,Masteremne,10.0,
+MNF130,Diskrete strukturar,Vår,Lågaregradsemne,10.0,Skriftleg skuleeksamen 
+NORAINF903,Geometrisk djup læring,Vår,Ph.d.-kurs,3.0,
+PROG399,Masteroppgåve i Programvareutvikling samarbeid med HVL,"Haust, Vår",Masteremne,0.0,Masteroppgåve 

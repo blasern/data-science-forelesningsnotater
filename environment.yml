@@ -1,0 +1,18 @@
+name: dsbook
+channels:
+  - plotly
+  - conda-forge
+  - defaults
+dependencies:
+  - numpy
+  - pandas
+  - matplotlib
+  - scikit-learn
+  - plotly
+  - plotly-orca
+  - jupyter-book
+  - ghp-import
+  - tikzmagic
+  - notebook
+  - ipykernel
+  - nbstripout
