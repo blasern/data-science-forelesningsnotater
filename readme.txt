@@ -11,3 +11,8 @@ jupyter-book build dsbook
 # Before commiting to git
 
 nbstripout *.ipynb
+
+# Publish built book
+
+ghp-import -n -p -f _build/html
+
