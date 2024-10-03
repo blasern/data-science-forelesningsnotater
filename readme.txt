@@ -6,7 +6,7 @@ python -m ipykernel install --user --name=dsbook
 
 # Build
 
-jupyter-book build dsbook
+jupyter-book build data-science-forelesningsnotater
 
 # Before commiting to git
 
