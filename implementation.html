@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=87e54e7c" />
   
@@ -361,7 +361,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
 </div></div>
       
     </div>
@@ -377,6 +379,16 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lagre-modeller">Lagre modeller</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#enkel-nettside-med-skjema">Enkel nettside med skjema</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interaksjon-mellom-python-og-nettside-restful-api">Interaksjon mellom python og nettside (Restful API)</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -388,7 +400,76 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="implementere-data-science-losninger">
 <span id="sec-implement"></span><h1>Implementere data science løsninger<a class="headerlink" href="#implementere-data-science-losninger" title="Link to this heading">#</a></h1>
-<p>WIP</p>
+<p>Når vi snakker om implementasjon i data science, så kan det bety flere forskjellige ting. Her er en (ikke fullstendig) liste av muligheter:</p>
+<ul class="simple">
+<li><p>Vi har fått noe innsikt fra data og bruker denne innsikten til å utføre en handling. Data science prosessen slutter her. Vi har for eksempel funnet ut at en ny medisin fungerer bedre enn det som ble brukt før. Vi implementerer dette ved å endre anbefalingene slik at fremtidige pasienter kan få den nye medisinen. Dette er veldig bra å få til, men det trenger vi ikke å snakke mer om.</p></li>
+<li><p>Vi har lagd en modell fra data og bruker den til å predikere noe. Vi lager for eksempel en nettside som bruker modellen for å forslå kundene produkter de ville likt. Det er det vi kommer til å fokusere på.</p></li>
+<li><p>Vi har lagd en modell, bruker den til å predikere noe og oppdaterer den når nye data blir tilgjengelig. Vi lager for eksempel en nettside som bruker modellen for å forslå kundene produkter de ville likt. Når de kjøper eller ikke kjøper genererer det nye data og vi bruker de til å oppdatere modellen vår. Dette krever metoder fra programmvareutvikling som vi ikke snakker om i dette faget.</p></li>
+</ul>
+<p>Her gir vi bare en kort og forenklet innføring i trinnene som vanligvis inngår. I virkeligheten inngår mange flere steg som nettsteddesign, sikkerhet (autentisering, data beskyttelse), oppskalering (til å håndtere mange forespørsler parallelt), monitoring og vedlikehold (overvåke modellens ytelse over tid for å fange opp avvik eller degraderinger i prediksjonsnøyaktigheten og om nødvendig oppdatere modell), osv.</p>
+<p>Et minimalt eksempel som kun inneholder de mest relevante stegene er tilgjengelig i <a class="reference external" href="https://github.com/blasern/huspris_app">huspris_app</a>.</p>
+<section id="lagre-modeller">
+<h2>Lagre modeller<a class="headerlink" href="#lagre-modeller" title="Link to this heading">#</a></h2>
+<p>For å lagre modeller kan vi bruke <a class="reference external" href="https://docs.python.org/3/library/pickle.html"><code class="docutils literal notranslate"><span class="pre">pickle</span></code></a> modulen. Vi bruker</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pickle</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;model.pkl&#39;</span><span class="p">,</span> <span class="s1">&#39;wb&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>for å lagre modellen og</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">model</span> <span class="o">=</span> <span class="n">pickle</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="nb">open</span><span class="p">(</span><span class="s1">&#39;model.pkl&#39;</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>for å laste inn modellen.</p>
+</section>
+<section id="enkel-nettside-med-skjema">
+<h2>Enkel nettside med skjema<a class="headerlink" href="#enkel-nettside-med-skjema" title="Link to this heading">#</a></h2>
+<p>Her snakker vi ikke om hvordan å lage en nettside, men kun om hvordan å lage et skjema på en nettside. Det finnes flere muligheter, men her bruker vi <a class="reference external" href="https://www.w3schools.com/html/html_forms.asp">HTML Forms</a>. Det er en enkel måte å bruke html til å la brukere fylle ut skjemaer som sendes til en server for behandling. Et eksempel som bruker HTML forms er <code class="docutils literal notranslate"><span class="pre">index.html</span></code> under templates i <a class="reference external" href="https://github.com/blasern/huspris_app">huspris_app</a>.</p>
+<p>Vi bruker HTML <code class="docutils literal notranslate"><span class="pre">&lt;form&gt;</span></code> elementet for å lage et HTML skjema. Vanligvis bruker vi den med to argumenter action og method. Action brukes for å sende data videre til en spesifik python-metode. Metoden brukes for å spesifisere http-metoden som skal brukes. Vi skal alltid bruke «post»-metoden.</p>
+<p>Det finnes mange forskjellige typer innput som HTML Forms kan ta inn, mest brukt er kanskje tekst <code class="docutils literal notranslate"><span class="pre">&lt;input</span> <span class="pre">type=&quot;text&quot;&gt;</span></code>, numerisk <code class="docutils literal notranslate"><span class="pre">&lt;input</span> <span class="pre">type=&quot;number&quot;&gt;</span></code>, dato <code class="docutils literal notranslate"><span class="pre">&lt;input</span> <span class="pre">type=&quot;date&quot;&gt;</span></code> og tid <code class="docutils literal notranslate"><span class="pre">&lt;input</span> <span class="pre">type=&quot;time&quot;&gt;</span></code>. Vi kan også lage rullegardinmeny ved hjelp av <code class="docutils literal notranslate"><span class="pre">&lt;select&gt;</span></code> -elementer. I så fall bør man sette en <code class="docutils literal notranslate"><span class="pre">&lt;label&gt;</span></code> først, med samme verdi for xxx i <code class="docutils literal notranslate"><span class="pre">&lt;label</span> <span class="pre">for=&quot;xxx&quot;&gt;</span></code> og <code class="docutils literal notranslate"><span class="pre">&lt;select</span> <span class="pre">id=&quot;xxx&quot;&gt;</span></code>. Elementene i <code class="docutils literal notranslate"><span class="pre">&lt;option&gt;</span></code> definerer hva slags muligheter som kan velges.</p>
+<p>Vi bruker knapper submit og reset for å sende inn data og for å nullstille skjemaet.</p>
+</section>
+<section id="interaksjon-mellom-python-og-nettside-restful-api">
+<h2>Interaksjon mellom python og nettside (Restful API)<a class="headerlink" href="#interaksjon-mellom-python-og-nettside-restful-api" title="Link to this heading">#</a></h2>
+<p>For å kunne endre innholdet av en nettside basert på nye data med python bruker vi flask. Her lager vi en python-fil <a class="reference external" href="http://app.py">app.py</a>. Vi begynner alltid ved å importere pakkene flask og waitress.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">Flask</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="n">render_template</span>
+<span class="kn">from</span> <span class="nn">waitress</span> <span class="kn">import</span> <span class="n">serve</span>
+</pre></div>
+</div>
+<p>Så lager vi en instanse av klassen Flask med variablen <code class="docutils literal notranslate"><span class="pre">__name__</span></code> som forteller flask hvor applikasjonen er lagret.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">app</span> <span class="o">=</span> <span class="n">Flask</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Vi bruker så <code class="docutils literal notranslate"><span class="pre">route()</span></code> for å fortelle flask hvilken url som skal føre til at en funksjonen blir brukt. Her lager vi for eksempel en funksjon som bare gjengir <code class="docutils literal notranslate"><span class="pre">index.html</span></code>-filen i mappen templates.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">home</span><span class="p">():</span>
+    <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s1">&#39;./index.html&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Vi kan også lage flere funksjoner som blir brukt når data blir sendt inn. I så fall må vi spesifisere http-metoden som skal brukes i tillegg til en ny url. Vi bruker request.form for å finne hva som er lagret i skjemaet. For å bli vant med det, så anbefales å skrive det ut.</p>
+<p>Vi kan så gjengi den samme eller en annen html-fil. Vi kan også legge til tekst som kommer på denne siden.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s1">&#39;/predict&#39;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;POST&#39;</span><span class="p">])</span>
+<span class="k">def</span> <span class="nf">predict</span><span class="p">():</span>
+    <span class="c1"># get data</span>
+    <span class="n">features</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="p">)</span>  
+    <span class="nb">print</span><span class="p">(</span><span class="n">features</span><span class="p">)</span>
+    
+    <span class="c1"># render with new prediction_text</span>
+    <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span>
+        <span class="s1">&#39;./index.html&#39;</span><span class="p">,</span>
+        <span class="n">prediction_text</span><span class="o">=</span><span class="s1">&#39;Predicted price ...&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>I så fall må det stå <code class="docutils literal notranslate"><span class="pre">{{prediction_text}}</span></code> i html-filen som plassholder for det som vi angir i python-koden. Denne koden bare gir tilbake «Predicted price …», så for å faktisk lage en prediksjon må vi ha noe kode mellom der features blir lest inn og der vi avslutter funksjonen. Her kommer kode for å sjekke at innput gir mening, forberedelse av data for modellen, imputering av data og prediksjon.</p>
+<p>Vi avslutter vår <code class="docutils literal notranslate"><span class="pre">app.py</span></code> ved å faktisk servere appen. Her bruker vi argumentene host for å spesifisere navn eller ip addressen. I kurset bruker vi kun <code class="docutils literal notranslate"><span class="pre">'0.0.0.0'</span></code> som gjør at nettsiden kun kjøres lokalt. I tillegg angir vi en TCP port. Det kan være at dere må endre den for å ungå problemer med brannmuren.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">serve</span><span class="p">(</span><span class="n">app</span><span class="p">,</span> <span class="n">host</span><span class="o">=</span><span class="s1">&#39;0.0.0.0&#39;</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="mi">8080</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Så kan vi kjøre nettsiden ved å kjøre</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">app</span><span class="o">.</span><span class="n">py</span>
+</pre></div>
+</div>
+<p>i en shell og gå til <a class="reference external" href="http://localhost:8080/">http://localhost:8080/</a> i en nettleser. Hvis vi har skrevet ut noe med print, så dukker dette opp i shell. For et enkelt eksempel se <code class="docutils literal notranslate"><span class="pre">simpleapp.py</span></code> og for et komplett eksempel se <code class="docutils literal notranslate"><span class="pre">app.py</span></code> i <a class="reference external" href="https://github.com/blasern/huspris_app">huspris_app</a>.</p>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -445,6 +526,23 @@ document.write(`
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lagre-modeller">Lagre modeller</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#enkel-nettside-med-skjema">Enkel nettside med skjema</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interaksjon-mellom-python-og-nettside-restful-api">Interaksjon mellom python og nettside (Restful API)</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
