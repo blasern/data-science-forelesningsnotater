@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=87e54e7c" />
   
@@ -57,6 +57,8 @@
     <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.0/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'recommendation';</script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
@@ -360,7 +362,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
 </div></div>
       
     </div>
@@ -376,6 +380,16 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#innholdsbasert-filtrering">Innholdsbasert filtrering</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#samarbeidsbasert-filtering">Samarbeidsbasert filtering</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluering">Evaluering</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -385,9 +399,598 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="anbefalingssystemer">
+  <div class="cell tag_hide-cell docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell content</span>
+<span class="expanded">Hide code cell content</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span> 
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+<section class="tex2jax_ignore mathjax_ignore" id="anbefalingssystemer">
 <span id="sec-anbefaling"></span><h1>Anbefalingssystemer<a class="headerlink" href="#anbefalingssystemer" title="Link to this heading">#</a></h1>
-<p>WIP</p>
+<p>Vi bruker anbefalingssystemer hele tiden og nå skal dere lære hvordan de fungerer. Bedrifter bruker anbefalingssystemer for å presentere kunder for produkter eller tjenester de sannsynligvis vil kjøpe, basert på tidligere kjøp eller søkevaner. Dette er spesielt viktig for e-handel, streaming-tjenester, og reklame.</p>
+<p>Det finnes to hovedmetoder som blir brukt for å predikere vurderinger.</p>
+<p>I <em>innholdsbasert filtering</em> anbefaler vi de varene til en bruker som ligner på varer denne brukeren har tidligere likt.</p>
+<p>I <em>sammarbeidsbasert filtering</em> på den andre siden er ideen å finne brukere som ligner på oss. Så får vi anbefalinger basert på det folk som ligner på oss liker.</p>
+<p>Nå skal vi gi en liten innføring i hvordan enkle anbefalingssytemer kan bygges opp. Reelle anbefalingssytemer er ofte mer komplekse og har både innholdsbaserte og sammarbeidsbaserte komponenter.</p>
+<section id="innholdsbasert-filtrering">
+<h2>Innholdsbasert filtrering<a class="headerlink" href="#innholdsbasert-filtrering" title="Link to this heading">#</a></h2>
+<p>Ideen med innholdsbasert filtering er å anbefale de varene til en bruker som ligner på varer denne brukeren har tidligere likt. For eksempel anbefaler vi bøker i sjanger, film med samme skuespillere, eller nyheter om samme emne som brukeren likte tidligere.</p>
+<p>For å gjøre det, så må vi ha informasjon om varene. Vi lager en vareprofil for alle varene og bruker det som de uavhengige variablene X. Så ser vi på vurderingene vi har for brukeren og bruker det som den uavhengige variablen y. Så lager vi en modell og bruker den for å predikere vurderingene som mangler. Vi lager altså uavhengige regresjonsmodeller for hver bruker.</p>
+<p>En stor fordel av innholdsbasert filtering er at vi ikke trenger data fra andre brukere, så det kan gjøres selv om vi har få brukere. Vi kan også gi gode anbefalinger til brukere med sære preferanser. En annen fordel er at vi kan anbefale helt nye varer som ikke har noen vurderinger fra andre brukere. Hvis vi for eksempel bruker lineære modeller er det også enkelt å forklare hvorfor vi anbefalte noe, basert på hva brukeren likte tidligere.</p>
+<p>Ulemper er at det kan være vanskelig og dyrt å lage gode vareprofiler. Det kan også føre til overspesialisering, der brukere kun får anbefalinger som ligner sterkt på det de har lest før og mister diversitæt. Andre ulemper er at vi ikke kan utnytte andre sine vurderinger og dermed heller ikke kan gi noen anbefalinger til nye brukere.</p>
+</section>
+<section id="samarbeidsbasert-filtering">
+<h2>Samarbeidsbasert filtering<a class="headerlink" href="#samarbeidsbasert-filtering" title="Link to this heading">#</a></h2>
+<p>I sammarbeidsbasert filtering er ideen å finne brukere som ligner på bruker A. Så får A anbefalinger basert på det folk som ligner på A liker. Vi bruker notasjonen at <span class="math notranslate nohighlight">\(y_{ij}\)</span> er vurderingen av vare <span class="math notranslate nohighlight">\(i\)</span> fra bruker <span class="math notranslate nohighlight">\(j\)</span>. Her er en algoritme for samarbeidsbasert filtering med hyperparameter <span class="math notranslate nohighlight">\(k\)</span>:</p>
+<ol class="arabic simple">
+<li><p>Regn ut den gjennomsnittlige vurderingen <span class="math notranslate nohighlight">\(\mu_j\)</span> for hver bruker.</p></li>
+<li><p>Trekk fra gjennomsnittlige vurderinger per bruker.</p></li>
+<li><p>Fyll inn alle manglende vurderinger med 0.</p></li>
+<li><p>Regn ut korrelasjoner mellom alle brukere.</p></li>
+<li><p>For hver bruker <span class="math notranslate nohighlight">\(j\)</span>:</p>
+<ul class="simple">
+<li><p>Finner de <span class="math notranslate nohighlight">\(k\)</span> mest korrelerte brukere til bruker <span class="math notranslate nohighlight">\(j\)</span>.</p></li>
+<li><p>Erstatt manglende data med gjennomsnittet av vurderingene av de <span class="math notranslate nohighlight">\(k\)</span> nærmeste naboene.</p></li>
+</ul>
+</li>
+<li><p>Legg til gjennomsnittlige vurderinger per bruker igjen.</p></li>
+</ol>
+<p>La oss se på et eksempel. Anta at vi har følgende data.</p>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="nb">dict</span><span class="p">(</span><span class="n">Bok</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Tørst&#39;</span><span class="p">,</span> <span class="s1">&#39;Kniv&#39;</span><span class="p">,</span> <span class="s1">&#39;Lang dags ferd mot natt&#39;</span><span class="p">,</span> <span class="s1">&#39;Rosmersholm&#39;</span><span class="p">,</span> <span class="s1">&#39;Skuggasund&#39;</span><span class="p">],</span> 
+                       <span class="n">Hanna</span><span class="o">=</span><span class="p">[</span><span class="mf">10.</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> 
+                       <span class="n">Per</span><span class="o">=</span><span class="p">[</span><span class="mf">5.</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> 
+                       <span class="n">Kari</span><span class="o">=</span><span class="p">[</span><span class="mf">6.</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">],</span> 
+                       <span class="n">Ali</span><span class="o">=</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">]))</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;Bok&#39;</span><span class="p">)</span>
+<span class="n">df</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Hanna</th>
+      <th>Per</th>
+      <th>Kari</th>
+      <th>Ali</th>
+    </tr>
+    <tr>
+      <th>Bok</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Tørst</th>
+      <td>10.0</td>
+      <td>5.0</td>
+      <td>6.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>Kniv</th>
+      <td>9.0</td>
+      <td>6.0</td>
+      <td>7.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>Lang dags ferd mot natt</th>
+      <td>6.0</td>
+      <td>10.0</td>
+      <td>6.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>Rosmersholm</th>
+      <td>5.0</td>
+      <td>9.0</td>
+      <td>6.0</td>
+      <td>6.0</td>
+    </tr>
+    <tr>
+      <th>Skuggasund</th>
+      <td>2.0</td>
+      <td>4.0</td>
+      <td>8.0</td>
+      <td>8.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Først regner vi ut gjennomsnittet per bruker.</p>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">means</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="n">means</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Hanna    6.4
+Per      6.8
+Kari     6.6
+Ali      7.0
+dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<p>Så trekker vi fra gjennomsnittlige vurderinger per bruker.</p>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">normalized_df</span> <span class="o">=</span> <span class="n">df</span> <span class="o">-</span> <span class="n">means</span>
+<span class="n">normalized_df</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Hanna</th>
+      <th>Per</th>
+      <th>Kari</th>
+      <th>Ali</th>
+    </tr>
+    <tr>
+      <th>Bok</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Tørst</th>
+      <td>3.6</td>
+      <td>-1.8</td>
+      <td>-0.6</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>Kniv</th>
+      <td>2.6</td>
+      <td>-0.8</td>
+      <td>0.4</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>Lang dags ferd mot natt</th>
+      <td>-0.4</td>
+      <td>3.2</td>
+      <td>-0.6</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>Rosmersholm</th>
+      <td>-1.4</td>
+      <td>2.2</td>
+      <td>-0.6</td>
+      <td>-1.0</td>
+    </tr>
+    <tr>
+      <th>Skuggasund</th>
+      <td>-4.4</td>
+      <td>-2.8</td>
+      <td>1.4</td>
+      <td>1.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Vi fyller inn manglende verdier.</p>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">normalized_imputed_df</span> <span class="o">=</span> <span class="n">normalized_df</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">normalized_imputed_df</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">normalized_imputed_df</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Hanna</th>
+      <th>Per</th>
+      <th>Kari</th>
+      <th>Ali</th>
+    </tr>
+    <tr>
+      <th>Bok</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Tørst</th>
+      <td>3.6</td>
+      <td>-1.8</td>
+      <td>-0.6</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>Kniv</th>
+      <td>2.6</td>
+      <td>-0.8</td>
+      <td>0.4</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>Lang dags ferd mot natt</th>
+      <td>-0.4</td>
+      <td>3.2</td>
+      <td>-0.6</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>Rosmersholm</th>
+      <td>-1.4</td>
+      <td>2.2</td>
+      <td>-0.6</td>
+      <td>-1.0</td>
+    </tr>
+    <tr>
+      <th>Skuggasund</th>
+      <td>-4.4</td>
+      <td>-2.8</td>
+      <td>1.4</td>
+      <td>1.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Så kan vi regne ut korrelasjon mellom alle brukere.</p>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">correlations</span> <span class="o">=</span> <span class="n">normalized_imputed_df</span><span class="o">.</span><span class="n">corr</span><span class="p">()</span>
+<span class="n">correlations</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Hanna</th>
+      <th>Per</th>
+      <th>Kari</th>
+      <th>Ali</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Hanna</th>
+      <td>1.000000</td>
+      <td>-0.018057</td>
+      <td>-0.539968</td>
+      <td>-0.330489</td>
+    </tr>
+    <tr>
+      <th>Per</th>
+      <td>-0.018057</td>
+      <td>1.000000</td>
+      <td>-0.691095</td>
+      <td>-0.682948</td>
+    </tr>
+    <tr>
+      <th>Kari</th>
+      <td>-0.539968</td>
+      <td>-0.691095</td>
+      <td>1.000000</td>
+      <td>0.790569</td>
+    </tr>
+    <tr>
+      <th>Ali</th>
+      <td>-0.330489</td>
+      <td>-0.682948</td>
+      <td>0.790569</td>
+      <td>1.000000</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>I det tilfelle bruker vi kun en nærmeste nabo. Siden det var Ali som hadde manglende vurderinger, så ser vi på hvem som Ali sine vurderinger korrelerer mest med. Her er det Kari. Så predikerer vi samme verdi som Kari hadde for de manglende data.</p>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">normalized_predicted_df</span> <span class="o">=</span> <span class="n">normalized_df</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">bruker</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
+    <span class="n">nearest</span> <span class="o">=</span> <span class="n">correlations</span><span class="p">[</span><span class="n">bruker</span><span class="p">]</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">bruker</span><span class="p">)</span><span class="o">.</span><span class="n">idxmax</span><span class="p">()</span>
+    <span class="n">fill_indexes</span> <span class="o">=</span> <span class="n">normalized_predicted_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="n">bruker</span><span class="p">]</span><span class="o">.</span><span class="n">isna</span><span class="p">()</span>
+    <span class="n">normalized_predicted_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">fill_indexes</span><span class="p">,</span> <span class="n">bruker</span><span class="p">]</span> <span class="o">=</span> <span class="n">normalized_predicted_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">fill_indexes</span><span class="p">,</span> <span class="n">nearest</span><span class="p">]</span>
+<span class="n">normalized_predicted_df</span> 
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Hanna</th>
+      <th>Per</th>
+      <th>Kari</th>
+      <th>Ali</th>
+    </tr>
+    <tr>
+      <th>Bok</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Tørst</th>
+      <td>3.6</td>
+      <td>-1.8</td>
+      <td>-0.6</td>
+      <td>-0.6</td>
+    </tr>
+    <tr>
+      <th>Kniv</th>
+      <td>2.6</td>
+      <td>-0.8</td>
+      <td>0.4</td>
+      <td>0.4</td>
+    </tr>
+    <tr>
+      <th>Lang dags ferd mot natt</th>
+      <td>-0.4</td>
+      <td>3.2</td>
+      <td>-0.6</td>
+      <td>-0.6</td>
+    </tr>
+    <tr>
+      <th>Rosmersholm</th>
+      <td>-1.4</td>
+      <td>2.2</td>
+      <td>-0.6</td>
+      <td>-1.0</td>
+    </tr>
+    <tr>
+      <th>Skuggasund</th>
+      <td>-4.4</td>
+      <td>-2.8</td>
+      <td>1.4</td>
+      <td>1.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Til slutt legger vi til gjennomsnittene igjen.</p>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">predicted_df</span> <span class="o">=</span> <span class="n">normalized_predicted_df</span> <span class="o">+</span> <span class="n">means</span>
+<span class="n">predicted_df</span> 
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Hanna</th>
+      <th>Per</th>
+      <th>Kari</th>
+      <th>Ali</th>
+    </tr>
+    <tr>
+      <th>Bok</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Tørst</th>
+      <td>10.0</td>
+      <td>5.0</td>
+      <td>6.0</td>
+      <td>6.4</td>
+    </tr>
+    <tr>
+      <th>Kniv</th>
+      <td>9.0</td>
+      <td>6.0</td>
+      <td>7.0</td>
+      <td>7.4</td>
+    </tr>
+    <tr>
+      <th>Lang dags ferd mot natt</th>
+      <td>6.0</td>
+      <td>10.0</td>
+      <td>6.0</td>
+      <td>6.4</td>
+    </tr>
+    <tr>
+      <th>Rosmersholm</th>
+      <td>5.0</td>
+      <td>9.0</td>
+      <td>6.0</td>
+      <td>6.0</td>
+    </tr>
+    <tr>
+      <th>Skuggasund</th>
+      <td>2.0</td>
+      <td>4.0</td>
+      <td>8.0</td>
+      <td>8.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Nå ser vi at selv om vi brukte 1-nærmeste nabo-regresjon, fikk vi en verdier som ikke har vært med i datasettet. Det er på grunn av måten vi først trekker fra gjennomsnittet og så legger den til igjen til slutt.</p>
+<p>Her har vi brukt bruker-basert samarbeidsbasert filtering. Det vil si at vi så på korrelasjon mellom brukere. Vi kunne i stedet for også sett på korrelasjon mellom vurderingene de forskjellige varene får. Utregningen ville ellers vært helt likt.</p>
+<p>Den store fordelen med samarbeidsbasert filtering er at vi slipper å lage vareprofiler.</p>
+<p>Men for å gjøre dette, trenger vi mange brukere til å finne noen som faktisk ligner på alle. Det er spesielt vanskelig siden få brukere har vurdert de samme varene. Vi kan heller ikke anbefale noen nye varer. Og det kan føre til generell popularitetsbias, slik at vi anbefaler mest populære varer.</p>
+</section>
+<section id="evaluering">
+<h2>Evaluering<a class="headerlink" href="#evaluering" title="Link to this heading">#</a></h2>
+<p>Til slutt må vi snakke om hvordan man kan evaluere anbefalingssystemer. Som for alle andre regresjonsmodeller, deler vi data i trenings-, validerings- og testdata. Så kan vi for eksempel regne ut kvadratrooten av gjennomsnittig kvadrert feil</p>
+<div class="math notranslate nohighlight">
+\[\sqrt {\frac {\sum _{i=1}^{N}({\hat {y}}_{ij}-y_{ij})^{2}}{N}}\]</div>
+<p>på valideringsdata for å velge ut modeller. Her <span class="math notranslate nohighlight">\(N\)</span> er antall prediksjoner, <span class="math notranslate nohighlight">\(\hat{y}_{ij}\)</span> er prediskjon av vare <span class="math notranslate nohighlight">\(i\)</span> fra bruker <span class="math notranslate nohighlight">\(j\)</span> og <span class="math notranslate nohighlight">\(y_{ij}\)</span> er den faktiske vurderingen av vare <span class="math notranslate nohighlight">\(i\)</span> fra bruker <span class="math notranslate nohighlight">\(j\)</span>.</p>
+<p>Selv om gjennomsnittig kvadrert feil ofte blir brukt, så er det kanskje ikke den beste metrikken. Vi er jo ikke egentlig interesserte i de faktiske verdiene og bryr oss mer om høye vurderinger enn lave. Av og til vil vi også gi anbefalinger som er mer varerte. Derfor kan vi bruke mål basert på diversitet, rekkefølge av vurderingene, eller vekte høye prediksjoner mer. Dette skal vi ikke se på i mer detalj, men det er viktig å huske at metrikken er vikig og kan ha en stor innflytelse på reslutatene.</p>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -435,6 +1038,23 @@ document.write(`
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#innholdsbasert-filtrering">Innholdsbasert filtrering</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#samarbeidsbasert-filtering">Samarbeidsbasert filtering</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluering">Evaluering</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
