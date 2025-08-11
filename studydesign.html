@@ -1,177 +1,111 @@
 
 <!DOCTYPE html>
 
-
-<html lang="nb" data-content_root="./" >
-
+<html lang="nb">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
     <title>Studiedesign &#8212; Innføring i data science</title>
-  
-  
-  
-  <script data-cfasync="false">
-    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
-  </script>
-  
+    
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 
-  
-  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
-    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
-    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
-    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=87e54e7c" />
-  
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
-  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
 
-    <script src="_static/documentation_options.js?v=507867d0"></script>
-    <script src="_static/doctools.js?v=9a2dae69"></script>
-    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
-    <script src="_static/copybutton.js?v=f281be69"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="_static/design-tabs.js?v=f930bc37"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'studydesign';</script>
+    <script src="_static/togglebutton.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Søk" href="search.html" />
     <link rel="next" title="Anbefalingssystemer" href="recommendation.html" />
     <link rel="prev" title="Implementere data science løsninger" href="implementation.html" />
-  <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="docsearch:language" content="nb"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="nb">
+    
+
+    <!-- Google Analytics -->
+    
   </head>
-  
-  
-  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
 
-  
-  
-  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
-  
-  <div id="pst-scroll-pixel-helper"></div>
-  
-  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
-    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+    
+    <div class="container-fluid" id="banner"></div>
 
-  
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-primary-sidebar-checkbox"/>
-  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
-  
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-secondary-sidebar-checkbox"/>
-  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
-  
-  <div class="search-button__wrapper">
-    <div class="search-button__overlay"></div>
-    <div class="search-button__search-container">
-<form class="bd-search d-flex align-items-center"
-      action="search.html"
-      method="get">
-  <i class="fa-solid fa-magnifying-glass"></i>
-  <input type="search"
-         class="form-control"
-         name="q"
-         id="search-input"
-         placeholder="Search this book..."
-         aria-label="Search this book..."
-         autocomplete="off"
-         autocorrect="off"
-         autocapitalize="off"
-         spellcheck="false"/>
-  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form></div>
-  </div>
+    
 
-  <div class="pst-async-banner-revealer d-none">
-  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
-</div>
-
-  
-    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
-    </header>
-  
-
-  <div class="bd-container">
-    <div class="bd-container__inner bd-page-width">
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
       
-      
-      
-      <div class="bd-sidebar-primary bd-sidebar">
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
         
-
-  
-  <div class="sidebar-header-items sidebar-primary__section">
-    
-    
-    
-    
-  </div>
-  
-    <div class="sidebar-primary-items__start sidebar-primary__section">
-        <div class="sidebar-primary-item">
-
-  
-    
-  
-
-<a class="navbar-brand logo" href="intro.html">
-  
-  
-  
-  
-  
-    
-    
       
-    
-    
-    <img src="_static/logo.png" class="logo__image only-light" alt="Innføring i data science - Home"/>
-    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="Innføring i data science - Home"/>`);</script>
-  
-  
-</a></div>
-        <div class="sidebar-primary-item">
-
- <script>
- document.write(`
-   <button class="btn search-button-field search-button__button" title="Søk" aria-label="Søk" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
-    <span class="search-button__default-text">Søk</span>
-    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-   </button>
- `);
- </script></div>
-        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
-    <div class="bd-toc-item navbar-nav active">
+      
+      <img src="_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Innføring i data science</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
@@ -181,246 +115,421 @@
             </li>
         </ul>
         <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="data.html">Data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="eda.html">Utforskende dataanalyse</a></li>
-<li class="toctree-l1"><a class="reference internal" href="modeling.html">Datamodellering</a></li>
-<li class="toctree-l1"><a class="reference internal" href="variables.html">Manglende data og variabelutvinning</a></li>
-<li class="toctree-l1"><a class="reference internal" href="communication.html">Datakommunikasjon</a></li>
-<li class="toctree-l1"><a class="reference internal" href="implementation.html">Implementere data science løsninger</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Studiedesign</a></li>
-<li class="toctree-l1"><a class="reference internal" href="recommendation.html">Anbefalingssystemer</a></li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="data.html">
+   Data
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="eda.html">
+   Utforskende dataanalyse
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="modeling.html">
+   Datamodellering
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="variables.html">
+   Manglende data og variabelutvinning
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="communication.html">
+   Datakommunikasjon
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="implementation.html">
+   Implementere data science løsninger
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Studiedesign
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="recommendation.html">
+   Anbefalingssystemer
+  </a>
+ </li>
 </ul>
 
     </div>
 </nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
     </div>
-  
-  
-  <div class="sidebar-primary-items__end sidebar-primary__section">
-  </div>
-  
-  <div id="rtd-footer-container"></div>
+    <div id="rtd-footer-container"></div>
+</div>
 
 
-      </div>
-      
-      <main id="main-content" class="bd-main" role="main">
-        
-        
+          
 
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
 <div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
 
-          <div class="bd-content">
-            <div class="bd-article-container">
-              
-              <div class="bd-header-article d-print-none">
-<div class="header-article-items header-article__inner">
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
   
-    <div class="header-article-items__start">
-      
-        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
-  <span class="fa-solid fa-bars"></span>
-</button></div>
-      
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
     </div>
-  
-  
-    <div class="header-article-items__end">
-      
-        <div class="header-article-item">
-
-<div class="article-header-buttons">
-
-
-
-
-
-<div class="dropdown dropdown-source-buttons">
-  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
-    <i class="fab fa-github"></i>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
   </button>
-  <ul class="dropdown-menu">
-      
-      
-      
-      <li><a href="https://github.com/blasern/data-science-forelesningsnotater" target="_blank"
-   class="btn btn-sm btn-source-repository-button dropdown-item"
-   title="Source repository"
-   data-bs-placement="left" data-bs-toggle="tooltip"
->
-  
-
-<span class="btn__icon-container">
-  <i class="fab fa-github"></i>
-  </span>
-<span class="btn__text-container">Repository</span>
-</a>
-</li>
-      
-      
-      
-      
-      <li><a href="https://github.com/blasern/data-science-forelesningsnotater/issues/new?title=Issue%20on%20page%20%2Fstudydesign.html&body=Your%20issue%20content%20here." target="_blank"
-   class="btn btn-sm btn-source-issues-button dropdown-item"
-   title="Open an issue"
-   data-bs-placement="left" data-bs-toggle="tooltip"
->
-  
-
-<span class="btn__icon-container">
-  <i class="fas fa-lightbulb"></i>
-  </span>
-<span class="btn__text-container">Open issue</span>
-</a>
-</li>
-      
-  </ul>
-</div>
-
-
-
-
-
-
-<div class="dropdown dropdown-download-buttons">
-  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
-    <i class="fas fa-download"></i>
-  </button>
-  <ul class="dropdown-menu">
-      
-      
-      
-      <li><a href="_sources/studydesign.ipynb" target="_blank"
-   class="btn btn-sm btn-download-source-button dropdown-item"
-   title="Download source file"
-   data-bs-placement="left" data-bs-toggle="tooltip"
->
-  
-
-<span class="btn__icon-container">
-  <i class="fas fa-file"></i>
-  </span>
-<span class="btn__text-container">.ipynb</span>
-</a>
-</li>
-      
-      
-      
-      
+  <div class="menu-dropdown__content">
+    <ul>
       <li>
-<button onclick="window.print()"
-  class="btn btn-sm btn-download-pdf-button dropdown-item"
-  title="Print to PDF"
-  data-bs-placement="left" data-bs-toggle="tooltip"
+        <a href="https://mybinder.org/v2/gh/blasern/data-science-forelesningsnotater/main?urlpath=tree/studydesign.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
 >
   
 
-<span class="btn__icon-container">
-  <i class="fas fa-file-pdf"></i>
+<span class="headerbtn__icon-container">
+  
+    <img src="_static/images/logo_binder.svg">
   </span>
-<span class="btn__text-container">.pdf</span>
-</button>
-</li>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
       
-  </ul>
+    </ul>
+  </div>
 </div>
-
-
-
 
 <button onclick="toggleFullScreen()"
-  class="btn btn-sm btn-fullscreen-button"
-  title="Fullscreen mode"
-  data-bs-placement="bottom" data-bs-toggle="tooltip"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
 >
   
 
-<span class="btn__icon-container">
+<span class="headerbtn__icon-container">
   <i class="fas fa-expand"></i>
   </span>
 
 </button>
 
-
-
-<script>
-document.write(`
-  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
-    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
-    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
   </button>
-`);
-</script>
-
-
-<script>
-document.write(`
-  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Søk" aria-label="Søk" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-  </button>
-`);
-</script>
-<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="fa-solid fa-list"></span>
-</button>
-</div></div>
-      
-    </div>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/blasern/data-science-forelesningsnotater"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
   
-</div>
-</div>
-              
-              
 
-<div id="jb-print-docs-body" class="onlyprint">
-    <h1>Studiedesign</h1>
-    <!-- Table of contents -->
-    <div id="print-main-content">
-        <div id="jb-print-toc">
-            
-            <div>
-                <h2> Contents </h2>
-            </div>
-            <nav aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#studietyper">Studietyper</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#intervensjonsstudier">Intervensjonsstudier</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#observasjonsstudier">Observasjonsstudier</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#tversnittsstudier">Tversnittsstudier</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#kohortstudier">Kohortstudier</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#case-control-studier">Case-control-studier</a></li>
-</ul>
-</li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#studiestorrelse">Studiestørrelse</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#datainnsamling">Datainnsamling</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#simpson-s-paradox">Simpson’s paradox</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sporreskjema">Spørreskjema</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#personopplysninger">Personopplysninger</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bias">Bias</a></li>
-</ul>
-            </nav>
-        </div>
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/blasern/data-science-forelesningsnotater/issues/new?title=Issue%20on%20page%20%2Fstudydesign.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="_sources/studydesign.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
     </div>
 </div>
 
-              
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#studietyper">
+   Studietyper
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#intervensjonsstudier">
+     Intervensjonsstudier
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#observasjonsstudier">
+     Observasjonsstudier
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#tversnittsstudier">
+       Tversnittsstudier
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#kohortstudier">
+       Kohortstudier
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#case-control-studier">
+       Case-control-studier
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#studiestorrelse">
+     Studiestørrelse
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#datainnsamling">
+   Datainnsamling
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#simpson-s-paradox">
+     Simpson’s paradox
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#sporreskjema">
+     Spørreskjema
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#personopplysninger">
+     Personopplysninger
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#bias">
+   Bias
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Studiedesign</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#studietyper">
+   Studietyper
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#intervensjonsstudier">
+     Intervensjonsstudier
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#observasjonsstudier">
+     Observasjonsstudier
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#tversnittsstudier">
+       Tversnittsstudier
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#kohortstudier">
+       Kohortstudier
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#case-control-studier">
+       Case-control-studier
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#studiestorrelse">
+     Studiestørrelse
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#datainnsamling">
+   Datainnsamling
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#simpson-s-paradox">
+     Simpson’s paradox
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#sporreskjema">
+     Spørreskjema
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#personopplysninger">
+     Personopplysninger
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#bias">
+   Bias
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
                 
-<div id="searchbox"></div>
-                <article class="bd-article">
-                  
+              <div>
+                
   <section class="tex2jax_ignore mathjax_ignore" id="studiedesign">
-<span id="sec-studiedesign"></span><h1>Studiedesign<a class="headerlink" href="#studiedesign" title="Link to this heading">#</a></h1>
+<span id="sec-studiedesign"></span><h1>Studiedesign<a class="headerlink" href="#studiedesign" title="Permalink til denne oversikten">#</a></h1>
 <p>Studiedesign refererer til den overordnede planen eller strukturen for hvordan en studie skal gjennomføres. Det beskriver metoder for innsamling, analyse og tolkning av data, og sikrer at spørsmålene kan besvares på en pålitelig måte. Valget av studiedesign avhenger av spørsmålet, målsettingen med studien og hvilke type data som trengs.</p>
 <section id="studietyper">
-<h2>Studietyper<a class="headerlink" href="#studietyper" title="Link to this heading">#</a></h2>
+<h2>Studietyper<a class="headerlink" href="#studietyper" title="Permalink til denne oversikten">#</a></h2>
 <p>Overordnet underdeler vi i to typer studier. I <em>observasjonsstudier</em> observerer vi hva som skjer uten at vi påvirker det. I <em>intervensjonsstudier</em> derimot behandler vi to eller flere grupper på forskjellige måter og undersøker effekten av denne forskjellige behandlingen.</p>
 <section id="intervensjonsstudier">
-<h3>Intervensjonsstudier<a class="headerlink" href="#intervensjonsstudier" title="Link to this heading">#</a></h3>
+<h3>Intervensjonsstudier<a class="headerlink" href="#intervensjonsstudier" title="Permalink til denne oversikten">#</a></h3>
 <p>Den første studietypen vi skal se på er <em>randomiserte kontrollerte studier</em> eller <em>A/B-tester</em>. Det er en type intervensjonsstudie, der vi i begynnelsen av studien deler studiedeltagere tilfeldig inn i to grupper, en gruppe som får behandling A og en gruppe som får behandling B. Så venter vi og sammenligner utfallet etter et visst tidspunkt. Typiske eksempler av denne typen studie er når vi tester om legemiddler virker eller når vi sjekker om en nettbutikk selger flere varer ved å endre på hvilken farge kjøp-knappen har.</p>
 <p>En randomisert kontrollert studie er en intervensjonsstudie. Vi har alltid en klar definert studiepopulasjon og resultatene gjelder kun for denne populasjonen. Det er viktig å gjøre deling i gruppene helt tilfeldig. Så gjør vi forskjellige intervensjoner eller behandlinger i de forskjellige gruppene. Til slutt kan vi analysere den kausale effekten av en intervensjon.</p>
 <p>Fordi de to gruppene er delt inn tilfeldig, så er all forskjell i utfall på grunn av intervensjonen. Vi kan altså se på intervensjonen som årsak av utfallet. For å gjøre det, så bruker vi hypotesetester, regner ut hvor stor effekten er og hva som er konfidensintervallet av effekten.
@@ -428,38 +537,38 @@ Spesielt i medisinske studier kan det være sånn at folk blir tilfeldig tildelt
 <p>Intervensjonsstudier er den beste studietypen for å vise at en årsak har en viss virkning. Men det er ikke alltid vi kan gjøre det. For det første, så er det uetisk å gjennomføre en randomisert kontrollert studie som utsetter en av gruppene for fare. For det andre, så kan dette være utrolig dyrt og vi kan kun se på en behandling om gangen.</p>
 </section>
 <section id="observasjonsstudier">
-<h3>Observasjonsstudier<a class="headerlink" href="#observasjonsstudier" title="Link to this heading">#</a></h3>
+<h3>Observasjonsstudier<a class="headerlink" href="#observasjonsstudier" title="Permalink til denne oversikten">#</a></h3>
 <section id="tversnittsstudier">
-<h4>Tversnittsstudier<a class="headerlink" href="#tversnittsstudier" title="Link to this heading">#</a></h4>
+<h4>Tversnittsstudier<a class="headerlink" href="#tversnittsstudier" title="Permalink til denne oversikten">#</a></h4>
 <p>En type observasjonsstudie er en <em>tversnittsstudie</em>. Der ovserverer vi studiepopulasjonen på et bestemt tidspunkt.</p>
 <p>Dette er kun en beskrivende studie, der vi ikke kan si noe om årsak og virkning. Men på den positive siden, så er det enkelt å samle inn data og vi kan se på sammenhenger av mange variabler samtidig. Et eksempel som vi har sett på tidligere er data om huspris. En ulempe er at data kan være ganske ubalansert, for eksempel hvis vi vil undersøke om røyking og tarmkreft er korrelerte, så er det heldigvis sånn at folk flest ikke har tarmkreft og hvis vi prøver å gjøre en tversnittstudie på dette, så trenger vi utrolig mange personer i studien for å ha nok personer som faktisk har tarmkreft.</p>
 <p>Når vi har gjennomført en tversnittsstudie prøver vi typisk å predikere en variabel basert på de andre variablene.</p>
 </section>
 <section id="kohortstudier">
-<h4>Kohortstudier<a class="headerlink" href="#kohortstudier" title="Link to this heading">#</a></h4>
+<h4>Kohortstudier<a class="headerlink" href="#kohortstudier" title="Permalink til denne oversikten">#</a></h4>
 <p>En <em>kohortstudie</em> er en observasjonsstudie der vi følger folk (eller ting) over tid. Her starter vi med en studiepopulasjon og beskriver de på tidspunktet de ble inkludert i studien. Vi kan for eksempel se om de er utsatt for en miljøgift eller ikke. Så følger vi de over tid. Til slutt sammenligner vi om de hadde forskjellige utfall.</p>
 <p>Studiepopulasjon kan være alt mulig, for eksempel pasienter, brukere, fisk, byer, og så videre. Fordelen er at vi ofte har mye data tilgjengelig og at vi følger studiepopulasjonen over tid. Men det kan fortsatt ikke fastslå om miljøgiften er årsaken av en senere sykdom. Det kan være at for eksempel fattige folk er mer utsatt for en type miljøgift og samtidig mer utsatt for sykdom. I så fall er det ikke nødvendigvis miljøgiftet som forårsaker sykdommen men en annen variabel som forårsaker både miljøgift og sykdom. Et eksempel er den  norske mor, far og barn-undersøkelsen, som inkluderer over 100 000 svangerskap i perioden 1999–2008 med formålet å få mer kunnskap om mulige årsaker til sykdom og helseskade. Et annet eksempel er å forutse om folk vil slutte å bruke et nettsted for å kunne gi ekstra tilbud til de som holder på å avslutte et kundeforhold.</p>
 <p>Når vi analyserer kohortstudier, så prøver vi ofte å predikere utfall basert på variablene som ble målt før. I tillegg ser vi ofte på hypotesetester om det er forskjeller mellom variablene avhengig av utfallet.</p>
 </section>
 <section id="case-control-studier">
-<h4>Case-control-studier<a class="headerlink" href="#case-control-studier" title="Link to this heading">#</a></h4>
+<h4>Case-control-studier<a class="headerlink" href="#case-control-studier" title="Permalink til denne oversikten">#</a></h4>
 <p>Den siste typen observasjonsstudie vi ser på er <em>case-control-studier</em>. Her ser vi på studiedeltagere med en viss utfall. Det kan for eksempel være folk med en type sjelden sykdom. Dette kalles for cases. Så ser vi på en tilfeldig utvalgt gruppe som ligner på cases, altså for eksempel er like gamle og har samme kjønn, men ikke har utfallet. Det kalles for controller. Så går vi tilbake i tid og ser på egenskaper av de studiedeltagere før de fikk utfallet. Dette gjøres for å finne om det var noe i fortiden som kan ha forårsaket utfallet. Denne type studien blir veldig ofte brukt for sjeldne utfall, siden en kohortstudie eller tverrsnittsstudie ville trengt veldig mange deltagere for å oppdage en eneste case. Et eksempel vi har sett på tidligere er titanic-data.</p>
 <p>Her kan vi igjen bruke hypotesetester og korrelasjoner for å finne hva som er relatert med å være en case. Vi kan også se om vi kan predikere utfallet basert på egenskaper fra før.</p>
 </section>
 </section>
 <section id="studiestorrelse">
-<h3>Studiestørrelse<a class="headerlink" href="#studiestorrelse" title="Link to this heading">#</a></h3>
+<h3>Studiestørrelse<a class="headerlink" href="#studiestorrelse" title="Permalink til denne oversikten">#</a></h3>
 <p>Når vi lager en studie må vi alltid først tenke på type studie og så på hvor mange studiedeltagere vi trenger for å kunne oppnå målene våre. Det finnes måter å velge det ut basert på statistiske grunnlag. Men det krever at vi bestemmer hvordan vi analyserer data før vi samler de inn og at vi bestemmer oss for hva slags effekt av en variabel på en annen som vi vurderer som relevant. Det finnes hele bøker skrevet kun om bestemmelse av utvalgsstørrelse og vi har ikke mulighet å gå dypere inn i dette i dette faget. Det eneste som dere må vite er at vi må tenke på det før vi samler inn data og at hvis vi vil sammenligne to grupper, så er det gruppestørrelsen av den minste gruppen som er mest relevant for hvor mye vi kan si om forskjeller mellom gruppene.</p>
 </section>
 </section>
 <section id="datainnsamling">
-<h2>Datainnsamling<a class="headerlink" href="#datainnsamling" title="Link to this heading">#</a></h2>
+<h2>Datainnsamling<a class="headerlink" href="#datainnsamling" title="Permalink til denne oversikten">#</a></h2>
 <p>Det viktigste å tenke på når deg gjelder datainnsamling er hvilke data som skal samles inn. Og hovedbudskapet her er at vi trenger å samle inn alle de relevante variablene men må ikke samle inn for mange irrelevante variabler.</p>
 <section id="simpson-s-paradox">
-<h3>Simpson’s paradox<a class="headerlink" href="#simpson-s-paradox" title="Link to this heading">#</a></h3>
+<h3>Simpson’s paradox<a class="headerlink" href="#simpson-s-paradox" title="Permalink til denne oversikten">#</a></h3>
 <p>En grunn for at vi alltid vil samle inn alle de relevante variablene er Simpson’s paradox. Her ser vi på sammenheng mellom to variabler x og y. Vi er interesserte i hvordan y avhenger av x. Hvis vi bare har målt de to variablene, så er det åpenbart at jo høyere x er, jo lavere er y. En enkel lineær regresjon bekrefter dette. Men hvis vi i tillegg har målt en kategorisk variabel med fem kategorier, så ser vi at for hver kategori så er det sånn at jo høyere x er, jå høyere er også y. Så for hver kategori er x og y positivt korrelerte men når vi ser på alle kategoriene samtidig, så er de negativt korrelerte.</p>
 <p>Her er et faktisk eksempel der dette skjer. I en kohortstudie som undersøkte behandling av nyrestein fikk pasientene to forskjellige behandlinger A og B. Totalt var det 700 pasienter som deltok i studien og 80% av dem ble helt friske av behandlingen. For behandling A var det 78% som ble helt friske og for behandling B var det 83%. Så man kan tenke at behandling B er bedre enn behandling A.</p>
-<div class="pst-scrollable-table-container"><table class="table">
+<table class="colwidths-auto table">
 <thead>
 <tr class="row-odd"><th class="head"><p></p></th>
 <th class="head"><p>Behandling A</p></th>
@@ -485,16 +594,15 @@ Spesielt i medisinske studier kan det være sånn at folk blir tilfeldig tildelt
 </tr>
 </tbody>
 </table>
-</div>
 <p>Men når vi ser litt nærmere på hvor store nyresteinene var før behandling, så er det et annet bilde (se tabellen over). De små nyrestein er enklere å behandle og det er 88% totalt som ble helt friske av behandlingen. Pasienter som fikk behandling A ble helt friske i 93% av tilfellene og pasienter som fikk behandling B ble helt friske i 87% av tillfellene. For de store stein, ble 78% av pasienter med behandling A helt friske og bare 69% av pasienter med behandling B. Vi konkluderer at behandling A er bedre for pasienter med små stein og bedre for pasienter med store stein, men dårligere for alle pasienter sammen. Grunnen for denne tilsynelatende paradoxen er at pasienter med små stein fikk som oftest behandling B og pasienter med store stein fikk som oftest behandling A.</p>
 <p>Vi konkluderer at det er absolutt nødvendig å samle inn alle nødvendige variablene. Ellers kan vi komme til helt feil konklusjon. På den andre siden, så bør vi ikke samle inn for mange unødvendige variabler. Ellers gjør vi det bare vanskeligere for modellene våre å lære sammenhenger mellom variablene. Hvis vi samler inn veldig mange variabler så riskerer vi at det er tilfeldige sammenhenger mellom variablene i treningsdata som ikke lar seg generalisere. Så for å komme tilbake til hvilke data som vi skal samle inn. Vi må ha en plan for hvordan vi skal bruke data. Vi trenger ikke å samle inn data som vi ikke har tenkt å bruke. Vi må huske at strukturerte data er enklere enn ustrukturerte data å håndtere. Så hvis vi kan ungå det, så bør vi ikke samle inn tekst, men heller flervalgsspørsmål. Før vi samler inn data må vi også vurdere om data er balanserte, det vil si om det er like mange av forskjellige grupper. Hvis det er veldig store forskjeller kan vi vurdere å heller bruke en case-controll studiedesign for å utjevne gruppestørrelsene.</p>
 </section>
 <section id="sporreskjema">
-<h3>Spørreskjema<a class="headerlink" href="#sporreskjema" title="Link to this heading">#</a></h3>
+<h3>Spørreskjema<a class="headerlink" href="#sporreskjema" title="Permalink til denne oversikten">#</a></h3>
 <p>Når vi lager en spørreskjema, så er det viktig å bruke enkle ord og begreper. Alle som fyller ut skjemaet bør forstå det, ellers riskerer vi feil svar. Vi bør unngå for lange spørsmål. En fare er også å bruke ledende spørsmål. Hvis vi spør «Hva synes du er det beste med denne nettsiden?», så er det umulig å svare at det ikke var noe du likte med nettsiden. Spørsmål bør helst være lukkede. Hvis de er åpne, så fører det til tekstsvar og ustrukturerte data som er vanskelige å analysere. Spørsmål bør være entydige. Et spørsmål som «Er denne nettsiden spennende og nyttig?» gjør det umulig å vite om et svar av nei betyr at det ikke var spennende eller ikke var nyttig eller verken spennende eller nyttig. Til slutt bør svarkategoriene ikke overlappe. Ellers vet folk ikke hva de skal svare på. Et typisk eksempel er «Hvor gammel er du?» med kategorier under 18, 18-30, 30-50, og 50+. Hva skal man svare når man er akkurat 30, er man 18-30 eller 30-50?</p>
 </section>
 <section id="personopplysninger">
-<h3>Personopplysninger<a class="headerlink" href="#personopplysninger" title="Link to this heading">#</a></h3>
+<h3>Personopplysninger<a class="headerlink" href="#personopplysninger" title="Permalink til denne oversikten">#</a></h3>
 <p>Til slutt må vi snakke litt om personopplysninger. Det er all informasjon som kan identifisere en person. Ifølge generell databeskyttelsesforordning (GDPR), gjelder blant annet IP-adresser, påloggings-ID-er, biometriske identifikatorer, geografiske posisjonsdata, videofilmer, kundelojalitetshistorier, innlegg på sosiale medier og bilder som personopplysninger.
 Men ofte kan også en kombinasjon av data identifisere en person. For eksempel så publiserte netflix i 2006 anonymiserte filmrangeringer fra brukere. Forskere de-anonymiserte data ved å sammenligne med offentlig tilgjengelige IMDb rangeringer. Med bare to filmrangeringer samt dato fikk de 68% re-identifikasjonssuksess.
 Det betyr også at det ikke er så lett å anonymisere data. Klart må navn og adresse slettes, men hva mer? Og hvordan kan noe som genetiske data anonymiseres?
@@ -503,7 +611,7 @@ Innsamling av personopplysninger kan ha etiske og ikke minst juridiske konsekven
 </section>
 </section>
 <section id="bias">
-<h2>Bias<a class="headerlink" href="#bias" title="Link to this heading">#</a></h2>
+<h2>Bias<a class="headerlink" href="#bias" title="Permalink til denne oversikten">#</a></h2>
 <p>Bias i maskinlæring refererer til systematiske feil i en modell som kan føre til feilaktige eller forvrengte resultater. Bias kan oppstå på ulike måter gjennom hele prosessen med å utvikle og trene maskinlæringsmodeller, og det kan påvirke nøyaktigheten og generaliseringsevnen til modellen.</p>
 <p>Det er to hovedtyper av bias i maskinlæring, bias i data og bias i modeller. Bias i data er ofte på grunn av skjevheter i datasettet. Dette oppstår når treningsdataene ikke representerer den virkelige verden på en nøyaktig måte. For eksempel, hvis en modell for ansiktsgjenkjenning trenes på et datasett som overrepresenterer én etnisk gruppe, vil modellen kunne ha vanskeligere for å gjenkjenne ansikter fra andre grupper.</p>
 <p>Bias i modellen eller algoritmisk bias skjer når selve læringsalgoritmen har innebygde antagelser som kan føre til systematiske feil. For eksempel kan enkelte modeller ha for sterke antagelser om sammenhenger i dataene som ikke er riktige i alle tilfeller. Et eksempel er når vi bruker lineær regresjon for å modellere ikke-lineære sammenhenger.</p>
@@ -524,7 +632,7 @@ Innsamling av personopplysninger kan ha etiske og ikke minst juridiske konsekven
             mode: "python"
         },
         kernelOptions: {
-            name: "python3",
+            kernelName: "python3",
             path: "./."
         },
         predefinedOutput: true
@@ -532,120 +640,50 @@ Innsamling av personopplysninger kan ha etiske og ikke minst juridiske konsekven
     </script>
     <script>kernelName = 'python3'</script>
 
-                </article>
+              </div>
               
-
-              
-              
-              
-              
-                <footer class="prev-next-footer d-print-none">
-                  
-<div class="prev-next-area">
-    <a class="left-prev"
-       href="implementation.html"
-       title="previous page">
-      <i class="fa-solid fa-angle-left"></i>
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">forrige</p>
-        <p class="prev-next-title">Implementere data science løsninger</p>
-      </div>
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="implementation.html" title="forrige page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">forrige</p>
+            <p class="prev-next-title">Implementere data science løsninger</p>
+        </div>
     </a>
-    <a class="right-next"
-       href="recommendation.html"
-       title="next page">
-      <div class="prev-next-info">
+    <a class='right-next' id="next-link" href="recommendation.html" title="neste page">
+    <div class="prev-next-info">
         <p class="prev-next-subtitle">neste</p>
         <p class="prev-next-title">Anbefalingssystemer</p>
-      </div>
-      <i class="fa-solid fa-angle-right"></i>
+    </div>
+    <i class="fas fa-angle-right"></i>
     </a>
 </div>
-                </footer>
-              
-            </div>
-            
-            
-              
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
-
-
-  <div class="sidebar-secondary-item">
-  <div class="page-toc tocsection onthispage">
-    <i class="fa-solid fa-list"></i> Contents
-  </div>
-  <nav class="bd-toc-nav page-toc">
-    <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#studietyper">Studietyper</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#intervensjonsstudier">Intervensjonsstudier</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#observasjonsstudier">Observasjonsstudier</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#tversnittsstudier">Tversnittsstudier</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#kohortstudier">Kohortstudier</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#case-control-studier">Case-control-studier</a></li>
-</ul>
-</li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#studiestorrelse">Studiestørrelse</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#datainnsamling">Datainnsamling</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#simpson-s-paradox">Simpson’s paradox</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sporreskjema">Spørreskjema</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#personopplysninger">Personopplysninger</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bias">Bias</a></li>
-</ul>
-  </nav></div>
-
-</div></div>
-              
-            
-          </div>
-          <footer class="bd-footer-content">
-            
-<div class="bd-footer-content__inner container">
-  
-  <div class="footer-item">
-    
-<p class="component-author">
-By Nello Blaser
-</p>
-
-  </div>
-  
-  <div class="footer-item">
-    
-
-  <p class="copyright">
-    
-      © Copyright 2023.
-      <br/>
-    
-  </p>
-
-  </div>
-  
-  <div class="footer-item">
-    
-  </div>
-  
-  <div class="footer-item">
-    
-  </div>
-  
-</div>
-          </footer>
-        
-
-      </main>
+            </footer>
+        </div>
     </div>
-  </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Nello Blaser<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
-<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
 
-  <footer class="bd-footer">
-  </footer>
+
   </body>
 </html>
