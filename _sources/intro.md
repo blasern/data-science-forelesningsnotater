@@ -1,6 +1,6 @@
 # Innføring i data science
 
-De forelesningsnotatene kom ut av forelesningen [Innføring i data science](https://www4.uib.no/emner/INF161) ved Universitetet i Bergen. Det er en generell innføring i mange av emnene som til sammen utgjør data science. Data science er et veldig stort emne og det finnes allerede mange bøker om data science. Det finnes til og med mange bøker om hvert eneste av kapitlene i disse forelesningsnotatene. Målet med forelesningsnotatene er derfor ikke å være omfattende, men å gi en konsis innføring som omfatter hele data science prosessen. 
+Disse forelesningsnotatene kom ut av forelesningen [Innføring i data science](https://www4.uib.no/emner/INF161) ved Universitetet i Bergen. Det er en generell innføring i mange av emnene som til sammen utgjør data science. Data science er et veldig stort emne og det finnes allerede mange bøker om data science. Det finnes til og med mange bøker om hvert eneste av kapitlene i disse forelesningsnotatene. Målet med forelesningsnotatene er derfor ikke å være omfattende, men å gi en konsis innføring som omfatter hele data science prosessen. 
 
 
 ## Hva er data science?

@@ -384,8 +384,8 @@ title="Print to PDF"
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#lage-vektorer-og-matrisser">
-     Lage vektorer og matrisser
+    <a class="reference internal nav-link" href="#lage-vektorer-og-matriser">
+     Lage vektorer og matriser
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
@@ -394,8 +394,8 @@ title="Print to PDF"
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#undermatrisser">
-     Undermatrisser
+    <a class="reference internal nav-link" href="#undermatriser">
+     Undermatriser
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
@@ -477,8 +477,8 @@ title="Print to PDF"
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#lage-vektorer-og-matrisser">
-     Lage vektorer og matrisser
+    <a class="reference internal nav-link" href="#lage-vektorer-og-matriser">
+     Lage vektorer og matriser
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
@@ -487,8 +487,8 @@ title="Print to PDF"
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#undermatrisser">
-     Undermatrisser
+    <a class="reference internal nav-link" href="#undermatriser">
+     Undermatriser
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
@@ -767,7 +767,7 @@ For å analysere ustrukturerte data har vi to muligheter. Vi kan omgjøre de til
 <p><img alt="structured_data" src="_images/structured.svg" /></p>
 <p>På den ene siden har vi numeriske data, som underdeles igjen i kontinuerlige og diskrete variabler. Kontinuerlige variabler er data som kan ta hvilken som helst verdi innen et gitt interval. Typiske eksempler av kontinuerlige variabler kan være høyde eller alder. Diskrete variabler er numeriske data som bare kan ha et utvalg av mulige verdier. For eksempel antall barn, eller mål i en fotballkamp. Det gir ingen mening å snakke om 1.3 barn, det er enten ett eller to.
 Denne skillelinjen er ikke så skarp som man kanskje skulle trodd. Hvis jeg måler høyde, så kan jeg kanskje bare måle det med en presisjon av 5 millimeter. I så fall er det bare en diskret antall verdier jeg faktisk kan ha i data. Men vi modellerer høyde likevel som kontinuerlig, fordi det gir mening å si at noen er 175,28 centimeter og høy selv om vi ikke kan måle det.</p>
-<p>På den andre siden har vi kategoriske variabler. Det er data som består av kategorier i stedet for tall. Typiske eksempler er kjønn, eller utdanningsnivå. Blant kategoriske variabler finnes det nominale og ordinale variabler. Nominale variabler er variabler der det ikke finnes noe rekkefølge av kategoriene. For eksempel kjønn eller yrke.</p>
+<p>På den andre siden har vi kategoriske variabler. Det er data som består av kategorier i stedet for tall. Typiske eksempler er kjønn eller utdanningsnivå. Blant kategoriske variabler finnes det nominale og ordinale variabler. Nominale variabler er variabler der det ikke finnes noe rekkefølge av kategoriene. For eksempel kjønn eller yrke.</p>
 <p>Ordinale variabler er kategoriske variabler som har en opplagt rekkefølge i kategoriene. For eksempel hvis jeg lager en spørreundersøkelse om hvor godt forelesningsnotatene er likt blant studentene. I så fall er det kanskje svarkategoriene «veldig dårlig», «dårlig», «nøytral», «bra» eller «veldig bra». I så fall gir det mening å si at «veldig bra» er bedre enn «bra», som er bedre enn «nøytral» og så videre.</p>
 <p>Nå har vi hørt litt om forskjellige typer variabler. Men hvorfor bryr vi oss egentlig om dette?</p>
 <p>La oss si at vi har en undersøkelse som vurderer kundetilfredshet med svaralternativ «svært misfornøyd», «misfornøyd», «nøytral», «fornøyd» og «svært fornøyd». Dette er en ordinal variabel fordi det er en naturlig rekkefølge i svarkategoriene, men avstanden mellom dem er ikke nødvendigvis lik. Her er litt eksempeldata:</p>
@@ -1057,7 +1057,7 @@ Hvis vi prøver å predikere eksamenskarakteren til studenter i data science, s�
 <section id="numpy">
 <span id="sec-numpy"></span><h2>Numpy<a class="headerlink" href="#numpy" title="Permalink til denne oversikten">#</a></h2>
 <p>Denne delen handler om numpy-biblioteket, som vi bruker veldig ofte når vi jobber med data i python. Først er det viktig å huska at man ikke blir flink til å bruke numpy ved å lese om bruken av numpy. Den eneste måten man lærer å programmere er ved å faktisk programmere.</p>
-<p>Numpy er et bibliotek som brukes for å lage vektorer og matrisser. Her lager vi en vektor av som inneholder tall 1 og 2.</p>
+<p>Numpy er et bibliotek som brukes for å lage vektorer og matriser. Her lager vi en vektor av som inneholder tall 1 og 2.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">vec</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
@@ -1091,7 +1091,7 @@ Hvis vi prøver å predikere eksamenskarakteren til studenter i data science, s�
 </div>
 </div>
 </div>
-<p>Vi kan også lage matrisser. Her lager vi identitetsmatrissen i to dimensjoner.</p>
+<p>Vi kan også lage matriser. Her lager vi identitetsmatrisen i to dimensjoner.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mat</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
@@ -1106,7 +1106,7 @@ Hvis vi prøver å predikere eksamenskarakteren til studenter i data science, s�
 </div>
 </div>
 </div>
-<p>Når vi spør etter shape egenskapen får vi vite at matrissen har størrelsen 2 gang 2.</p>
+<p>Når vi spør etter shape egenskapen får vi vite at matrisen har størrelsen 2 gang 2.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mat</span><span class="o">.</span><span class="n">shape</span>
@@ -1119,8 +1119,8 @@ Hvis vi prøver å predikere eksamenskarakteren til studenter i data science, s�
 </div>
 </div>
 </div>
-<section id="lage-vektorer-og-matrisser">
-<h3>Lage vektorer og matrisser<a class="headerlink" href="#lage-vektorer-og-matrisser" title="Permalink til denne oversikten">#</a></h3>
+<section id="lage-vektorer-og-matriser">
+<h3>Lage vektorer og matriser<a class="headerlink" href="#lage-vektorer-og-matriser" title="Permalink til denne oversikten">#</a></h3>
 <p>Det finnes mange måter å lage en numpy array. Her viser vi noen eksempler.</p>
 <p>Numpy-funksjonen <code class="docutils literal notranslate"><span class="pre">arange</span></code> er det samme for numpy arrays som <code class="docutils literal notranslate"><span class="pre">range</span></code> er i standard python.</p>
 <div class="cell docutils container">
@@ -1182,7 +1182,7 @@ Hvis vi prøver å predikere eksamenskarakteren til studenter i data science, s�
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.04721295, 0.53844817, 0.2826313 , 0.79354404, 1.33411962])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.05854679, 1.33214152, 1.0447535 , 0.97745555, 0.81795519])
 </pre></div>
 </div>
 </div>
@@ -1194,8 +1194,8 @@ Hvis vi prøver å predikere eksamenskarakteren til studenter i data science, s�
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 1.62026715, -0.47635017,  1.40178029,  1.04247322],
-       [-0.27216122,  0.63293489,  0.63778064, -0.71771653]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[-1.60770599, -1.27979449,  1.71656902, -0.41912432],
+       [ 1.52782877,  0.79358093, -0.38699529, -0.53102461]])
 </pre></div>
 </div>
 </div>
@@ -1252,7 +1252,7 @@ Hvis vi prøver å predikere eksamenskarakteren til studenter i data science, s�
 </section>
 <section id="regning-i-numpy">
 <h3>Regning i numpy<a class="headerlink" href="#regning-i-numpy" title="Permalink til denne oversikten">#</a></h3>
-<p>Vanligvis når vi regner med numpy arrays, så gjør vi elementvise regninger. Vi kan for eksempel addere to matrisser eller multiplisere en matrisse med et tall.</p>
+<p>Vanligvis når vi regner med numpy arrays, så gjør vi elementvise regninger. Vi kan for eksempel addere to matriser eller multiplisere en matrise med et tall.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mat</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">7</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
@@ -1370,7 +1370,7 @@ Hvis vi prøver å predikere eksamenskarakteren til studenter i data science, s�
 </div>
 </div>
 </div>
-<p>Hvis vi vil multiplisere en matrisse med en vektor, så må vi være litt forsiktige. Her har vi lagd en identitetsmatrisse <code class="docutils literal notranslate"><span class="pre">mat</span></code> og en vektor <code class="docutils literal notranslate"><span class="pre">vec</span></code>.</p>
+<p>Hvis vi vil multiplisere en matrise med en vektor, så må vi være litt forsiktige. Her har vi lagd en identitetsmatrise <code class="docutils literal notranslate"><span class="pre">mat</span></code> og en vektor <code class="docutils literal notranslate"><span class="pre">vec</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mat</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
@@ -1392,7 +1392,7 @@ Hvis vi prøver å predikere eksamenskarakteren til studenter i data science, s�
 </div>
 </div>
 </div>
-<p>Hvis vi bare bruker mutliplikasjonstegnet, så gjør vi elementvis multiplikasjon. Når dimensjonene ikke er like, så gjør numpy en kolonnevise multiplikasjon. Den første kolonnen av identitetsmatrissen blir altså multiplisert med 1 og den andre kolonnen med 2.</p>
+<p>Hvis vi bare bruker mutliplikasjonstegnet, så gjør vi elementvis multiplikasjon. Når dimensjonene ikke er like, så gjør numpy en kolonnevise multiplikasjon. Den første kolonnen av identitetsmatrisen blir altså multiplisert med 1 og den andre kolonnen med 2.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mat</span> <span class="o">*</span> <span class="n">vec</span>
@@ -1407,9 +1407,9 @@ Hvis vi prøver å predikere eksamenskarakteren til studenter i data science, s�
 </div>
 </div>
 </section>
-<section id="undermatrisser">
-<h3>Undermatrisser<a class="headerlink" href="#undermatrisser" title="Permalink til denne oversikten">#</a></h3>
-<p>Når vi har en matrisse, så vil vi ofte bare se på en del eller undermatrisse av den. Det kan vi gjøre ved å spesifisere et enkelt element. Her viser vi matrisen <code class="docutils literal notranslate"><span class="pre">A</span></code> i rad én og kolonne to. Husk at vi begynner å nummerere med 0.</p>
+<section id="undermatriser">
+<h3>Undermatriser<a class="headerlink" href="#undermatriser" title="Permalink til denne oversikten">#</a></h3>
+<p>Når vi har en matrise, så vil vi ofte bare se på en del eller undermatrise av den. Det kan vi gjøre ved å spesifisere et enkelt element. Her viser vi matrisen <code class="docutils literal notranslate"><span class="pre">A</span></code> i rad én og kolonne to. Husk at vi begynner å numerere med 0.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
@@ -1437,7 +1437,7 @@ Hvis vi prøver å predikere eksamenskarakteren til studenter i data science, s�
 </div>
 </div>
 </div>
-<p>Vi kan også se på en hel rad eller kolonne ved å bruke kollon-tegnet på den andre dimensjonen.</p>
+<p>Vi kan også se på en hel rad eller kolonne ved å bruke kolon-tegnet på den andre dimensjonen.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="p">:]</span>
@@ -1462,7 +1462,7 @@ Hvis vi prøver å predikere eksamenskarakteren til studenter i data science, s�
 </div>
 </div>
 </div>
-<p>Vi kan også angi lister for rad og kolonner og kan bruke en forkortet notasjon i kollon j, som tar med alle radene eller kolonnene fra og inkludert i til men ekskludert j.</p>
+<p>Vi kan også angi lister for rad og kolonner og kan bruke en forkortet notasjon i kolon j, som tar med alle radene eller kolonnene fra og inkludert i til men ekskludert j.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span><span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">:]</span>
@@ -1550,7 +1550,7 @@ Hvis vi prøver å predikere eksamenskarakteren til studenter i data science, s�
 </div>
 <section id="lese-og-beskrive-data">
 <h3>Lese og beskrive data<a class="headerlink" href="#lese-og-beskrive-data" title="Permalink til denne oversikten">#</a></h3>
-<p>Vi begynner ved å lese inn data. Her bruker vi pandas sin <code class="docutils literal notranslate"><span class="pre">read_csv</span></code>-funksjonen. Det er kanskje den mest brukte måten å lese inn data. Men det finnes veldig mange forskjellige typer filer og for de fleste typer finnes det en pandas funksjon for å lese de inn, se i <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/io.html">dokumentasjonen</a>. Avhengig av hvordan data ser ut, så må vi også velge ut hvilke rad og kolonner vi vil lese inn, angi hvilke verdier som skal ansees som manglende verider, hva slags kodering tekstdata har, og mange andre egenskaper av data. Alt dette er mulig med de riktige argumentene til <code class="docutils literal notranslate"><span class="pre">read_csv</span></code>-funksjonen.</p>
+<p>Vi begynner ved å lese inn data. Her bruker vi pandas sin <code class="docutils literal notranslate"><span class="pre">read_csv</span></code>-funksjonen. Det er kanskje den mest brukte måten å lese inn data. Men det finnes veldig mange forskjellige typer filer og for de fleste typer finnes det en pandas funksjon for å lese de inn, se i <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/io.html">dokumentasjonen</a>. Avhengig av hvordan data ser ut, så må vi også velge ut hvilke rad og kolonner vi vil lese inn, angi hvilke verdier som skal ansees som manglende verdier, hva slags kodering tekstdata har, og mange andre egenskaper av data. Alt dette er mulig med de riktige argumentene til <code class="docutils literal notranslate"><span class="pre">read_csv</span></code>-funksjonen.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data/informatikkemner_uib.csv&#39;</span><span class="p">)</span>
@@ -1571,7 +1571,7 @@ Hvis vi prøver å predikere eksamenskarakteren til studenter i data science, s�
 </div>
 </div>
 </div>
-<p>Først ser vi igjen på shape. Datasettet har atlså 101 rad og 6 kolonner.</p>
+<p>Først ser vi igjen på shape. Datasettet har altså 101 rad og 6 kolonner.</p>
 <p>La oss se litt på de første radene ved hjelp av head-metoden. Det er ofte nyttig for å få et inntrykk av data.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -3112,7 +3112,7 @@ Name: studiepoeng, dtype: int64
 </div></div></div>
 </div>
 <p>Nå har vi omformattert datasettet til et annet format. Kan vi komme tilbake igjen?</p>
-<p>Her bruker vi akkurat de samme stegene men maklengs. Først legger vi til ’Karakter-’ til faget igjen.</p>
+<p>Her bruker vi akkurat de samme stegene men baklengs. Først legger vi til ’Karakter-’ til faget igjen.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_melted</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="s1">&#39;Fag&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Karakter-&#39;</span> <span class="o">+</span> <span class="n">df_melted</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="s1">&#39;Fag&#39;</span><span class="p">]</span>
@@ -3262,7 +3262,7 @@ Name: studiepoeng, dtype: int64
 </table>
 </div></div></div>
 </div>
-<p>Til slutt må vi også lage dummie-variablene igjen.</p>
+<p>Til slutt må vi også lage dummy-variablene igjen.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_tilbake</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">get_dummies</span><span class="p">(</span><span class="n">df_pivoted</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Studieprogram&#39;</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">prefix_sep</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">)</span>
