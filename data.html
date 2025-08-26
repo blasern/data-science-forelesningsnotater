@@ -1056,7 +1056,7 @@ Hvis vi prøver å predikere eksamenskarakteren til studenter i data science, s�
 </section>
 <section id="numpy">
 <span id="sec-numpy"></span><h2>Numpy<a class="headerlink" href="#numpy" title="Permalink til denne oversikten">#</a></h2>
-<p>Denne delen handler om numpy-biblioteket, som vi bruker veldig ofte når vi jobber med data i python. Først er det viktig å huska at man ikke blir flink til å bruke numpy ved å lese om bruken av numpy. Den eneste måten man lærer å programmere er ved å faktisk programmere.</p>
+<p>Denne delen handler om numpy-biblioteket, som vi bruker veldig ofte når vi jobber med data i python. Først er det viktig å huske at man ikke blir flink til å bruke numpy ved å lese om bruken av numpy. Den eneste måten man lærer å programmere er ved å faktisk programmere.</p>
 <p>Numpy er et bibliotek som brukes for å lage vektorer og matriser. Her lager vi en vektor av som inneholder tall 1 og 2.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1182,7 +1182,7 @@ Hvis vi prøver å predikere eksamenskarakteren til studenter i data science, s�
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.05854679, 1.33214152, 1.0447535 , 0.97745555, 0.81795519])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.56261561, 1.43111976, 0.86058449, 0.01393595, 0.74306637])
 </pre></div>
 </div>
 </div>
@@ -1194,8 +1194,8 @@ Hvis vi prøver å predikere eksamenskarakteren til studenter i data science, s�
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[-1.60770599, -1.27979449,  1.71656902, -0.41912432],
-       [ 1.52782877,  0.79358093, -0.38699529, -0.53102461]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 1.18563317, -1.35351749, -0.98807254,  0.05428065],
+       [ 0.47403852, -0.17695827,  1.06924423,  1.39166415]])
 </pre></div>
 </div>
 </div>
@@ -1493,7 +1493,7 @@ Hvis vi prøver å predikere eksamenskarakteren til studenter i data science, s�
 </section>
 <section id="kombinere-data">
 <h3>Kombinere data<a class="headerlink" href="#kombinere-data" title="Permalink til denne oversikten">#</a></h3>
-<p>For å kombinere data, dan vi bruke <code class="docutils literal notranslate"><span class="pre">hstack</span></code> og <code class="docutils literal notranslate"><span class="pre">vstack</span></code> funksjonene. <code class="docutils literal notranslate"><span class="pre">hstack</span></code> setter data sammen horisontalt, fungerer altså kun hvis de to numpy arrays vi vil kombinere har samme antall rad. <code class="docutils literal notranslate"><span class="pre">vstack</span></code> setter data sammen vertikalt, fungerer altså hvis de to numpy arrays vi vil kombinere har samme antall kolonner.</p>
+<p>For å kombinere data, kan vi bruke <code class="docutils literal notranslate"><span class="pre">hstack</span></code> og <code class="docutils literal notranslate"><span class="pre">vstack</span></code> funksjonene. <code class="docutils literal notranslate"><span class="pre">hstack</span></code> setter data sammen horisontalt, fungerer altså kun hvis de to numpy arrays vi vil kombinere har samme antall rad. <code class="docutils literal notranslate"><span class="pre">vstack</span></code> setter data sammen vertikalt, fungerer altså hvis de to numpy arrays vi vil kombinere har samme antall kolonner.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
@@ -2529,7 +2529,7 @@ Name: studiepoeng, dtype: int64
 </table>
 </div></div></div>
 </div>
-<p>Nå skal vi kombinere de to dataset. Først må vi sette den kolonnen som skal være lik som indeks-kolonnen. Det gjør at vi kan nå bruke id direkte for å få data rad med denne id-en.</p>
+<p>Nå skal vi kombinere de to datasett. Først må vi sette den kolonnen som skal være lik som indeks-kolonnen. Det gjør at vi kan nå bruke id direkte for å få data rad med denne id-en.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_undervisere_2024</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;emne&#39;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -2539,7 +2539,7 @@ Name: studiepoeng, dtype: int64
 </div>
 </div>
 <p>Nå er vi klar til å kombinere data.</p>
-<p>For å kombinere data må vi først spesifisere de to dataset. Så må vi angi hva å gjøre når de to datasett ikke inneholder de samme studentene. Ved bruk av ’right’, så får vi med alle emner der vi har informasjon om undervisere.</p>
+<p>For å kombinere data må vi først spesifisere de to datasett. Så må vi angi hva å gjøre når de to datasett ikke inneholder de samme studentene. Ved bruk av ’right’, så får vi med alle emner der vi har informasjon om undervisere.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">df_undervisere_2024</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;right&#39;</span><span class="p">)</span>
@@ -3199,7 +3199,7 @@ Name: studiepoeng, dtype: int64
 </table>
 </div></div></div>
 </div>
-<p>Så bruker vi funksjonen <code class="docutils literal notranslate"><span class="pre">pivot</span></code> til å lage flere kolonner ut av en kolonne. Legg merke til at det som var <code class="docutils literal notranslate"><span class="pre">id_vars</span></code> for <code class="docutils literal notranslate"><span class="pre">melt</span></code>-funksjonen blir til <code class="docutils literal notranslate"><span class="pre">index</span></code> nå. Det som var <code class="docutils literal notranslate"><span class="pre">var_name</span></code> blir til <code class="docutils literal notranslate"><span class="pre">columns</span></code> og det som var <code class="docutils literal notranslate"><span class="pre">value_name</span></code> ble til <code class="docutils literal notranslate"><span class="pre">values</span></code>. Her ser godt at <code class="docutils literal notranslate"><span class="pre">pivot</span></code> og <code class="docutils literal notranslate"><span class="pre">melt</span></code> er inverse funkjsoner.</p>
+<p>Så bruker vi funksjonen <code class="docutils literal notranslate"><span class="pre">pivot</span></code> til å lage flere kolonner ut av en kolonne. Legg merke til at det som var <code class="docutils literal notranslate"><span class="pre">id_vars</span></code> for <code class="docutils literal notranslate"><span class="pre">melt</span></code>-funksjonen blir til <code class="docutils literal notranslate"><span class="pre">index</span></code> nå. Det som var <code class="docutils literal notranslate"><span class="pre">var_name</span></code> blir til <code class="docutils literal notranslate"><span class="pre">columns</span></code> og det som var <code class="docutils literal notranslate"><span class="pre">value_name</span></code> ble til <code class="docutils literal notranslate"><span class="pre">values</span></code>. Her ser godt at <code class="docutils literal notranslate"><span class="pre">pivot</span></code> og <code class="docutils literal notranslate"><span class="pre">melt</span></code> er inverse funksjoner.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_pivoted</span> <span class="o">=</span> <span class="n">df_melted</span><span class="o">.</span><span class="n">pivot</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;StudentID&#39;</span><span class="p">,</span> <span class="s1">&#39;Alder&#39;</span><span class="p">,</span> <span class="s1">&#39;Studieprogram&#39;</span><span class="p">],</span> <span class="n">columns</span><span class="o">=</span><span class="s1">&#39;Fag&#39;</span><span class="p">,</span> <span class="n">values</span><span class="o">=</span><span class="s1">&#39;Karakter&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
@@ -3329,7 +3329,7 @@ Name: studiepoeng, dtype: int64
 </table>
 </div></div></div>
 </div>
-<p>Nå har vi de samme data som vi begynte med. Vi kan sjkke det ved gjelp av <code class="docutils literal notranslate"><span class="pre">equals</span></code>-funksjonen. Siden kolonne-rekkefølgen har forandret seg bruker vi <code class="docutils literal notranslate"><span class="pre">sort_index</span></code> på begge dataframes.</p>
+<p>Nå har vi de samme data som vi begynte med. Vi kan sjekke det ved gjelp av <code class="docutils literal notranslate"><span class="pre">equals</span></code>-funksjonen. Siden kolonne-rekkefølgen har forandret seg bruker vi <code class="docutils literal notranslate"><span class="pre">sort_index</span></code> på begge dataframes.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_original</span><span class="o">.</span><span class="n">sort_index</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">equals</span><span class="p">(</span><span class="n">df_tilbake</span><span class="o">.</span><span class="n">sort_index</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>

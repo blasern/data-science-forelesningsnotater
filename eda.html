@@ -615,7 +615,7 @@ title="Print to PDF"
 <section id="sannsynlighet">
 <span id="sec-sannsynlighet"></span><h2>Sannsynlighet<a class="headerlink" href="#sannsynlighet" title="Permalink til denne oversikten">#</a></h2>
 <p>Nesten alle steder der vi bruker data science må vi håndtere usikkerhet.</p>
-<p>For eksempel hvis vi måler blodtrykket hos legen så får vi forskjellige svar om vi har satt på legekontoret i en halv time før blodtrykket ble målt eller om vi måtte løpe for å rekke legetimen og så ble blodtrykk målt kort tid etter vi kom os til legekontoret. Hvis vi prøver å finne ut om pasienten er sykk, så er denne forskjellen bare støy som kan forvirre modellene.</p>
+<p>For eksempel hvis vi måler blodtrykket hos legen så får vi forskjellige svar om vi har satt på legekontoret i en halv time før blodtrykket ble målt eller om vi måtte løpe for å rekke legetimen og så ble blodtrykk målt kort tid etter vi kom os til legekontoret. Hvis vi prøver å finne ut om pasienten er syk, så er denne forskjellen bare støy som kan forvirre modellene.</p>
 <p>Usikkerhet i data fører også til usikkerhet i konklusjonene våre. Hvis vi lager en modell for å predikere om det regner i morgen eller ikke og får svar at det mest sannsynlig ikke regner, så er det en stor forskjell mellom en 5% sannsynlighet for regn og en 40% sannsynlighet for regn.</p>
 <p>Språket for å håndtere usikkerhet er sannsynlighetsteori, en grein av matematikk som formaliserer sannsynligheter. I sannsynlighetsteori beskrives stokastiske variabler gjennom sannsynlighetsrom og målbare funksjoner. Vi har følgende abstrakte definisjonen:</p>
 <blockquote>
@@ -631,8 +631,8 @@ Sannsynligheten for en av de mulige delmengdene er i dette tilfelle bare større
 <p><strong>Ventetid:</strong> Tenk deg at du venter på bybanen. La den stokastiske variabelen <span class="math notranslate nohighlight">\(X\)</span> representere «ventetiden i minutter fra du ankommer bybanestoppet til bybanen kommer». Hvis du akkurat har kommet til bybanestoppet og bybanen kommer med en gang, er <span class="math notranslate nohighlight">\(X=0\)</span> minutter. Hvis du må vente litt, kan <span class="math notranslate nohighlight">\(X\)</span> for eksempel være 4 minutter. Hvis vi antar at bybanen kommer nøyaktig hver tiende minutt og du kommer på et tilfeldig tidspunkt, så kan vi for eksempel se på sannsynlighet for å måtte vente mindre enn eller lik 3 minutter <span class="math notranslate nohighlight">\(P(X\leq3) = \frac{3}{10} = 0.3\)</span> eller på sannsynligheten for å måtte vente mellom 4 og 8 minutter <span class="math notranslate nohighlight">\(P(4&lt;X\leq 8) = \frac{8-4}{10} = 0.4\)</span>.</p>
 <section id="sannsynlighetsfordeling">
 <h3>Sannsynlighetsfordeling<a class="headerlink" href="#sannsynlighetsfordeling" title="Permalink til denne oversikten">#</a></h3>
-<p>I disse forelesningsnotatene bruker vi bare stokastiske variabler med reelle verdier (<span class="math notranslate nohighlight">\(E = \mathbb{R}\)</span>) som vi kan beskrive ved hjelp av en fordelingsfunksjon. Den kumulative fordelingsfunksjonen <span class="math notranslate nohighlight">\(F\)</span> defineres gjennom at <span class="math notranslate nohighlight">\(F(x)\)</span> er sannsynligheten at den stokastiske variabelen er mindre enn lik <span class="math notranslate nohighlight">\(x\)</span>, altså
-$<span class="math notranslate nohighlight">\(F(x) = P(X \le x).\)</span>$
+<p>I disse forelesningsnotatene bruker vi bare stokastiske variabler med reelle verdier (<span class="math notranslate nohighlight">\(E = \mathbb{R}\)</span>) som vi kan beskrive ved hjelp av en fordelingsfunksjon. Den kumulative fordelingsfunksjonen <span class="math notranslate nohighlight">\(F\)</span> defineres gjennom at <span class="math notranslate nohighlight">\(F(x)\)</span> er sannsynligheten at den stokastiske variabelen er mindre enn eller lik <span class="math notranslate nohighlight">\(x\)</span>, altså
+<span class="math notranslate nohighlight">\(F(x) = P(X \le x).\)</span>
 Det følger direkte fra definisjonen at fordelingsfunksjoner tar verdier mellom 0 og 1 og er monotont stigende.</p>
 <p>Hvis vi går tilbake til terningene, så blir altså fordelingsfunksjonen som følgende:</p>
 <div class="cell tag_hide-input docutils container">
@@ -671,7 +671,7 @@ Det følger direkte fra definisjonen at fordelingsfunksjoner tar verdier mellom 
 <p>Så blir fordelingsfunksjonen summen av sannsynlighetsmassefunksjonen for alle verdiene mindre enn x, altså</p>
 <div class="math notranslate nohighlight">
 \[ F(x) = \sum_{u \le x} f(u). \]</div>
-<p>For kontinuerlige stokastiske variabler fungerer ikke dette helt. Men vi kan generalisere det med en tetthetsfunksjonen. Det er en funksjon som har den lignende egenskapen at fordelingsfunksjonen er integralet over tetthetsfunksjonen for alle verdiene mindre enn x,</p>
+<p>For kontinuerlige stokastiske variabler fungerer ikke dette helt. Men vi kan generalisere det med en tetthetsfunksjonen. Det er en funksjon som har den lignende egenskapen at fordelingsfunksjonen er integralet over tetthetsfunksjonen for alle verdiene mindre enn eller lik x,</p>
 <div class="math notranslate nohighlight">
 \[F(x) = \int_{-\infty}^{x} f(u) du. \]</div>
 <p>Tetthetsfunksjonen er altså definert gjennom denne egenskapen. Men den har ikke interpretasjonen at det er sannsynligheten for en bestemt verdi.</p>
@@ -680,7 +680,7 @@ Det følger direkte fra definisjonen at fordelingsfunksjoner tar verdier mellom 
 \[P(A) = \int_{A} f(u) du.\]</div>
 <p>Nå ser vi på flere sannsynlighetsfordelinger.</p>
 <p><strong>Binomisk fordeling:</strong> Hvordan beregner vi sannsynligheten for å få 2 kron i 3 myntkast? Mer generellt, hva er sannsynligheten for å ha eksakt <span class="math notranslate nohighlight">\(k\)</span> kron blant <span class="math notranslate nohighlight">\(n\)</span> myntkast med mynter som har en sannsynlighet å få kron som er <span class="math notranslate nohighlight">\(p\)</span>? For å svare på det spørsmålet kan vi bruke den binomiske fordelingen med sannsynlighetsmassefunksjonen
-$<span class="math notranslate nohighlight">\( f(k) = \binom{n}{k} p^k(1-p)^{n-k}.\)</span>$</p>
+<span class="math notranslate nohighlight">\( f(k) = \binom{n}{k} p^k(1-p)^{n-k}.\)</span></p>
 <p>Her er grafen av sannsynlighetsmassefunksjonen for <span class="math notranslate nohighlight">\(n=20\)</span> og <span class="math notranslate nohighlight">\(p=0.3\)</span>.</p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
