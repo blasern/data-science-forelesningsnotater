@@ -941,7 +941,9 @@ MSE: 2.59
 4-gradspolynom - MSE: 0.2
 5-gradspolynom - MSE: 0.25
 6-gradspolynom - MSE: 0.58
-7-gradspolynom - MSE: 1.02
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>7-gradspolynom - MSE: 1.02
 8-gradspolynom - MSE: 1.76
 9-gradspolynom - MSE: 2.52
 </pre></div>
@@ -1111,7 +1113,7 @@ Nøyaktighet: 0.53
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LogisticRegression</span>
 <span class="c1"># lage modell</span>
-<span class="n">logreg</span> <span class="o">=</span> <span class="n">LogisticRegression</span><span class="p">(</span><span class="n">penalty</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+<span class="n">logreg</span> <span class="o">=</span> <span class="n">LogisticRegression</span><span class="p">()</span>
 <span class="c1"># tilpasse modell</span>
 <span class="n">logreg</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
 <span class="c1"># prediksjon på valideringsdata</span>
@@ -1122,41 +1124,7 @@ Nøyaktighet: 0.53
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span> <span class="p">[</span><span class="mi">28</span><span class="p">],</span> <span class="n">line</span> <span class="mi">5</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">logreg</span> <span class="o">=</span> <span class="n">LogisticRegression</span><span class="p">(</span><span class="n">penalty</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="c1"># tilpasse modell</span>
-<span class="ne">----&gt; </span><span class="mi">5</span> <span class="n">logreg</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="c1"># prediksjon på valideringsdata</span>
-<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="n">prediction</span> <span class="o">=</span> <span class="n">logreg</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_val</span><span class="p">)</span>
-
-<span class="nn">File ~/anaconda3/envs/dsbook/lib/python3.11/site-packages/sklearn/linear_model/_logistic.py:1091,</span> in <span class="ni">LogisticRegression.fit</span><span class="nt">(self, X, y, sample_weight)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1062</span> <span class="k">def</span> <span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">sample_weight</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-<span class="g g-Whitespace">   </span><span class="mi">1063</span>     <span class="sd">&quot;&quot;&quot;</span>
-<span class="g g-Whitespace">   </span><span class="mi">1064</span><span class="sd">     Fit the model according to the given training data.</span>
-<span class="g g-Whitespace">   </span><span class="mi">1065</span><span class="sd"> </span>
-<span class="sd">   (...)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1089</span><span class="sd">     The SAGA solver supports both float64 and float32 bit arrays.</span>
-<span class="g g-Whitespace">   </span><span class="mi">1090</span><span class="sd">     &quot;&quot;&quot;</span>
-<span class="ne">-&gt; </span><span class="mi">1091</span>     <span class="n">solver</span> <span class="o">=</span> <span class="n">_check_solver</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">solver</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">penalty</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">dual</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1093</span>     <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">C</span><span class="p">,</span> <span class="n">numbers</span><span class="o">.</span><span class="n">Number</span><span class="p">)</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">C</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">1094</span>         <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Penalty term must be positive; got (C=</span><span class="si">%r</span><span class="s2">)&quot;</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">C</span><span class="p">)</span>
-
-<span class="nn">File ~/anaconda3/envs/dsbook/lib/python3.11/site-packages/sklearn/linear_model/_logistic.py:55,</span> in <span class="ni">_check_solver</span><span class="nt">(solver, penalty, dual)</span>
-<span class="g g-Whitespace">     </span><span class="mi">53</span> <span class="n">all_penalties</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;l1&quot;</span><span class="p">,</span> <span class="s2">&quot;l2&quot;</span><span class="p">,</span> <span class="s2">&quot;elasticnet&quot;</span><span class="p">,</span> <span class="s2">&quot;none&quot;</span><span class="p">]</span>
-<span class="g g-Whitespace">     </span><span class="mi">54</span> <span class="k">if</span> <span class="n">penalty</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">all_penalties</span><span class="p">:</span>
-<span class="ne">---&gt; </span><span class="mi">55</span>     <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
-<span class="g g-Whitespace">     </span><span class="mi">56</span>         <span class="s2">&quot;Logistic Regression supports only penalties in </span><span class="si">%s</span><span class="s2">, got </span><span class="si">%s</span><span class="s2">.&quot;</span>
-<span class="g g-Whitespace">     </span><span class="mi">57</span>         <span class="o">%</span> <span class="p">(</span><span class="n">all_penalties</span><span class="p">,</span> <span class="n">penalty</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">58</span>     <span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">60</span> <span class="k">if</span> <span class="n">solver</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;liblinear&quot;</span><span class="p">,</span> <span class="s2">&quot;saga&quot;</span><span class="p">]</span> <span class="ow">and</span> <span class="n">penalty</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">(</span><span class="s2">&quot;l2&quot;</span><span class="p">,</span> <span class="s2">&quot;none&quot;</span><span class="p">):</span>
-<span class="g g-Whitespace">     </span><span class="mi">61</span>     <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
-<span class="g g-Whitespace">     </span><span class="mi">62</span>         <span class="s2">&quot;Solver </span><span class="si">%s</span><span class="s2"> supports only &#39;l2&#39; or &#39;none&#39; penalties, got </span><span class="si">%s</span><span class="s2"> penalty.&quot;</span>
-<span class="g g-Whitespace">     </span><span class="mi">63</span>         <span class="o">%</span> <span class="p">(</span><span class="n">solver</span><span class="p">,</span> <span class="n">penalty</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">64</span>     <span class="p">)</span>
-
-<span class="ne">ValueError</span>: Logistic Regression supports only penalties in [&#39;l1&#39;, &#39;l2&#39;, &#39;elasticnet&#39;, &#39;none&#39;], got None.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Nøyaktighet: 0.77
 </pre></div>
 </div>
 </div>
@@ -1167,6 +1135,8 @@ Nøyaktighet: 0.53
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="_images/modeling_59_0.svg" src="_images/modeling_59_0.svg" /></div>
 </div>
 <p>Prediksjoner fra logistisk regresjon ser vi her. Vi ser at skillelinjen mellom er en rett linje. Det gir mening, siden skillelinjen er der sannsynligheten er 0.5 og det modellerer vi som en lineærkombinasjon av de uavhengige variablene.</p>
 </section>
@@ -1193,6 +1163,36 @@ Nøyaktighet: 0.53
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1-nærmeste naboer - nøyaktighet: 0.77
+3-nærmeste naboer - nøyaktighet: 0.8
+5-nærmeste naboer - nøyaktighet: 0.8
+7-nærmeste naboer - nøyaktighet: 0.8
+9-nærmeste naboer - nøyaktighet: 0.8
+11-nærmeste naboer - nøyaktighet: 0.83
+13-nærmeste naboer - nøyaktighet: 0.83
+15-nærmeste naboer - nøyaktighet: 0.8
+17-nærmeste naboer - nøyaktighet: 0.83
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>19-nærmeste naboer - nøyaktighet: 0.8
+21-nærmeste naboer - nøyaktighet: 0.8
+23-nærmeste naboer - nøyaktighet: 0.8
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>25-nærmeste naboer - nøyaktighet: 0.8
+27-nærmeste naboer - nøyaktighet: 0.83
+29-nærmeste naboer - nøyaktighet: 0.83
+31-nærmeste naboer - nøyaktighet: 0.83
+33-nærmeste naboer - nøyaktighet: 0.83
+35-nærmeste naboer - nøyaktighet: 0.83
+37-nærmeste naboer - nøyaktighet: 0.83
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>39-nærmeste naboer - nøyaktighet: 0.83
+</pre></div>
+</div>
+</div>
 </div>
 <p>Vi legger merke til at det kan bli vanskelig å skille modeller bare basert på nøyaktighet. Her velger vi den enkleste modellen (færrest antall naboer) som gir den maksimale nøyaktigheten.</p>
 <div class="cell docutils container">
@@ -1201,6 +1201,8 @@ Nøyaktighet: 0.53
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="_images/modeling_64_0.svg" src="_images/modeling_64_0.svg" /></div>
 </div>
 <p>Her ser vi på skillelinjen mellom de to klassene i 17-nærmeste nabo-klassifikasjonsmodellen.</p>
 <div class="cell docutils container">
@@ -1209,6 +1211,11 @@ Nøyaktighet: 0.53
 <span class="n">prediction</span> <span class="o">=</span> <span class="n">models</span><span class="p">[</span><span class="mi">17</span><span class="p">]</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
 <span class="c1"># beregn gjennomsnittlig kvadrert feil på testdata</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;17-nærmeste naboer - nøyaktighet: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">prediction</span><span class="p">),</span> <span class="n">decimals</span><span class="o">=</span><span class="mi">2</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>17-nærmeste naboer - nøyaktighet: 0.8
 </pre></div>
 </div>
 </div>
@@ -1284,6 +1291,8 @@ Nøyaktighet: 0.53
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="_images/modeling_71_0.svg" src="_images/modeling_71_0.svg" /></div>
 </div>
 <p>Her ser vi et eksempel med tetthetsestimat gitt i blått og oransje for de to gruppene <span class="math notranslate nohighlight">\(a\)</span> og <span class="math notranslate nohighlight">\(b\)</span>.</p>
 <div class="cell tag_hide-input docutils container">
@@ -1292,6 +1301,44 @@ Nøyaktighet: 0.53
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>høyde</th>
+    </tr>
+    <tr>
+      <th>sample</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>a</th>
+      <td>179.744852</td>
+    </tr>
+    <tr>
+      <th>b</th>
+      <td>181.466806</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 <p>Middelverdien av høyden i sample <span class="math notranslate nohighlight">\(a\)</span> i blått er 179.7, og i sample <span class="math notranslate nohighlight">\(b\)</span> i oransje er 181.5. Spørsmålet vi prøver å svare på er hva er sannsynligheten å se en så stor forskjell som vi ser, hvis forventningsverdien av fordelingen i populasjon <span class="math notranslate nohighlight">\(a\)</span> og populasjon <span class="math notranslate nohighlight">\(b\)</span> egentlig er like.</p>
 <div class="cell docutils container">
@@ -1299,6 +1346,11 @@ Nøyaktighet: 0.53
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">høyde_a</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="s1">&#39;sample&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;høyde&#39;</span><span class="p">]</span>
 <span class="n">høyde_b</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="s1">&#39;sample&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;høyde&#39;</span><span class="p">]</span>
 <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">stats</span><span class="o">.</span><span class="n">ttest_ind</span><span class="p">(</span><span class="n">høyde_a</span><span class="p">,</span> <span class="n">høyde_b</span><span class="p">)</span><span class="o">.</span><span class="n">pvalue</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.336
 </pre></div>
 </div>
 </div>
