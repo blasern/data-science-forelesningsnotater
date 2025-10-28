@@ -434,7 +434,7 @@ title="Print to PDF"
 <p>Vi bruker anbefalingssystemer hele tiden og nå skal dere lære hvordan de fungerer. Bedrifter bruker anbefalingssystemer for å presentere kunder for produkter eller tjenester de sannsynligvis vil kjøpe, basert på tidligere kjøp eller søkevaner. Dette er spesielt viktig for e-handel, streaming-tjenester, og reklame.</p>
 <p>Det finnes to hovedmetoder som blir brukt for å predikere vurderinger.</p>
 <p>I <em>innholdsbasert filtrering</em> anbefaler vi de varene til en bruker som ligner på varer denne brukeren har tidligere likt.</p>
-<p>I <em>sammarbeidsbasert filtrering</em> på den andre siden er ideen å finne brukere som ligner på oss. Så får vi anbefalinger basert på det folk som ligner på oss liker.</p>
+<p>I <em>samarbeidsbasert filtrering</em> på den andre siden er ideen å finne brukere som ligner på oss. Så får vi anbefalinger basert på det folk som ligner på oss liker.</p>
 <p>Nå skal vi gi en liten innføring i hvordan enkle anbefalingssystemer kan bygges opp. Reelle anbefalingssytemer er ofte mer komplekse og har både innholdsbaserte og sammarbeidsbaserte komponenter.</p>
 <section id="innholdsbasert-filtrering">
 <h2>Innholdsbasert filtrering<a class="headerlink" href="#innholdsbasert-filtrering" title="Permalink til denne oversikten">#</a></h2>
@@ -952,7 +952,7 @@ dtype: float64
 </table>
 </div></div></div>
 </div>
-<p>Nå ser vi at selv om vi brukte 1-nærmeste nabo-regresjon, fikk vi en verdier som ikke har vært med i datasettet. Det er på grunn av måten vi først trekker fra gjennomsnittet og så legger den til igjen til slutt.</p>
+<p>Nå ser vi at selv om vi brukte 1-nærmeste nabo-regresjon, fikk vi en verdier som ikke har vært med i datasettet. Det er på grunn av måten vi først trekker fra gjennomsnittet av Kari sine vurderinger og så legger til gjennomsnittet av Ali sine vurderinger til slutt.</p>
 <p>Her har vi brukt bruker-basert samarbeidsbasert filtrering. Det vil si at vi så på korrelasjon mellom brukere. Vi kunne i stedet for også sett på korrelasjon mellom vurderingene de forskjellige varene får. Utregningen ville ellers vært helt likt.</p>
 <p>Den store fordelen med samarbeidsbasert filtrering er at vi slipper å lage vareprofiler.</p>
 <p>Men for å gjøre dette, trenger vi mange brukere til å finne noen som faktisk ligner på alle. Det er spesielt vanskelig siden få brukere har vurdert de samme varene. Vi kan heller ikke anbefale noen nye varer. Og det kan føre til generell popularitetsbias, slik at vi anbefaler mest populære varer.</p>
@@ -964,7 +964,7 @@ dtype: float64
 <div class="math notranslate nohighlight">
 \[\sqrt {\frac {\sum _{i=1}^{N}({\hat {y}}_{ij}-y_{ij})^{2}}{N}}\]</div>
 <p>på valideringsdata for å velge ut modeller. Her <span class="math notranslate nohighlight">\(N\)</span> er antall prediksjoner, <span class="math notranslate nohighlight">\(\hat{y}_{ij}\)</span> er prediskjon av vare <span class="math notranslate nohighlight">\(i\)</span> fra bruker <span class="math notranslate nohighlight">\(j\)</span> og <span class="math notranslate nohighlight">\(y_{ij}\)</span> er den faktiske vurderingen av vare <span class="math notranslate nohighlight">\(i\)</span> fra bruker <span class="math notranslate nohighlight">\(j\)</span>.</p>
-<p>Selv om gjennomsnittig kvadrert feil ofte blir brukt, så er det kanskje ikke den beste metrikken. Vi er jo ikke egentlig interesserte i de faktiske verdiene og bryr oss mer om høye vurderinger enn lave. Av og til vil vi også gi anbefalinger som er mer varerte. Derfor kan vi bruke mål basert på diversitet, rekkefølge av vurderingene, eller vekte høye prediksjoner mer. Dette skal vi ikke se på i mer detalj, men det er viktig å huske at metrikken er vikig og kan ha en stor innflytelse på reslutatene.</p>
+<p>Selv om gjennomsnittig kvadrert feil ofte blir brukt, så er det kanskje ikke den beste metrikken. Vi er jo ikke egentlig interesserte i de faktiske verdiene og bryr oss mer om høye vurderinger enn lave. Av og til vil vi også gi anbefalinger som er mer varerte. Derfor kan vi bruke mål basert på diversitet, rekkefølge av vurderingene, eller vekte høye prediksjoner mer. Dette skal vi ikke se på i mer detalj, men det er viktig å huske at metrikken er viktig og kan ha en stor innflytelse på resultatene.</p>
 </section>
 </section>
 
