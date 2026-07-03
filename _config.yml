@@ -2,13 +2,15 @@
 # Learn more at https://jupyterbook.org/customize/config.html
 
 title: Innføring i data science
-author: Nello Blaser
+author: Nello Blaser, Pekka Parviainen
 logo: figures/logo.png
+copyright: 2022, 2026
 
 # Force re-execution of notebooks on each build.
 # See https://jupyterbook.org/content/execute.html
 execute:
   execute_notebooks: force
+  execution_timeout: 120
 
 # Define the name of the latex output file for PDF builds
 latex:

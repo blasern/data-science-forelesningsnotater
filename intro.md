@@ -20,9 +20,9 @@ Så hva slags vitenskapelige metoder er det vi snakker om? Data science er i skj
 
 ![venn_diagram](figures/dsvenn.svg)
 
-I denne sammenhengen betyr domenekunnskap kunnskap om domenen data kommer fra. Det vil si at hvis vi for eksempel jobber med medisinske data, så er det viktig å vite noe om medisin for å forstå hvordan vi skal analysere data og hva resultatene av dataanalyser faktisk betyr. Siden det er mange dommener som data science blir brukt i, så handler de forelesningsnotatene mest om skjæringspunktet mellom datavitenskap, matematikk og statistikk. 
+I denne sammenhengen betyr domenekunnskap kunnskap om domenen data kommer fra. Det vil si at hvis vi for eksempel jobber med medisinske data, så er det viktig å vite noe om medisin for å forstå hvordan vi skal analysere data og hva resultatene av dataanalyser faktisk betyr. Siden det er mange domener som data science blir brukt i, så handler de forelesningsnotatene mest om skjæringspunktet mellom datavitenskap, matematikk og statistikk. 
 
-Forelesningsnotatene er delt opp i åtte kapitler. Vi går ikke gjennom data science prosessen lineært fordi det ikke er mulig å lære seg god prosjektdesign uten å først kunne noe om data og forstå forskjellige måter å analysere data på. 
+Forelesningsnotatene er delt opp i ni kapitler. Vi går ikke gjennom data science prosessen lineært fordi det ikke er mulig å lære seg god prosjektdesign uten å først kunne noe om data og forstå forskjellige måter å analysere data på. 
 
 ## Innhold
 ```{tableofcontents}

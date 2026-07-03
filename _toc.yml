@@ -4,6 +4,7 @@
 format: jb-book
 root: intro
 chapters:
+- file: process
 - file: data
 - file: eda
 - file: modeling
@@ -11,4 +12,4 @@ chapters:
 - file: communication
 - file: implementation
 - file: studydesign
-- file: recommendation
+- file: beste_praksis
