@@ -11,5 +11,6 @@ chapters:
 - file: variables
 - file: communication
 - file: implementation
-- file: studydesign
 - file: beste_praksis
+- file: studydesign
+
