@@ -118,6 +118,11 @@ const thebe_selector_output = ".output, .cell_output"
         </ul>
         <ul class="current nav bd-sidenav">
  <li class="toctree-l1">
+  <a class="reference internal" href="process.html">
+   Data science-prosessen
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="data.html">
    Data
   </a>
@@ -148,13 +153,13 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="studydesign.html">
-   Studiedesign
+  <a class="reference internal" href="beste_praksis.html">
+   Beste praksis i data science
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="recommendation.html">
-   Anbefalingssystemer
+  <a class="reference internal" href="studydesign.html">
+   Studiedesign
   </a>
  </li>
 </ul>
@@ -751,10 +756,11 @@ Test-data - X: (100, 2) , y: (100,)
 </div>
 </div>
 </div>
+<p>Når vi deler data i trenings-, validerings- og testdata, er hele poenget å få et ærlig bilde av hvor godt modellen vår generaliserer til nye, usette data. Datalekkasje (<em>data leakage</em>) oppstår når informasjon fra validerings- eller testdata — eller informasjon vi i praksis ikke ville hatt tilgjengelig på prediksjonstidspunktet — likevel sniker seg inn i treningen av modellen. Resultatet er at modellen ser kunstig god ut under evaluering, men presterer dårligere når den møter helt nye data i den virkelige verden. Datalekkasje er en av de vanligste og mest lumske feilkildene i data science, nettopp fordi koden ofte kjører uten feilmeldinger — resultatet ser bare for godt ut til å være sant.</p>
 </section>
 <section id="klyngeanalyse">
 <h2>Klyngeanalyse<a class="headerlink" href="#klyngeanalyse" title="Permalink til denne oversikten">#</a></h2>
-<p>Problemet i klyngeanalyse er å gruppere data i forskjellige delmengder kalt klynger. Vi får gitt data uten å vite om det er grupper, hvor mange grupper det er, eller hvilken gruppe en spesifikk datapunkt hører til. Målet er å lage en modell eller funksjon som tar datapunkt som input og gir tilbake hvilken klynge de hører til. Her er et eksempel med data i to dimensjoner. Her ser vi enkelt at det er tre grupper av data.</p>
+<p>Problemet i klyngeanalyse (<em>clustering</em>) er å gruppere data i forskjellige delmengder kalt klynger. Vi får gitt data uten å vite om det er grupper, hvor mange grupper det er, eller hvilken gruppe en spesifikk datapunkt hører til. Målet er å lage en modell eller funksjon som tar datapunkt som input og gir tilbake hvilken klynge de hører til. Her er et eksempel med data i to dimensjoner. Her ser vi enkelt at det er tre grupper av data.</p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">make_blobs</span><span class="p">(</span><span class="n">n_samples</span><span class="o">=</span><span class="mi">1500</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span>
@@ -764,7 +770,7 @@ Test-data - X: (100, 2) , y: (100,)
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/modeling_22_0.svg" src="_images/modeling_22_0.svg" /></div>
+<img alt="_images/modeling_23_0.svg" src="_images/modeling_23_0.svg" /></div>
 </div>
 <p>Når vi bruker en algoritme for å finne klyngler, så får vi for eksempel ut følgende tilhørigheten.</p>
 <div class="cell tag_hide-input docutils container">
@@ -777,7 +783,7 @@ Test-data - X: (100, 2) , y: (100,)
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/modeling_24_0.svg" src="_images/modeling_24_0.svg" /></div>
+<img alt="_images/modeling_25_0.svg" src="_images/modeling_25_0.svg" /></div>
 </div>
 <p>Klyngeanalyse kommer vi ikke til å snakke om mer i dette kurset. Målet her er bare at dere er kjent med begrepet og kan skille det fra de andre problemstillingene som vi skal se på senere.</p>
 </section>
@@ -820,7 +826,7 @@ Test-data - X: (100, 2) , y: (100,)
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/modeling_32_0.svg" src="_images/modeling_32_0.svg" /><img alt="_images/modeling_32_1.svg" src="_images/modeling_32_1.svg" /><img alt="_images/modeling_32_2.svg" src="_images/modeling_32_2.svg" /><img alt="_images/modeling_32_3.svg" src="_images/modeling_32_3.svg" /><img alt="_images/modeling_32_4.svg" src="_images/modeling_32_4.svg" /></div>
+<img alt="_images/modeling_33_0.svg" src="_images/modeling_33_0.svg" /><img alt="_images/modeling_33_1.svg" src="_images/modeling_33_1.svg" /><img alt="_images/modeling_33_2.svg" src="_images/modeling_33_2.svg" /><img alt="_images/modeling_33_3.svg" src="_images/modeling_33_3.svg" /><img alt="_images/modeling_33_4.svg" src="_images/modeling_33_4.svg" /></div>
 </div>
 <p>Vi ser at flere av variablene ser ut til å være relatert til <span class="math notranslate nohighlight">\(y\)</span>. Det er et bra tegn, i så fall kan vi håpe å predikere <span class="math notranslate nohighlight">\(y\)</span> basert på gitte <span class="math notranslate nohighlight">\(X\)</span>-verdier. Men der er ikke enkelt å se hva som er forskjellen. For å finne ut av det, bruker vi regresjonsmodeller.</p>
 <section id="grunnlinjemodeller">
@@ -1049,7 +1055,7 @@ For å velge ut hvilke som gir mening å bruke, så er det veldig nyttig å fors
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/modeling_49_0.svg" src="_images/modeling_49_0.svg" /></div>
+<img alt="_images/modeling_50_0.svg" src="_images/modeling_50_0.svg" /></div>
 </div>
 <p>I denne figuren har vi gitt uavhengige variabler <span class="math notranslate nohighlight">\(X = (X_0, X_1)\)</span> sammen med en merkelapp <span class="math notranslate nohighlight">\(y\)</span> eller klasse som er visualisert som farge. Klassifikasjonsmodellen vi har lagt her er visualisert ved å tegne skillelinje mellom hva vi klassifiserer som klasse 0 eller blå og hva vi predikerer som klasse 1 eller rødt.</p>
 <section id="id1">
@@ -1134,7 +1140,7 @@ Nøyaktighet: 0.53
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/modeling_59_0.svg" src="_images/modeling_59_0.svg" /></div>
+<img alt="_images/modeling_60_0.svg" src="_images/modeling_60_0.svg" /></div>
 </div>
 <p>Prediksjoner fra logistisk regresjon ser vi her. Vi ser at skillelinjen mellom er en rett linje. Det gir mening, siden skillelinjen er der sannsynligheten er 0.5 og det modellerer vi som en lineærkombinasjon av de uavhengige variablene.</p>
 </section>
@@ -1156,8 +1162,9 @@ Nøyaktighet: 0.53
     <span class="n">models</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
     <span class="c1"># prediksjon på valideringsdata</span>
     <span class="n">prediction</span> <span class="o">=</span> <span class="n">models</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_val</span><span class="p">)</span>
-    <span class="c1"># beregn gjennomsnittlig kvadrert feil på valideringsdata</span>
+    <span class="c1"># beregn nøyaktighet på valideringsdata</span>
     <span class="nb">print</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;</span><span class="si">{}</span><span class="s1">-nærmeste naboer - nøyaktighet: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_val</span><span class="p">,</span> <span class="n">prediction</span><span class="p">),</span> <span class="n">decimals</span><span class="o">=</span><span class="mi">2</span><span class="p">)))</span>
+    
 </pre></div>
 </div>
 </div>
@@ -1165,22 +1172,16 @@ Nøyaktighet: 0.53
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1-nærmeste naboer - nøyaktighet: 0.77
 3-nærmeste naboer - nøyaktighet: 0.8
 5-nærmeste naboer - nøyaktighet: 0.8
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>7-nærmeste naboer - nøyaktighet: 0.8
+7-nærmeste naboer - nøyaktighet: 0.8
 9-nærmeste naboer - nøyaktighet: 0.8
 11-nærmeste naboer - nøyaktighet: 0.83
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>13-nærmeste naboer - nøyaktighet: 0.83
+13-nærmeste naboer - nøyaktighet: 0.83
 15-nærmeste naboer - nøyaktighet: 0.8
 17-nærmeste naboer - nøyaktighet: 0.83
 19-nærmeste naboer - nøyaktighet: 0.8
 21-nærmeste naboer - nøyaktighet: 0.8
 23-nærmeste naboer - nøyaktighet: 0.8
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>25-nærmeste naboer - nøyaktighet: 0.8
+25-nærmeste naboer - nøyaktighet: 0.8
 27-nærmeste naboer - nøyaktighet: 0.83
 29-nærmeste naboer - nøyaktighet: 0.83
 31-nærmeste naboer - nøyaktighet: 0.83
@@ -1200,7 +1201,7 @@ Nøyaktighet: 0.53
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/modeling_64_0.svg" src="_images/modeling_64_0.svg" /></div>
+<img alt="_images/modeling_65_0.svg" src="_images/modeling_65_0.svg" /></div>
 </div>
 <p>Her ser vi på skillelinjen mellom de to klassene i 17-nærmeste nabo-klassifikasjonsmodellen.</p>
 <div class="cell docutils container">
@@ -1226,8 +1227,8 @@ Nøyaktighet: 0.53
 <ul class="simple">
 <li><p>Naive Bayes <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.naive_bayes.MultinomialNB.html"><code class="docutils literal notranslate"><span class="pre">sklearn.naive_bayes.MultinomialNB</span></code></a></p></li>
 <li><p>Beslutningstre, <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.tree.DecisionTreeClassifier.html"><code class="docutils literal notranslate"><span class="pre">sklearn.tree.DecisionTreeClassifier</span></code></a></p></li>
-<li><p>Tilfeldig skog regresjon <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestClassifier"><code class="docutils literal notranslate"><span class="pre">sklearn.ensemble.RandomForestClassifier</span></code></a></p></li>
-<li><p>Support vektor regresjon <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.svm.SVC"><code class="docutils literal notranslate"><span class="pre">sklearn.svm.SVC</span></code></a></p></li>
+<li><p>Tilfeldig skog klassifikasjon <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestClassifier"><code class="docutils literal notranslate"><span class="pre">sklearn.ensemble.RandomForestClassifier</span></code></a></p></li>
+<li><p>Støttevektormaskiner <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.svm.SVC"><code class="docutils literal notranslate"><span class="pre">sklearn.svm.SVC</span></code></a></p></li>
 <li><p>Gaussisk prosess <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.gaussian_process.GaussianProcessClassifier"><code class="docutils literal notranslate"><span class="pre">sklearn.gaussian_process.GaussianProcessClassifier</span></code></a></p></li>
 <li><p>Nevrale nett <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.neural_network.MLPClassifier"><code class="docutils literal notranslate"><span class="pre">sklearn.neural_network.MLPClassifier</span></code></a></p></li>
 </ul>
@@ -1251,7 +1252,7 @@ Nøyaktighet: 0.53
 </ul>
 <p>Hvis vi er interesserte i sannsynligheten til prediksjonene, så kan vi for eksempel bruke logaritmisk tap (log loss). Hvis de faktiske verdiene er <span class="math notranslate nohighlight">\(y_i \in \{0, 1\}\)</span> og de probabilistiske prediksjonene er <span class="math notranslate nohighlight">\(p_i = P[y_i = 1]\)</span>, så er log-loss</p>
 <div class="math notranslate nohighlight">
-\[- \frac{1}{N+1} \sum_{i=0}^{N} y_i log(p_i) + (1 - y_{i}) log(1 - p_{i}).\]</div>
+\[- \frac{1}{N} \sum_{i=1}^{N} y_i log(p_i) + (1 - y_{i}) log(1 - p_{i}).\]</div>
 <p>Logaritmisk tap fanger opp både sikkerheten og nøyaktigheten i modellens prediksjoner ved å straffe feilaktige, sikre prediksjoner kraftigere enn mindre sikre prediksjoner. Vi regner ut logistisk tap med <code class="docutils literal notranslate"><span class="pre">sklearn.metrics.log_loss</span></code>.</p>
 <p>Det er enkelt å regne ut logistisk tap for å sammenligne forskjellige modeller, men det kan være vanskelig å tolke. Det er derfor vanlig å bruke logaritmisk tap for modellutvalg, men andre mål som F1-score for modellevaluering.</p>
 <p>Det finnes mange flere ytelsesmål og det er viktig å vurdere hva som er et godt mål for praktiske problemstillinger.</p>
@@ -1290,7 +1291,7 @@ Nøyaktighet: 0.53
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/modeling_71_0.svg" src="_images/modeling_71_0.svg" /></div>
+<img alt="_images/modeling_72_0.svg" src="_images/modeling_72_0.svg" /></div>
 </div>
 <p>Her ser vi et eksempel med tetthetsestimat gitt i blått og oransje for de to gruppene <span class="math notranslate nohighlight">\(a\)</span> og <span class="math notranslate nohighlight">\(b\)</span>.</p>
 <div class="cell tag_hide-input docutils container">
@@ -1384,6 +1385,7 @@ Nøyaktighet: 0.53
 </tbody>
 </table>
 <p>Dette er en oversikt over de kanskje mest-brukte hypotesetester. Av og til vil vi teste at en numerisk variabel har en bestemt forventningsverdi. I så fall bruker vi en 1-sample t-test. Eller vi vil sammenligne to forventningsverdier som sett over. I så fall bruker vi en uavhengig t-test. Den siste testen som vi skal se på er om kategoriske data har samme frekvens. For å teste det, så bruker vi chi-kvadrat testen. Det finnes mange flere mulige nullhypoteser og for alle nullhypoteser kan vi i utgangspunktet lage en teststatistikk. Men i dette kurset kan bare se på et lite utvalg av tester.</p>
+<p>Legg merke til at en hypotesetest og et konfidensintervall er to sider av samme sak. Hvis et 95%-konfidensintervall for en forskjell mellom to grupper ikke inneholder 0, tilsvarer det at vi forkaster nullhypotesen på signifikansnivå 0.05. Konfidensintervaller gir imidlertid mer informasjon enn bare ja/nei, siden de også sier noe om størrelsen og usikkerheten til effekten.</p>
 </section>
 </section>
 
@@ -1435,9 +1437,9 @@ Nøyaktighet: 0.53
     <div class="footer-content row">
         <footer class="col footer"><p>
   
-    By Nello Blaser<br/>
+    By Nello Blaser, Pekka Parviainen<br/>
   
-      &copy; Copyright 2022.<br/>
+      &copy; Copyright 2022, 2026.<br/>
 </p>
         </footer>
     </div>

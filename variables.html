@@ -118,6 +118,11 @@ const thebe_selector_output = ".output, .cell_output"
         </ul>
         <ul class="current nav bd-sidenav">
  <li class="toctree-l1">
+  <a class="reference internal" href="process.html">
+   Data science-prosessen
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="data.html">
    Data
   </a>
@@ -148,13 +153,13 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="studydesign.html">
-   Studiedesign
+  <a class="reference internal" href="beste_praksis.html">
+   Beste praksis i data science
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="recommendation.html">
-   Anbefalingssystemer
+  <a class="reference internal" href="studydesign.html">
+   Studiedesign
   </a>
  </li>
 </ul>
@@ -573,13 +578,13 @@ title="Print to PDF"
 <p>Vi underdeler manglende data i tre typer avhengig av hvor tilfeldig det er at de mangler, data som mangler helt tilfeldig, mangler tilfeldig eller mangler ikke tilfeldig.</p>
 <ul class="simple">
 <li><p>Data mangler <em>helt tilfeldig</em> hvis hendelser som fører til at et bestemt dataelement mangler er uavhengig av både observerbare og ikke-observerbare variabler. Det er det beste tilfelle. I så fall er det absolutt ingen informasjon i at data mangler. Det kan vi håndtere på mange forskjellige måter som vi kommer til å se på senere.</p></li>
-<li><p>Data mangler <em>tilfeldig</em> hvis hendelser som fører til at et bestemt dataelement mangler er uavhengig av ikke-observerbare variabler. Her kan det være at det er mer sannsynlig at data mangler hvis an av de andre variablene tar visse verdier. Men det avhenger kun av variabler som vi observerer.</p></li>
+<li><p>Data mangler <em>tilfeldig</em> hvis hendelser som fører til at et bestemt dataelement mangler er uavhengig av ikke-observerbare variabler. Her kan det være at det er mer sannsynlig at data mangler hvis en av de andre variablene tar visse verdier. Men det avhenger kun av variabler som vi observerer.</p></li>
 <li><p>Data mangler <em>ikke tilfeldig</em> hvis hendelser som fører til at et bestemt dataelement mangler er avhengige av ikke-observerbare variabler. Dette er et stort problem og det er ikke alltid noe vi kan gjøre med det.</p></li>
 </ul>
 <p>I neste seksjonen er det flere strategier for å håndtere manglende data samt beskrivelser i hvilken tilfeller vi kan bruke de. Når man står overfor manglende data i studier vet man ofte ikke om dataene mangler helt tilfeldig, tilfeldig eller ikke tilfeldig. I så fall  kan det være utfordrende å analysere dataene riktig. Ofte prøver vi ut forskjellige metoder og ser på hvrodan de påvirker resultatene.</p>
 <section id="handtere-manglende-data">
 <h3>Håndtere manglende data<a class="headerlink" href="#handtere-manglende-data" title="Permalink til denne oversikten">#</a></h3>
-<p>Den beste metoden, som ikke alltid er tilgjengelig for oss er å finne data som manglet. Av og til er det mulig å få tak i det ved å spørre de som har lagd datasettet. Det er ikke sjeldent at data er tilgjengelige, men vi ikke har fått de. Eller at det finnes en an kilde for de data som mangler. Denne løsningen er best, men kann ikke enkelt automatiseres og er ofte forbunnet med mye arbeid.</p>
+<p>Den beste metoden, som ikke alltid er tilgjengelig for oss er å finne data som manglet. Av og til er det mulig å få tak i det ved å spørre de som har lagd datasettet. Det er ikke sjeldent at data er tilgjengelige, men vi ikke har fått de. Eller at det finnes en annen kilde for de data som mangler. Denne løsningen er best, men kann ikke enkelt automatiseres og er ofte forbunnet med mye arbeid.</p>
 <section id="ignorere-manglende-data">
 <h4>Ignorere manglende data<a class="headerlink" href="#ignorere-manglende-data" title="Permalink til denne oversikten">#</a></h4>
 <p>Den første og mest brutale strategien for å håndtere data er ved å fjerne de fra datasettet. Av og til kan det være mer fornuftig å fjerne en kolonne som har veldig mye data som mangler. Det bør vi bare gjøre hvis data mangler helt tilfeldig.</p>
@@ -709,7 +714,94 @@ Så kan vi velge ut hvilken kombinasjon av imputasjon og modell vi skal bruke ba
 <p>Å aggregere data før analyse kan være svært nyttig i mange situasjoner, spesielt når rådata inneholder svært detaljerte observasjoner som kan være vanskelige å tolke direkte eller føre til støy i analysen. Ved å aggregere data, kan man oppnå bedre innsikt og gjøre analysen mer oversiktlig og relevant. Et eksempel på en situasjon der aggregering av data er nyttig er når vi analyserer salgsdata for en kjede av butikker, hvor vi har detaljerte transaksjonsdata. For hver enkelt transaksjon har vi informasjon som tidspunkt for kjøp, butikkens lokasjon, produkt, antall solgte enheter og pris per enhet.</p>
 <p>I stedet for å analysere hver enkelt transaksjon, kan vi aggregere dataene etter tidsintervaller, for eksempel daglige eller ukentlige totalsalg for hver butikk. Dette reduserer datamengden og gir en bedre forståelse av salgsvolumene over tid. Vi kan også aggregere salgsdata per region for å forstå hvordan forskjellige lokasjoner presterer. I stedet for å analysere hver enkelte produkt, kan vi aggregere salget til produktkategorier, for eksempel elektronikk, klær, matvarer osv. Dette kan gi et mer oversiktlig bilde av hva som selger mest.</p>
 <p>Fordeler med aggregering i dette eksempelet er redusert kompleksitet og bedre identifikasjon av overordne mønstre som skuler seg i detaljene.</p>
-<p><strong>Eksempel 3. Periodisitet</strong></p>
+<p><strong>Eksempel 3. Forsinkede variabler</strong></p>
+<p>En vanlig transformasjon for tidsrekkedata er å lage forsinkede variabler (lag features). Hvis vi for eksempel vil predikere strømpris i morgen, kan prisen i dag og de siste dagene være nyttige prediktorer. Vi lager da nye variabler som er tidsrekken forskjøvet ett eller flere tidssteg bakover.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="mi">5</span> <span class="o">+</span> <span class="n">rng</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;pris&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">y</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;pris_forrige_dag&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;pris&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">shift</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;pris_for_to_dager_siden&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;pris&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">shift</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>pris</th>
+      <th>pris_forrige_dag</th>
+      <th>pris_for_to_dager_siden</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>3.578096</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>4.063991</td>
+      <td>3.578096</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>4.803443</td>
+      <td>4.063991</td>
+      <td>3.578096</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4.425012</td>
+      <td>4.803443</td>
+      <td>4.063991</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>5.750483</td>
+      <td>4.425012</td>
+      <td>4.803443</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Merk at de første radene vil få manglende verdier etter denne operasjonen, siden det ikke finnes observasjoner fra «før starten» av tidsrekken.</p>
+<p><strong>Eksempel 4. Periodisitet</strong></p>
 <p>Et annet typisk eksempel er når vi har periodisitet i data. Det skjer ofte når data har en dags- eller årsrytme. I så fall kan det være bedre å transformere tidsvariabelen på en sirkel og bruke x- og y-variablen av sirkelen for å modellere.</p>
 <p>Hvis data er tid <span class="math notranslate nohighlight">\(x\)</span> med periodisitet <span class="math notranslate nohighlight">\(L\)</span>, ser altså på <span class="math notranslate nohighlight">\(\phi_{1}( x ) = \cos \left(  \frac{2 \pi x}{L} \right)\)</span> og <span class="math notranslate nohighlight">\(\phi_{2}( x ) = \sin \left(  \frac{2 \pi x}{L} \right)\)</span> i stedet. For dagtid vil vi bruke <span class="math notranslate nohighlight">\(L=24\)</span>, for uker bruker vi <span class="math notranslate nohighlight">\(L=7\)</span> osv.</p>
 <div class="cell tag_hide-input docutils container">
@@ -731,7 +823,7 @@ Så kan vi velge ut hvilken kombinasjon av imputasjon og modell vi skal bruke ba
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/variables_17_0.svg" src="_images/variables_17_0.svg" /></div>
+<img alt="_images/variables_22_0.svg" src="_images/variables_22_0.svg" /></div>
 </div>
 <p>For eksempel i denne figuren ser vi på noen tidspunkt i løpet av dagen. Det ser ut som om klasse 1 kun skjer på dagtid. Men for å skille mellom klassene må vi ha en kompleks modell. I tillegg er det ikke åpenbart direkte fra data at kl. 23:59 og kl. 00:01 ligger i nærheten av hverandre.</p>
 <div class="cell docutils container">
@@ -751,7 +843,7 @@ Så kan vi velge ut hvilken kombinasjon av imputasjon og modell vi skal bruke ba
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/variables_20_0.svg" src="_images/variables_20_0.svg" /></div>
+<img alt="_images/variables_25_0.svg" src="_images/variables_25_0.svg" /></div>
 </div>
 <p>Når vi har omformattert data til en sirkel er det mye enklere å skille de to klassene med en lineær modell. Det fikser problemet med at det er en diskontinuitet mellom klokkeslett 23:59 og 00:01.</p>
 <p>Hvis data er en vinkel har vi akkurat det samme problemet der 359 grad og 1 grad egenlig burde være ved siden av hverandre men ikke er det. Der også kan vi heller se på data på en sirkel for å ungå problemet.</p>
@@ -841,9 +933,9 @@ Så kan vi velge ut hvilken kombinasjon av imputasjon og modell vi skal bruke ba
     <div class="footer-content row">
         <footer class="col footer"><p>
   
-    By Nello Blaser<br/>
+    By Nello Blaser, Pekka Parviainen<br/>
   
-      &copy; Copyright 2022.<br/>
+      &copy; Copyright 2022, 2026.<br/>
 </p>
         </footer>
     </div>

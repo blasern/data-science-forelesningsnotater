@@ -118,6 +118,11 @@ const thebe_selector_output = ".output, .cell_output"
         </ul>
         <ul class="current nav bd-sidenav">
  <li class="toctree-l1">
+  <a class="reference internal" href="process.html">
+   Data science-prosessen
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="data.html">
    Data
   </a>
@@ -148,13 +153,13 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="studydesign.html">
-   Studiedesign
+  <a class="reference internal" href="beste_praksis.html">
+   Beste praksis i data science
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="recommendation.html">
-   Anbefalingssystemer
+  <a class="reference internal" href="studydesign.html">
+   Studiedesign
   </a>
  </li>
 </ul>
@@ -599,6 +604,103 @@ title="Print to PDF"
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span> <span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">3</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="ne">----&gt; </span><span class="mi">3</span> <span class="kn">import</span> <span class="nn">scipy.stats</span> <span class="k">as</span> <span class="nn">stats</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">load_diabetes</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="kn">import</span> <span class="nn">plotly.express</span> <span class="k">as</span> <span class="nn">px</span>
+
+<span class="n">File</span> <span class="o">~/</span><span class="n">anaconda3</span><span class="o">/</span><span class="n">envs</span><span class="o">/</span><span class="n">dsbook</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.11</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">scipy</span><span class="o">/</span><span class="n">stats</span><span class="o">/</span><span class="fm">__init__</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">467</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="sd">&quot;&quot;&quot;</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span><span class="sd"> .. _statsrefmanual:</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span><span class="sd"> </span>
+<span class="sd">   (...)</span>
+<span class="g g-Whitespace">    </span><span class="mi">462</span><span class="sd"> </span>
+<span class="g g-Whitespace">    </span><span class="mi">463</span><span class="sd"> &quot;&quot;&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">465</span> <span class="kn">from</span> <span class="nn">._warnings_errors</span> <span class="kn">import</span> <span class="p">(</span><span class="n">ConstantInputWarning</span><span class="p">,</span> <span class="n">NearConstantInputWarning</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">466</span>                                <span class="n">DegenerateDataWarning</span><span class="p">,</span> <span class="n">FitError</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">467</span> <span class="kn">from</span> <span class="nn">._stats_py</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="g g-Whitespace">    </span><span class="mi">468</span> <span class="kn">from</span> <span class="nn">._variation</span> <span class="kn">import</span> <span class="n">variation</span>
+<span class="g g-Whitespace">    </span><span class="mi">469</span> <span class="kn">from</span> <span class="nn">.distributions</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="n">File</span> <span class="o">~/</span><span class="n">anaconda3</span><span class="o">/</span><span class="n">envs</span><span class="o">/</span><span class="n">dsbook</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.11</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">scipy</span><span class="o">/</span><span class="n">stats</span><span class="o">/</span><span class="n">_stats_py</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">46</span>
+<span class="g g-Whitespace">     </span><span class="mi">44</span> <span class="kn">import</span> <span class="nn">scipy.special</span> <span class="k">as</span> <span class="nn">special</span>
+<span class="g g-Whitespace">     </span><span class="mi">45</span> <span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">linalg</span>
+<span class="ne">---&gt; </span><span class="mi">46</span> <span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">distributions</span>
+<span class="g g-Whitespace">     </span><span class="mi">47</span> <span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">_mstats_basic</span> <span class="k">as</span> <span class="n">mstats_basic</span>
+<span class="g g-Whitespace">     </span><span class="mi">48</span> <span class="kn">from</span> <span class="nn">._stats_mstats_common</span> <span class="kn">import</span> <span class="p">(</span><span class="n">_find_repeats</span><span class="p">,</span> <span class="n">linregress</span><span class="p">,</span> <span class="n">theilslopes</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">49</span>                                    <span class="n">siegelslopes</span><span class="p">)</span>
+
+<span class="n">File</span> <span class="o">~/</span><span class="n">anaconda3</span><span class="o">/</span><span class="n">envs</span><span class="o">/</span><span class="n">dsbook</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.11</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">scipy</span><span class="o">/</span><span class="n">stats</span><span class="o">/</span><span class="n">distributions</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">8</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1">#</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="c1"># Author:  Travis Oliphant  2002-2011 with contributions from</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="c1">#          SciPy Developers 2004-2011</span>
+   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="c1">#       instead of `git blame -Lxxx,+x`.</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="c1">#</span>
+<span class="ne">----&gt; </span><span class="mi">8</span> <span class="kn">from</span> <span class="nn">._distn_infrastructure</span> <span class="kn">import</span> <span class="p">(</span><span class="n">rv_discrete</span><span class="p">,</span> <span class="n">rv_continuous</span><span class="p">,</span> <span class="n">rv_frozen</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">10</span> <span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">_continuous_distns</span>
+<span class="g g-Whitespace">     </span><span class="mi">11</span> <span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">_discrete_distns</span>
+
+<span class="n">File</span> <span class="o">~/</span><span class="n">anaconda3</span><span class="o">/</span><span class="n">envs</span><span class="o">/</span><span class="n">dsbook</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.11</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">scipy</span><span class="o">/</span><span class="n">stats</span><span class="o">/</span><span class="n">_distn_infrastructure</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">24</span>
+<span class="g g-Whitespace">     </span><span class="mi">20</span> <span class="kn">from</span> <span class="nn">scipy.special</span> <span class="kn">import</span> <span class="p">(</span><span class="n">comb</span><span class="p">,</span> <span class="n">chndtr</span><span class="p">,</span> <span class="n">entr</span><span class="p">,</span> <span class="n">xlogy</span><span class="p">,</span> <span class="n">ive</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">22</span> <span class="c1"># for root finding for continuous distribution ppf, and max likelihood</span>
+<span class="g g-Whitespace">     </span><span class="mi">23</span> <span class="c1"># estimation</span>
+<span class="ne">---&gt; </span><span class="mi">24</span> <span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">optimize</span>
+<span class="g g-Whitespace">     </span><span class="mi">26</span> <span class="c1"># for functions of continuous distributions (e.g. moments, entropy, cdf)</span>
+<span class="g g-Whitespace">     </span><span class="mi">27</span> <span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">integrate</span>
+
+<span class="nn">File &lt;frozen importlib._bootstrap&gt;:1231,</span> in <span class="ni">_handle_fromlist</span><span class="nt">(module, fromlist, import_, recursive)</span>
+
+<span class="nn">File ~/anaconda3/envs/dsbook/lib/python3.11/site-packages/scipy/__init__.py:211,</span> in <span class="ni">__getattr__</span><span class="nt">(name)</span>
+<span class="g g-Whitespace">    </span><span class="mi">209</span> <span class="k">def</span> <span class="fm">__getattr__</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">210</span>     <span class="k">if</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">submodules</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">211</span>         <span class="k">return</span> <span class="n">_importlib</span><span class="o">.</span><span class="n">import_module</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;scipy.</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">212</span>     <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">213</span>         <span class="k">try</span><span class="p">:</span>
+
+<span class="nn">File ~/anaconda3/envs/dsbook/lib/python3.11/importlib/__init__.py:126,</span> in <span class="ni">import_module</span><span class="nt">(name, package)</span>
+<span class="g g-Whitespace">    </span><span class="mi">124</span>             <span class="k">break</span>
+<span class="g g-Whitespace">    </span><span class="mi">125</span>         <span class="n">level</span> <span class="o">+=</span> <span class="mi">1</span>
+<span class="ne">--&gt; </span><span class="mi">126</span> <span class="k">return</span> <span class="n">_bootstrap</span><span class="o">.</span><span class="n">_gcd_import</span><span class="p">(</span><span class="n">name</span><span class="p">[</span><span class="n">level</span><span class="p">:],</span> <span class="n">package</span><span class="p">,</span> <span class="n">level</span><span class="p">)</span>
+
+<span class="n">File</span> <span class="o">~/</span><span class="n">anaconda3</span><span class="o">/</span><span class="n">envs</span><span class="o">/</span><span class="n">dsbook</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.11</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">scipy</span><span class="o">/</span><span class="n">optimize</span><span class="o">/</span><span class="fm">__init__</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">401</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="sd">&quot;&quot;&quot;</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span><span class="sd"> =====================================================</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span><span class="sd"> Optimization and root finding (:mod:`scipy.optimize`)</span>
+<span class="sd">   (...)</span>
+<span class="g g-Whitespace">    </span><span class="mi">397</span><span class="sd"> </span>
+<span class="g g-Whitespace">    </span><span class="mi">398</span><span class="sd"> &quot;&quot;&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">400</span> <span class="kn">from</span> <span class="nn">._optimize</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="ne">--&gt; </span><span class="mi">401</span> <span class="kn">from</span> <span class="nn">._minimize</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="g g-Whitespace">    </span><span class="mi">402</span> <span class="kn">from</span> <span class="nn">._root</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="g g-Whitespace">    </span><span class="mi">403</span> <span class="kn">from</span> <span class="nn">._root_scalar</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="n">File</span> <span class="o">~/</span><span class="n">anaconda3</span><span class="o">/</span><span class="n">envs</span><span class="o">/</span><span class="n">dsbook</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.11</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">scipy</span><span class="o">/</span><span class="n">optimize</span><span class="o">/</span><span class="n">_minimize</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">31</span>
+<span class="g g-Whitespace">     </span><span class="mi">29</span> <span class="kn">from</span> <span class="nn">._lbfgsb_py</span> <span class="kn">import</span> <span class="n">_minimize_lbfgsb</span>
+<span class="g g-Whitespace">     </span><span class="mi">30</span> <span class="kn">from</span> <span class="nn">._tnc</span> <span class="kn">import</span> <span class="n">_minimize_tnc</span>
+<span class="ne">---&gt; </span><span class="mi">31</span> <span class="kn">from</span> <span class="nn">._cobyla_py</span> <span class="kn">import</span> <span class="n">_minimize_cobyla</span>
+<span class="g g-Whitespace">     </span><span class="mi">32</span> <span class="kn">from</span> <span class="nn">._slsqp_py</span> <span class="kn">import</span> <span class="n">_minimize_slsqp</span>
+<span class="g g-Whitespace">     </span><span class="mi">33</span> <span class="kn">from</span> <span class="nn">._constraints</span> <span class="kn">import</span> <span class="p">(</span><span class="n">old_bound_to_new</span><span class="p">,</span> <span class="n">new_bounds_to_old</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">34</span>                            <span class="n">old_constraint_to_new</span><span class="p">,</span> <span class="n">new_constraint_to_old</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">35</span>                            <span class="n">NonlinearConstraint</span><span class="p">,</span> <span class="n">LinearConstraint</span><span class="p">,</span> <span class="n">Bounds</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">36</span>                            <span class="n">PreparedConstraint</span><span class="p">)</span>
+
+<span class="n">File</span> <span class="o">~/</span><span class="n">anaconda3</span><span class="o">/</span><span class="n">envs</span><span class="o">/</span><span class="n">dsbook</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.11</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">scipy</span><span class="o">/</span><span class="n">optimize</span><span class="o">/</span><span class="n">_cobyla_py</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">17</span>
+<span class="g g-Whitespace">     </span><span class="mi">14</span> <span class="kn">from</span> <span class="nn">threading</span> <span class="kn">import</span> <span class="n">RLock</span>
+<span class="g g-Whitespace">     </span><span class="mi">16</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="ne">---&gt; </span><span class="mi">17</span> <span class="kn">from</span> <span class="nn">scipy.optimize</span> <span class="kn">import</span> <span class="n">_cobyla</span> <span class="k">as</span> <span class="n">cobyla</span>
+<span class="g g-Whitespace">     </span><span class="mi">18</span> <span class="kn">from</span> <span class="nn">._optimize</span> <span class="kn">import</span> <span class="n">OptimizeResult</span><span class="p">,</span> <span class="n">_check_unknown_options</span>
+<span class="g g-Whitespace">     </span><span class="mi">19</span> <span class="k">try</span><span class="p">:</span>
+
+<span class="ne">KeyboardInterrupt</span>: 
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -617,7 +719,7 @@ title="Print to PDF"
 <p>Nesten alle steder der vi bruker data science må vi håndtere usikkerhet.</p>
 <p>For eksempel hvis vi måler blodtrykket hos legen så får vi forskjellige svar om vi har satt på legekontoret i en halv time før blodtrykket ble målt eller om vi måtte løpe for å rekke legetimen og så ble blodtrykk målt kort tid etter vi kom os til legekontoret. Hvis vi prøver å finne ut om pasienten er syk, så er denne forskjellen bare støy som kan forvirre modellene.</p>
 <p>Usikkerhet i data fører også til usikkerhet i konklusjonene våre. Hvis vi lager en modell for å predikere om det regner i morgen eller ikke og får svar at det mest sannsynlig ikke regner, så er det en stor forskjell mellom en 5% sannsynlighet for regn og en 40% sannsynlighet for regn.</p>
-<p>Språket for å håndtere usikkerhet er sannsynlighetsteori, en grein av matematikk som formaliserer sannsynligheter. I sannsynlighetsteori beskrives stokastiske variabler gjennom sannsynlighetsrom og målbare funksjoner. Vi har følgende abstrakte definisjonen:</p>
+<p>Språket for å håndtere usikkerhet er sannsynlighetsteori, en gren av matematikk som formaliserer sannsynligheter. I sannsynlighetsteori beskrives stokastiske variabler gjennom sannsynlighetsrom og målbare funksjoner. Vi har følgende abstrakte definisjonen:</p>
 <blockquote>
 <div><p>En <strong>stokastisk variabel</strong> <span class="math notranslate nohighlight">\(X \colon (\Omega, \mathcal{F}, P) \to E\)</span> er en målbar funksjon fra et sett mulige utfall til et målbart rom <span class="math notranslate nohighlight">\(E\)</span>.</p>
 <p>Sannsynligheten at <span class="math notranslate nohighlight">\(X\)</span> tar en verdi i et målbart sett <span class="math notranslate nohighlight">\(S \subseteq E\)</span> er</p>
@@ -645,8 +747,6 @@ Det følger direkte fra definisjonen at fordelingsfunksjoner tar verdier mellom 
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<img alt="_images/eda_8_0.svg" src="_images/eda_8_0.svg" /></div>
 </div>
 <p>For eksempelet med ventetid der bybanen kommer nøyaktig hver 10. minutt, så blir det følgende fordelinsfunksjon:</p>
 <div class="cell tag_hide-input docutils container">
@@ -658,8 +758,6 @@ Det følger direkte fra definisjonen at fordelingsfunksjoner tar verdier mellom 
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<img alt="_images/eda_10_0.svg" src="_images/eda_10_0.svg" /></div>
 </div>
 <p>Denne fordelingen heter også uniformfordeling mellom 0 og 10.</p>
 <p>I tillegg til fordelingsfunksjonen bruker vi også andre funksjoner for å beskrive fordelinger. Diskrete fordelinger (altså fordelinger med endelig mange mulige utfall) kan beskrives med hjelp av sannsynlihgetsmassefunksjonen. Det er bare sannsynligheten for at en stokastisk variabel er akkurat x.</p>
@@ -692,8 +790,6 @@ Det følger direkte fra definisjonen at fordelingsfunksjoner tar verdier mellom 
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<img alt="_images/eda_16_0.svg" src="_images/eda_16_0.svg" /></div>
 </div>
 <p><strong>Normalfordeling:</strong> Normalfordelingen er en av de mest brukte kontinuerlige fordelingsfunksjonene. Formelen for tetthet har er</p>
 <div class="math notranslate nohighlight">
@@ -719,10 +815,8 @@ Det følger direkte fra definisjonen at fordelingsfunksjoner tar verdier mellom 
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<img alt="_images/eda_19_0.svg" src="_images/eda_19_0.svg" /></div>
 </div>
-<p>Her er grafen av tetthetsfunksjonen. Funksjonen er sentrert ved <span class="math notranslate nohighlight">\(\mu\)</span> og <span class="math notranslate nohighlight">\(\sigma\)</span> bestemmer hvor stor spredning det er. 67% av masse er mellom <span class="math notranslate nohighlight">\(-\sigma\)</span> og <span class="math notranslate nohighlight">\(\sigma\)</span>. 95% av massen ligger mellom <span class="math notranslate nohighlight">\(-2\sigma\)</span> og <span class="math notranslate nohighlight">\(2\sigma\)</span>.</p>
+<p>Her er grafen av tetthetsfunksjonen. Funksjonen er sentrert ved <span class="math notranslate nohighlight">\(\mu\)</span> og <span class="math notranslate nohighlight">\(\sigma\)</span> bestemmer hvor stor spredning det er. Omtrent 68% av masse er mellom <span class="math notranslate nohighlight">\(-\sigma\)</span> og <span class="math notranslate nohighlight">\(\sigma\)</span>. 95% av massen ligger mellom <span class="math notranslate nohighlight">\(-2\sigma\)</span> og <span class="math notranslate nohighlight">\(2\sigma\)</span>.</p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Fx</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">mu</span><span class="p">,</span> <span class="n">sigma</span><span class="p">)</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
@@ -740,8 +834,6 @@ Det følger direkte fra definisjonen at fordelingsfunksjoner tar verdier mellom 
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<img alt="_images/eda_21_0.svg" src="_images/eda_21_0.svg" /></div>
 </div>
 <p>Her er fordelingsfunksjonen for normalfordelingen.</p>
 </section>
@@ -824,14 +916,14 @@ I Bergen regner det i snitt 200 dager per år. Anta at du hører værmeldingen s
 <p>Dette kapittelet handler om deskriptiv statistikk for å utforske data. Husk at vi gjør utforskende dataanalysen på treningsdata.</p>
 <section id="lokaliseringsmal">
 <h3>Lokaliseringsmål<a class="headerlink" href="#lokaliseringsmal" title="Permalink til denne oversikten">#</a></h3>
-<p>Lokaliseringsmål (også kjent som sentralmål eller sentraltendens) er statistiske mål som brukes til å beskrive hvor «sentrum» av et datasett ligger. De gir en indikasjon på hva som er typisk eller vanlig i dataene. De mest kjente lokaliseringsmålene er middelverdi, median og modus. Gitt data <span class="math notranslate nohighlight">\(X_i\)</span> for <span class="math notranslate nohighlight">\(i\)</span> fra <span class="math notranslate nohighlight">\(0\)</span> til <span class="math notranslate nohighlight">\(n\)</span>, så regnes de ut på følgende måte.</p>
-<p><em>Middelverdien</em> er summen av alle verdiene i datasettet delt på antall verdier,</p>
+<p>Lokaliseringsmål (også kjent som sentralmål eller sentraltendens) er statistiske mål som brukes til å beskrive hvor «sentrum» av et datasett ligger. De gir en indikasjon på hva som er typisk eller vanlig i dataene. De mest kjente lokaliseringsmålene er middelverdi, median og modus. Gitt data <span class="math notranslate nohighlight">\(X_i\)</span> for <span class="math notranslate nohighlight">\(i\)</span> fra <span class="math notranslate nohighlight">\(1\)</span> til <span class="math notranslate nohighlight">\(n\)</span>, så regnes de ut på følgende måte.</p>
+<p><strong>Middelverdien</strong> (<em>mean</em>) er summen av alle verdiene i datasettet delt på antall verdier,</p>
 <div class="math notranslate nohighlight">
-\[\operatorname{middelverdi}(X) = \frac{1}{n+1} \sum_{i=0}^{n} X_i.\]</div>
-<p><em>Medianen</em> er den midterste verdien i et datasett når verdiene er sortert i stigende rekkefølge. Hvis det er et partall antall verdier, er medianen gjennomsnittet av de to midterste verdiene,</p>
+\[\operatorname{middelverdi}(X) = \frac{1}{n} \sum_{i=1}^{n} X_i.\]</div>
+<p><strong>Medianen</strong> (<em>median</em>) er den midterste verdien i et datasett når verdiene er sortert i stigende rekkefølge. Hvis det er et partall antall verdier, er medianen gjennomsnittet av de to midterste verdiene,</p>
 <div class="math notranslate nohighlight">
 \[\operatorname{median}(X) = \frac{1}{2} (\operatorname{sort}(x)_{\lfloor n+1/2 \rfloor} + \operatorname{sort}(x)_{\lceil n+1/2 \rceil}).\]</div>
-<p><em>Modusen</em> er den verdien som forekommer oftest i datasettet,</p>
+<p><strong>Modusen</strong> (<em>mode</em>) er den verdien som forekommer oftest i datasettet,</p>
 <div class="math notranslate nohighlight">
 \[\operatorname{modus}(X) = \operatorname{argmax}_x{\lvert \{X_i \mid X_i = x\} \rvert}.\]</div>
 <p>Hvordan velger vi riktig lokaliseringsmål?</p>
@@ -860,8 +952,6 @@ I Bergen regner det i snitt 200 dager per år. Anta at du hører værmeldingen s
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<img alt="_images/eda_35_0.svg" src="_images/eda_35_0.svg" /></div>
 </div>
 <p>For data med skjeve fordelinger eller med uteliggere er medianen mer robust fordi den ikke påvirkes av ekstremverdier og gir et bedre bilde av den «typiske» verdien.</p>
 <div class="cell tag_hide-input docutils container">
@@ -889,8 +979,6 @@ I Bergen regner det i snitt 200 dager per år. Anta at du hører værmeldingen s
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<img alt="_images/eda_37_0.svg" src="_images/eda_37_0.svg" /></div>
 </div>
 <p>For kategoriske data eller multimodale fordelinger er modus ofte mest nyttig fordi det identifiserer den hyppigst forekommende verdien.</p>
 <div class="cell tag_hide-input docutils container">
@@ -919,8 +1007,6 @@ I Bergen regner det i snitt 200 dager per år. Anta at du hører værmeldingen s
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<img alt="_images/eda_39_0.svg" src="_images/eda_39_0.svg" /></div>
 </div>
 <p>Her er det noen eksempler med hvilket lokaliseringsmål man typisk ville brukt:</p>
 <p><strong>Lønn i en bedrift:</strong> Medianen brukes ofte for å beskrive lønnsnivået, siden middelverdien kan påvirkes kraftig av noen få svært høye lønninger.</p>
@@ -933,7 +1019,7 @@ I Bergen regner det i snitt 200 dager per år. Anta at du hører værmeldingen s
 <blockquote>
 <div><p><strong>Store talls lov:</strong> Hvis <span class="math notranslate nohighlight">\(X_0, X_1, X_2, \dots\)</span> er en uendelig følge uavhengige, likt fordelte, stokastiske variabler med forventningsverdi <span class="math notranslate nohighlight">\(\mu &lt; \infty\)</span>, så er</p>
 <div class="math notranslate nohighlight">
-\[\operatorname {P} \left(\lim _{n\rightarrow \infty }{\frac{1}{n+1} \sum_{i=0}^{n} X_i}=\mu \right)=1.\]</div>
+\[\operatorname {P} \left(\lim _{n\rightarrow \infty }{\frac{1}{n} \sum_{i=1}^{n} X_i}=\mu \right)=1.\]</div>
 </div></blockquote>
 <p><strong>Eksempel:</strong> Tenk deg at du kaster en rettferdig mynt mange ganger. Utfallet <span class="math notranslate nohighlight">\(X_i\)</span> kan være 1 (krone) eller 0 (mynt), og forventningsverdien <span class="math notranslate nohighlight">\(\mu\)</span> for hver kast er 0.5 (siden det er like sannsynlig å få krone som mynt). Middelverdien av 10 kast kan variere betydelig fra 0.5, mens middelverdien av 10000 kast vil ligge veldig nært 0.5.</p>
 <div class="cell tag_hide-input docutils container">
@@ -952,8 +1038,6 @@ I Bergen regner det i snitt 200 dager per år. Anta at du hører værmeldingen s
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<img alt="_images/eda_42_0.svg" src="_images/eda_42_0.svg" /></div>
 </div>
 <p>Her ser vi eksempelet om middelverdien av myntkast. Vi ser at det er mye støy når vi har få myntkast og at middelverdien stabiliserer seg jo flere observasjoner vi har.</p>
 <p>Mer generelt, så sier store talls lov at jo flere observasjoner en har, desto nærmere vil middelverdien av observasjonene være den sanne forventningsverdien. Når datamengden øker, vil middelverdien bli mindre påvirket av uteliggere og gi en mer nøyaktig representasjon av den sentrale tendensen i dataene.</p>
@@ -979,18 +1063,16 @@ I Bergen regner det i snitt 200 dager per år. Anta at du hører værmeldingen s
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<img alt="_images/eda_45_0.svg" src="_images/eda_45_0.svg" /></div>
 </div>
 <p>Husk at variansen til normalfordelingen er <span class="math notranslate nohighlight">\(\sigma^2\)</span>.</p>
 <div class="math notranslate nohighlight">
 \[ Var[X] = E\left[ (X - E[X])^2 \right] \]</div>
 <p>Hvis vi prøver å estimere variansen fra data, så må vi først regne ut middelverdien som approksimasjon av forventningsverdien. Så kan vi regne ut gjennomsnittig kvadrert avstand til mean for å approksimere variansen. Vi bruker ofte symbolene <span class="math notranslate nohighlight">\(\widehat{\mu}\)</span> for middelverdien og <span class="math notranslate nohighlight">\(\widehat{\sigma}^2\)</span> for empirisk varians. De regnes ut som</p>
 <div class="math notranslate nohighlight">
-\[\widehat{\mu} = \frac{1}{n+1} \sum_{i=0}^{n} X_i,\]</div>
+\[\widehat{\mu} = \frac{1}{n} \sum_{i=1}^{n} X_i,\]</div>
 <p>og</p>
 <div class="math notranslate nohighlight">
-\[\widehat{\sigma}^2 = \frac{1}{n}\sum_{i=0}^n (X_i - \widehat{\mu})^2.\]</div>
+\[\widehat{\sigma}^2 = \frac{1}{n-1}\sum_{i=1}^n (X_i - \widehat{\mu})^2.\]</div>
 <p>Et annet mål for variasjon er kvartilbredde. Det er intervallet mellom 25%-kvantilen og 75%-kvantilen. Det vil si at 25% av data er lavere enn 25%-kvantilen, 50% av data ligger mellom 25% og 75% kvantilen og 25% av data ligger over 75% kvantilen.</p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
@@ -1012,8 +1094,6 @@ I Bergen regner det i snitt 200 dager per år. Anta at du hører værmeldingen s
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<img alt="_images/eda_48_0.svg" src="_images/eda_48_0.svg" /></div>
 </div>
 <p>Hvordan velger vi hvilket spredningsmål vi skal bruke?</p>
 <p>Husk at empirisk varians defineres gjennom middelverdien og median er et kvantil. Så hvis vi bruker middelverdien som lokaliseringsmål, så bruker vi empirisk varians som spredningsmål.</p>
@@ -1027,7 +1107,7 @@ I Bergen regner det i snitt 200 dager per år. Anta at du hører værmeldingen s
 Hvis <span class="math notranslate nohighlight">\(X_0, X_1, X_2, \dots\)</span> er en uendelig følge uavhengige, likt fordelte, stokastiske variabler
 med forventningsverdi <span class="math notranslate nohighlight">\(\mu &lt; \infty\)</span> og varians <span class="math notranslate nohighlight">\(\sigma^2&lt;\infty\)</span>, så er</p>
 <div class="math notranslate nohighlight">
-\[ \lim_{n \to \infty} \sqrt{n} \left( \frac{1}{n+1} \sum_{i=0}^{n} X_i - \mu \right) \]</div>
+\[ \lim_{n \to \infty} \sqrt{n} \left( \frac{1}{n} \sum_{i=1}^{n} X_i - \mu \right) \]</div>
 <p>normalfordelt med forventningsverdi <span class="math notranslate nohighlight">\(0\)</span> og standardavvik <span class="math notranslate nohighlight">\(\sigma\)</span>.</p>
 </div></blockquote>
 <p>Hva betyr dette i praksis?</p>
@@ -1035,8 +1115,12 @@ med forventningsverdi <span class="math notranslate nohighlight">\(\mu &lt; \inf
 <p>Det gjør vi ved hjelp av konfidensintervaller. Middelverdier tilnermer forventningsverdier, men hvor sikre er vi på estimatet av forventningsverdien?</p>
 <p>Når vi for eksempel ser på høyde i befolkningen, så har den en forventningsverdi. Men hvis vi tar en tilfeldig utvalg av befolkningen så får vi en middelverdi som er annerledes enn forventningsverdien. Og hvis vi tar forskjellige utvalg får vi forskjellige middelverdier. Det kalles for samplingsfeil.</p>
 <p>Størrelsen for konfidensintervallet avhenger av både variasjon og utvalgsstørrelse. Det kan vi lese av sentralgrenseteoremet. Det bør også være intuitivt. En liten utvalg er mindre sikkert en en stor utvalg. Og hvis variasjonen i populasjonen er stor, så blir også variasjonen i forskjellige utvalg stor.</p>
-<p>Et 95% konfidensinterval for forventningsverdien er <span class="math notranslate nohighlight">\((\widehat{\mu} - 1.96 \frac{\widehat{\sigma}}{\sqrt{n}}, \widehat{\mu} + 1.96 \frac{\widehat{\sigma}}{\sqrt{n}})\)</span>. Merk at for standard-normalfordelingen er <span class="math notranslate nohighlight">\(F(-1.96) = 0.025\)</span> og <span class="math notranslate nohighlight">\(F(1.96) = 0.975\)</span>.
-Hvis vi tar 100 tilfeldige utvalg fra befolkningen og regner ut 95% konfidensintervalet for hver av dem, så forventer vi at 95 av konfidensintervalene inneholder forventningsverdien.</p>
+<p>Et 95% konfidensinterval for forventningsverdien er <span class="math notranslate nohighlight">\((\widehat{\mu} - 1.96 \frac{\widehat{\sigma}}{\sqrt{n}}, \widehat{\mu} + 1.96 \frac{\widehat{\sigma}}{\sqrt{n}})\)</span>.</p>
+<p>Eksempel: Vi måler høyden til 30 tilfeldig valgte studenter og finner en middelverdi på 172 cm og et empirisk standardavvik på 10 cm. Da er 95%-konfidensintervallet for forventningsverdien</p>
+<div class="math notranslate nohighlight">
+\[\left(172 - 1.96 \cdot \frac{10}{\sqrt{30}},\ 172 + 1.96 \cdot \frac{10}{\sqrt{30}}\right) \approx (168.4, 175.6)\]</div>
+<p>Vi tolker dette som: hvis vi gjentok studien mange ganger og beregnet konfidensintervallet for hvert utvalg, så ville omtrent 95 av 100 intervaller inneholde den sanne forventningsverdien. Det er viktig å merke seg at vi ikke kan si at det er 95% sannsynlighet for at forventningsverdien ligger i akkurat dette intervallet — forventningsverdien er en fast, ukjent størrelse, ikke en stokastisk variabel.
+I praksis betyr et bredt konfidensintervall at vi har stor usikkerhet i estimatet, enten fordi utvalget er lite eller fordi variasjonen i populasjonen er stor. Konfidensintervaller bør alltid rapporteres sammen med punktestimater som middelverdi.</p>
 </section>
 <section id="korrelasjon">
 <h3>Korrelasjon<a class="headerlink" href="#korrelasjon" title="Permalink til denne oversikten">#</a></h3>
@@ -1059,8 +1143,6 @@ Hvis vi tar 100 tilfeldige utvalg fra befolkningen og regner ut 95% konfidensint
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<img alt="_images/eda_53_0.svg" src="_images/eda_53_0.svg" /></div>
 </div>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
@@ -1074,8 +1156,6 @@ Hvis vi tar 100 tilfeldige utvalg fra befolkningen og regner ut 95% konfidensint
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<img alt="_images/eda_54_0.svg" src="_images/eda_54_0.svg" /></div>
 </div>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
@@ -1090,10 +1170,16 @@ Hvis vi tar 100 tilfeldige utvalg fra befolkningen og regner ut 95% konfidensint
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<img alt="_images/eda_55_0.svg" src="_images/eda_55_0.svg" /></div>
 </div>
 <p>Det siste eksempelet viser også at selv om det er en sammenheng mellom variablene, så er ikke det nødvendigvis en lineær sammenheng, så korrelasjon kan være nesten 0, selv om det er en sterk sammenheng.</p>
+<p>At to variabler er korrelerte betyr at de varierer sammen, ikke at den ene forårsaker den andre. Det finnes fire vanlige forklaringer på en observert korrelasjon:</p>
+<ul class="simple">
+<li><p>A forårsaker B. For eksempel: mer trening fører til lavere hvilepuls.</p></li>
+<li><p>B forårsaker A. Sammenhengen kan gå andre veien enn vi tror.</p></li>
+<li><p>En tredje variabel C forårsaker både A og B. Dette kalles en konfunderende variabel (<em>confounding variable</em>). For eksempel kan det se ut som at iskremsalg forårsaker drukningsulykker men det er varmt vær som fører til begge deler.</p></li>
+<li><p>Korrelasjonen er helt tilfeldig (<em>spurious correlation</em>). Dette kan skje hvis man ha kun få observasjoner.</p></li>
+</ul>
+<p>For å fastslå at A faktisk forårsaker B trenger vi enten et randomisert eksperiment eller sterk faglig begrunnelse. Vi kommer tilbake til dette i avsnittet om studiedesign.</p>
 </section>
 </section>
 <section id="visualisering">
@@ -1111,8 +1197,6 @@ Hvis vi tar 100 tilfeldige utvalg fra befolkningen og regner ut 95% konfidensint
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<img alt="_images/eda_58_0.svg" src="_images/eda_58_0.svg" /><img alt="_images/eda_58_1.svg" src="_images/eda_58_1.svg" /></div>
 </div>
 <p>Det eksempelet viser hvor viktig det er å visualisere data. For eksempel ser vi her en dinosaur og en stjerne og mange andre helt forskjellige dataset som har samme middelverdi og empirisk varians på både x- og y-aksen og samme korrelasjon. Likevel får vi helt forskjellige mønstre. Men visuelt kan vi enkelt se forskjellen. Det viser at vi kan gå glipp av masse viktig informasjon hvis vi bare ser på statistiske mål og ikke visualiserer data.</p>
 <section id="univariate-data">
@@ -1134,8 +1218,6 @@ Hvis vi tar 100 tilfeldige utvalg fra befolkningen og regner ut 95% konfidensint
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<img alt="_images/eda_62_0.svg" src="_images/eda_62_0.svg" /></div>
 </div>
 <p>For numeriske data kan vi gjøre noe lignende og lage et histogram. I histogrammet deler vi den numeriske variablen opp i intervaller. Så visualiserer vi en søyle per interval som viser sannsynligheten for å være i dette intervalet. Her ser vi alder av pasasjerer i titanic-datasettet.</p>
 <div class="cell tag_hide-input docutils container">
@@ -1154,8 +1236,6 @@ Hvis vi tar 100 tilfeldige utvalg fra befolkningen og regner ut 95% konfidensint
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<img alt="_images/eda_65_0.svg" src="_images/eda_65_0.svg" /></div>
 </div>
 <p>Hvilke intervaller man velger er avgjørende for hvordan histogrammet vil se ut. Her lager vi histogrammer med mange intervaller, litt færre intervaller, og veldig få intervaller.</p>
 <div class="cell docutils container">
@@ -1166,8 +1246,6 @@ Hvis vi tar 100 tilfeldige utvalg fra befolkningen og regner ut 95% konfidensint
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<img alt="_images/eda_67_0.svg" src="_images/eda_67_0.svg" /></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1177,8 +1255,6 @@ Hvis vi tar 100 tilfeldige utvalg fra befolkningen og regner ut 95% konfidensint
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<img alt="_images/eda_68_0.svg" src="_images/eda_68_0.svg" /></div>
 </div>
 <p>Antall intervaller er noe vi må velge og kalles for hyperparameter av metoden. Hvis vi bruker for mange intervaller blir det veldig mye støy. Hvis vi velger for få, så mister vi informasjon.</p>
 <p>Et alternativ til histogrammer kan være tetthetsestimater med kjernetetthetsestimering. Vi går ikke gjennom teorien av denne metoden i detalj. Men det har fordelen at det blir et kontinuerlig tetthetsestimat.
@@ -1201,8 +1277,6 @@ Som for histogrammer avhenger tetthetsestimatet av en hyperparameter som heter b
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<img alt="_images/eda_71_0.svg" src="_images/eda_71_0.svg" /></div>
 </div>
 <p>Vi kan også bruke en automatisk metode for å regne ut båndbredder som ofte (men ikke alltid) fungerer ganske bra.</p>
 <div class="cell docutils container">
@@ -1221,8 +1295,6 @@ Som for histogrammer avhenger tetthetsestimatet av en hyperparameter som heter b
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<img alt="_images/eda_73_0.svg" src="_images/eda_73_0.svg" /></div>
 </div>
 </section>
 <section id="bivariate-data">
@@ -1236,8 +1308,6 @@ Som for histogrammer avhenger tetthetsestimatet av en hyperparameter som heter b
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<img alt="_images/eda_75_0.svg" src="_images/eda_75_0.svg" /></div>
 </div>
 <p>En annen ting man kan gjøre med to numeriske variabler er å bruke en generalisering av kjernetetthetsestimering som vi har sett på univariate data. Her er det altså sånn at jo mørkere blå figuren er, jo tettere ligger data i det området.</p>
 <div class="cell docutils container">
@@ -1249,8 +1319,6 @@ Som for histogrammer avhenger tetthetsestimatet av en hyperparameter som heter b
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<img alt="_images/eda_77_0.svg" src="_images/eda_77_0.svg" /></div>
 </div>
 <p>I dette tilfelle er kanskje ikke dette like nyttig som scatterplottet. Men det finnes mange tilfeller, der tetthet er nyttigere enn datapunkter. Spesielt når det er mye data. Her er et eksempel.</p>
 <div class="cell tag_hide-input docutils container">
@@ -1273,8 +1341,6 @@ Som for histogrammer avhenger tetthetsestimatet av en hyperparameter som heter b
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<img alt="_images/eda_80_0.svg" src="_images/eda_80_0.svg" /></div>
 </div>
 <p>Fra scatterplottet ser vi ikke så mye.</p>
 <div class="cell docutils container">
@@ -1286,10 +1352,10 @@ Som for histogrammer avhenger tetthetsestimatet av en hyperparameter som heter b
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<img alt="_images/eda_82_0.svg" src="_images/eda_82_0.svg" /></div>
 </div>
 <p>Men tettheten viser veldig tydelig at data kommer fra en sirkel med mye støy.</p>
+<p>Tidsrekker er data der observasjonene er ordnet i tid, for eksempel daglig temperatur, timevis strømpris eller månedlig salg. Det som skiller tidsrekker fra vanlige datasett er at rekkefølgen av observasjonene har betydning, og at nærliggende tidspunkter ofte er mer like hverandre enn tidspunkter som ligger langt fra hverandre. Dette kalles for autokorrelasjon (engelsk: autocorrelation).</p>
+<p>Mange tidsrekker har mønstre som gjentar seg. Vi skiller mellom trend (en langsiktig stigning eller nedgang), sesongvariasjon (et mønster som gjentar seg med fast periode, for eksempel hvert år) og støy (tilfeldige svingninger rundt mønsteret). Et vanlig første steg i analyse av tidsrekker er å prøve å skille disse komponentene fra hverandre.</p>
 <p>Når vi har tidsdata så er det vanlig å bruke en linjeplott. Linjeplottet er som en scatterplott, der påfølgende datapunkter er forbunnet med en linje. Så hva er fordelen med dette? Linjeplottet fokuserer på lokale endringer. Denne figuren viser for eksempel forventet levealder i Norge gjennom årene.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1302,10 +1368,8 @@ Som for histogrammer avhenger tetthetsestimatet av en hyperparameter som heter b
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<img alt="_images/eda_85_0.svg" src="_images/eda_85_0.svg" /></div>
 </div>
-<p>På grunn av linjen kan vi enkelt se at økningen i forventet levealder var relativt konstant mellom 1950 og 1990 og har blitt brattere mellom 1990 og 2010. Dette hadde vært vanskelig å se i en scatterplott.</p>
+<p>På grunn av linjen kan vi enkelt se trender: økningen i forventet levealder var relativt konstant mellom 1950 og 1990 og har blitt brattere mellom 1990 og 2010. Dette hadde vært vanskelig å se i en scatterplott.</p>
 <p>For kategoriske data kan vi enkelt utvide søylediagrammer til å visualisere to egenskaper ved hjelp av farge. Vi bruker x-aksen for den ene kategoriske variablen og fargen for å visualisere den andre.</p>
 <p>Her ser vi igjen på data om informatikkemner ved UiB. I tillegg til nivået ser vi også på hvilket semester emnet går. På x-aksen er det nivået som før, på y-aksen er det antall fag og semesteret blir vist med forskjellige farger.</p>
 <div class="cell docutils container">
@@ -1317,8 +1381,6 @@ Som for histogrammer avhenger tetthetsestimatet av en hyperparameter som heter b
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<img alt="_images/eda_88_0.svg" src="_images/eda_88_0.svg" /></div>
 </div>
 <p>Her ser vi for eksempel at det er flere laveregradsemner på høsten enn på våren, mens det er flere PhD-kurs på høsten enn på våren.</p>
 <p>Vi kan også vise semesteret på x-aksen og nivået som farge.</p>
@@ -1331,8 +1393,6 @@ Som for histogrammer avhenger tetthetsestimatet av en hyperparameter som heter b
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<img alt="_images/eda_90_0.svg" src="_images/eda_90_0.svg" /></div>
 </div>
 <p>Her ser vi for eksempel at forskjellen mellom antall masteremner og antall laveregradsemner er større om våren enn om høsten.</p>
 <p>Valg av hva som visualiseres på x-aksen og hva som visualiseres som farge bør være basert på hvilke sammenligninger som er mest interessante.</p>
@@ -1354,8 +1414,6 @@ Som for histogrammer avhenger tetthetsestimatet av en hyperparameter som heter b
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<img alt="_images/eda_95_0.svg" src="_images/eda_95_0.svg" /></div>
 </div>
 <p>Her ser vi at selv om de hadde samme middelverdi, så kan median varere en god del. For eksempel datasettet ’dots’ har median som er nesten lik 25%-kvantil. Datasettet ’wide_lines’ på den andre siden har en median som ligger mye nærmere 75%-kvantilen enn 25%-kvantilen.</p>
 </section>
@@ -1381,8 +1439,6 @@ Som for histogrammer avhenger tetthetsestimatet av en hyperparameter som heter b
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<img alt="_images/eda_101_0.svg" src="_images/eda_101_0.svg" /></div>
 </div>
 <p>Et alternativ som kan fungere i noen tilfeller er å bruke parallelle koordinater. Der lager vi en akse for hver variabel parallelt til hverandre. Så lager vi en linje for hver datapunkt som forbinner alle variablene. Det kan være en effektiv visualisering. Men her må vi huske at visualiseringen avhenger sterkt av rekkefølgen av aksene, så de må velges forsiktig.</p>
 <div class="cell docutils container">
@@ -1394,8 +1450,6 @@ Som for histogrammer avhenger tetthetsestimatet av en hyperparameter som heter b
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<img alt="_images/eda_103_0.svg" src="_images/eda_103_0.svg" /></div>
 </div>
 <p>Men også dette fungerer ikke bra for for mange dimensjoner. Der må vi bruke dimensjonalitetsreduksjon. Det vil si at vi reduserer dimensjonen av data, sånn at vi kan vise de i en vanlig scatterplott.</p>
 <p>Det finnes mange dimensjonalitetsreduksjonsmetoder og de har alle litt forskjellige egeneskaper. Men i dette kurset kommer vi ikke til å se nærmere på de. Det viktigste å huske er at alle dimensjonalitetsreduksjoner endrer på data, så det kan kun brukes for å få intuisjon for data. Her viser vi hva som skjer når vi bruker dimensjonalitetsreduksjonsmetoden PCA på diabetes-datasettet.</p>
@@ -1410,8 +1464,6 @@ Som for histogrammer avhenger tetthetsestimatet av en hyperparameter som heter b
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<img alt="_images/eda_105_0.svg" src="_images/eda_105_0.svg" /></div>
 </div>
 <p>Dette er vanskelig å tolke. Hva skjer hvis vi bruker dimensjonalitetsreduksjonsmetoden tSNE i stedet?</p>
 <div class="cell docutils container">
@@ -1426,17 +1478,6 @@ Som for histogrammer avhenger tetthetsestimatet av en hyperparameter som heter b
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/ppa045/anaconda3/envs/dsbook/lib/python3.11/site-packages/sklearn/manifold/_t_sne.py:800: FutureWarning:
-
-The default initialization in TSNE will change from &#39;random&#39; to &#39;pca&#39; in 1.2.
-
-/Users/ppa045/anaconda3/envs/dsbook/lib/python3.11/site-packages/sklearn/manifold/_t_sne.py:810: FutureWarning:
-
-The default learning rate in TSNE will change from 200.0 to &#39;auto&#39; in 1.2.
-</pre></div>
-</div>
-<img alt="_images/eda_107_1.svg" src="_images/eda_107_1.svg" /></div>
 </div>
 <p>Hvis vi bruker tSNE på diabetes-data, så ser vi to forskjellige klustre. Kan vi gjette hva klustre betyr?</p>
 <div class="cell docutils container">
@@ -1447,8 +1488,6 @@ The default learning rate in TSNE will change from 200.0 to &#39;auto&#39; in 1.
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<img alt="_images/eda_109_0.svg" src="_images/eda_109_0.svg" /></div>
 </div>
 <p>I stor grad har tSNE valgt å bruke kjønn for å dele data i to grupper. Det viser også at man bør være forsiktig når man interpreterer resultater fra dimensjonalitetsreduksjon. Det er ofte nyttig å fargelegge resultatene fra dimensjonalitetsreduksjon etter forskjellige variabler for å finne ut hva som er ansvarlig for mønstre vi ser.</p>
 </section>
@@ -1469,8 +1508,6 @@ The default learning rate in TSNE will change from 200.0 to &#39;auto&#39; in 1.
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<img alt="_images/eda_112_0.svg" src="_images/eda_112_0.svg" /></div>
 </div>
 <section id="farger">
 <h4>Farger<a class="headerlink" href="#farger" title="Permalink til denne oversikten">#</a></h4>
@@ -1510,8 +1547,6 @@ The default learning rate in TSNE will change from 200.0 to &#39;auto&#39; in 1.
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<img alt="_images/eda_114_0.svg" src="_images/eda_114_0.svg" /></div>
 </div>
 <p>Vanligvis bruker vi sekvensielle fargeskala for numeriske eller ordinale data.  Her er noen eksempler av sekvensielle fargeskalaer. Flere kan du se på ved hjelp av <code class="docutils literal notranslate"><span class="pre">px.colors.sequential.swatches_continuous()</span></code>.</p>
 <div class="cell tag_hide-input docutils container">
@@ -1555,8 +1590,6 @@ The default learning rate in TSNE will change from 200.0 to &#39;auto&#39; in 1.
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<img alt="_images/eda_116_0.svg" src="_images/eda_116_0.svg" /></div>
 </div>
 <p>Vi bruker en divergerende fargeskala hvis det er et meningsfullt midtpunkt i numeriske eller ordinale data og for å understreke ytterpunktene. Et typisk eksempel er korrelasjon, der 0 korrelasjon er et naturlig midpunkt og vi kan være mest interesserte i sterkt positivt eller negativt korrelerte variabler.</p>
 <p>Her er noen eksempler av divergerende fargeskalaer. Flere kan du se på ved hjelp av <code class="docutils literal notranslate"><span class="pre">px.colors.diverging.swatches_continuous()</span></code>.</p>
@@ -1574,8 +1607,6 @@ The default learning rate in TSNE will change from 200.0 to &#39;auto&#39; in 1.
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<img alt="_images/eda_118_0.svg" src="_images/eda_118_0.svg" /></div>
 </div>
 <p>I tillegg til valg av fargeskala, så er det én ting til vi alltid bør tenke på når vi velger ut farger. Vi bør aldri bruke rød og grønn i samme figuren. Mer enn 99% av alle fargeblinde mennesker lider av rød-grønn fargesynsmangel. Rundt 8% av alle menn og 0.5% av alle kvinner lider av det. Det er enkelt å ungå å bruke begge de to fargene i samme figuren.</p>
 </section>
@@ -1631,9 +1662,9 @@ The default learning rate in TSNE will change from 200.0 to &#39;auto&#39; in 1.
     <div class="footer-content row">
         <footer class="col footer"><p>
   
-    By Nello Blaser<br/>
+    By Nello Blaser, Pekka Parviainen<br/>
   
-      &copy; Copyright 2022.<br/>
+      &copy; Copyright 2022, 2026.<br/>
 </p>
         </footer>
     </div>

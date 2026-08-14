@@ -1,0 +1,864 @@
+
+<!DOCTYPE html>
+
+<html lang="nb">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Beste praksis i data science &#8212; Innføring i data science</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Søk" href="search.html" />
+    <link rel="next" title="Studiedesign" href="studydesign.html" />
+    <link rel="prev" title="Implementere data science løsninger" href="implementation.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="nb">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Innføring i data science</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Innføring i data science
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="process.html">
+   Data science-prosessen
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="data.html">
+   Data
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="eda.html">
+   Utforskende dataanalyse
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="modeling.html">
+   Datamodellering
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="variables.html">
+   Manglende data og variabelutvinning
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="communication.html">
+   Datakommunikasjon
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="implementation.html">
+   Implementere data science løsninger
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Beste praksis i data science
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="studydesign.html">
+   Studiedesign
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/blasern/data-science-forelesningsnotater/main?urlpath=tree/beste_praksis.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/blasern/data-science-forelesningsnotater"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/blasern/data-science-forelesningsnotater/issues/new?title=Issue%20on%20page%20%2Fbeste_praksis.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="_sources/beste_praksis.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#reproduserbarhet">
+   Reproduserbarhet
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#versjonskontroll-med-git">
+   Versjonskontroll med Git
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#kodestruktur">
+   Kodestruktur
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#datahandtering">
+   Datahåndtering
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#enkle-tester-og-fornuftsjekker">
+   Enkle tester og fornuftsjekker
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#etikk-og-ansvar">
+   Etikk og ansvar
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Beste praksis i data science</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#reproduserbarhet">
+   Reproduserbarhet
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#versjonskontroll-med-git">
+   Versjonskontroll med Git
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#kodestruktur">
+   Kodestruktur
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#datahandtering">
+   Datahåndtering
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#enkle-tester-og-fornuftsjekker">
+   Enkle tester og fornuftsjekker
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#etikk-og-ansvar">
+   Etikk og ansvar
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="beste-praksis-i-data-science">
+<h1>Beste praksis i data science<a class="headerlink" href="#beste-praksis-i-data-science" title="Permalink til denne oversikten">#</a></h1>
+<p>I de foregående kapitlene har vi lært om de ulike tekniske delene av data science. Men i virkeligheten er data science et lagarbeid som foregår over tid, i komplekse organisasjoner og med virkelige konsekvenser. Gode tekniske ferdigheter er nødvendige, men ikke tilstrekkelige.</p>
+<p>I dette kapittelet ser vi på beste praksis: de vanene, metodene og prinsippene som skiller robuste, pålitelige data science-prosjekter fra kaotiske og ureproduserbare.</p>
+<section id="reproduserbarhet">
+<h2>Reproduserbarhet<a class="headerlink" href="#reproduserbarhet" title="Permalink til denne oversikten">#</a></h2>
+<p>Hva er reproduserbarhet? En analyse er reproduserbar hvis noen annen (eller du selv senere), med de samme dataene og de samme metodene, kommer frem til de samme resultatene. Dette er et grunnleggende krav i vitenskap, men det er overraskende vanskelig å oppnå i praksis.</p>
+<p>Her går vi gjennom noen prinsipper og vaner som fører til bedre reproduserbarhet.</p>
+<p><strong>Rådataene er hellige</strong>. Vi endrer aldri rådataene (<em>raw data</em>) våre direkte. All opprydding, filtrering og omkoding skjer i kode, slik at vi alltid kan gå tilbake til utgangspunktet. Hvis vi retter en feil for hånd i en CSV-fil, finnes det ingen oppskrift på hva vi gjorde og da er resultatet ikke lenger reproduserbart.</p>
+<p><strong>Bruk en fast frøverdi</strong> (<em>seed</em>). Mange metoder bruker tilfeldighet. For eksempel oppdelingen i trenings-, validerings- og testdata eller initialisering av en modell. Med en fast frøverdi får vi det samme «tilfeldige» resultatet hver gang. Du har allerede sett <code class="docutils literal notranslate"><span class="pre">random_state=0</span></code> i <code class="docutils literal notranslate"><span class="pre">train_test_split</span></code> flere ganger. Det er nettopp dette i praksis.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="c1"># Uten fast seed: ulikt resultat hver gang vi kjører</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Uten seed:&quot;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">()</span><span class="o">.</span><span class="n">random</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Uten seed:&quot;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">()</span><span class="o">.</span><span class="n">random</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span>
+
+<span class="c1"># Med fast seed: alltid det samme resultatet</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Med seed :&quot;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span><span class="o">.</span><span class="n">random</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Med seed :&quot;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span><span class="o">.</span><span class="n">random</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Uten seed: [0.63584972 0.64707125 0.9416845 ]
+Uten seed: [0.18434006 0.65757169 0.40474381]
+Med seed : [0.77395605 0.43887844 0.85859792]
+Med seed : [0.77395605 0.43887844 0.85859792]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Det er god praksis å definere frøverdien som en konstant øverst i notebooken eller i en konfigurasjonsfil, slik at man enkelt kan endre den og sjekke at resultatene ikke er sensitive til den spesifikke verdien.</p>
+<p><strong>Kjør alt på nytt, ovenfra og ned</strong>. Jupyter-notebooks har en lumsk felle: du kan kjøre celler i hvilken som helst rekkefølge, og en variabel kan ligge igjen i minnet fra en celle du senere har slettet eller endret. Da kan notebooken se ut til å virke hos deg, men feile for alle andre. Før du deler en notebook, bruk derfor altid <strong>«Restart Kernel and Run All»</strong>. Hvis notebooken kjører rent ovenfra og ned, er rekkefølgen riktig og ingen skjult tilstand lurer i bakgrunne.</p>
+<p><strong>Bruk relative stier.</strong> Skriv <code class="docutils literal notranslate"><span class="pre">data/strompris.csv</span></code>, ikke
+<code class="docutils literal notranslate"><span class="pre">C:/Users/pekka/data/strompris.csv</span></code>. Absolutte stier virker bare på din
+maskin. Med relative stier kan hvem som helst klone prosjektet og kjøre det.</p>
+<p><strong>Dokumenter miljøet ditt.</strong> Koden din avhenger av hvilke pakker (og hvilke
+versjoner) du har installert. Lagre disse i en <code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code>-fil, gjerne i et
+eget virtuelt miljø (<em>virtual environment</em>), slik at andre kan installere akkurat
+det samme:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span># requirements.txt
+pandas==2.2.2
+scikit-learn==1.5.0
+matplotlib==3.9.0
+</pre></div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># installere alt på nytt i et nytt miljø</span>
+pip install -r requirements.txt
+</pre></div>
+</div>
+<p><strong>Generer rapporter automatisk.</strong> Som nevnt i kapittelet om datakommunikasjon: jo
+mer av figurer og tall som genereres direkte fra koden, jo mindre er sjansen for
+at rapporten viser en utdatert versjon etter at du har endret noe i
+dataforberedelsen.</p>
+</section>
+<section id="versjonskontroll-med-git">
+<h2>Versjonskontroll med Git<a class="headerlink" href="#versjonskontroll-med-git" title="Permalink til denne oversikten">#</a></h2>
+<p>Har du noen gang hatt filer som heter <code class="docutils literal notranslate"><span class="pre">analyse.py</span></code>, <code class="docutils literal notranslate"><span class="pre">analyse_v2.py</span></code>,
+<code class="docutils literal notranslate"><span class="pre">analyse_endelig.py</span></code> og <code class="docutils literal notranslate"><span class="pre">analyse_endelig_NÅ_på_ekte.py</span></code>? Versjonskontroll
+(<em>version control</em>) løser nettopp dette problemet. Git er det desidert mest
+brukte verktøyet, og det er verdt å lære seg tidlig.</p>
+<p>Et Git-repositorium (<em>repository</em>, ofte kalt «repo») er en mappe der Git
+holder oversikt over alle endringer i filene over tid. De viktigste begrepene:</p>
+<ul class="simple">
+<li><p>En <code class="docutils literal notranslate"><span class="pre">commit</span></code> er et øyeblikksbilde av prosjektet med en kort beskrivelse av hva
+du endret. Du kan alltid gå tilbake til en tidligere commit.</p></li>
+<li><p>Med <code class="docutils literal notranslate"><span class="pre">branch</span></code> og <code class="docutils literal notranslate"><span class="pre">merge</span></code> kan du jobbe på en idé uten å ødelegge den
+fungerende versjonen, og flette den inn igjen når den er klar.</p></li>
+<li><p>Med en tjeneste som GitHub eller GitLab kan du dele repoet og samarbeide
+med andre.</p></li>
+</ul>
+<p>En typisk arbeidsflyt ser slik ut:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git init                      <span class="c1"># opprett et repo i mappen</span>
+git add analyse.py            <span class="c1"># marker filer som skal med</span>
+git commit -m <span class="s2">&quot;Legg til EDA av strømpris&quot;</span>   <span class="c1"># lagre et øyeblikksbilde</span>
+git push                      <span class="c1"># send til GitHub/GitLab</span>
+</pre></div>
+</div>
+<p><strong>Skriv commit-meldinger som forklarer <em>hvorfor</em>.</strong> «Fikset bug» sier lite;
+«Rett feil i imputering: brukte middelverdi fra hele datasettet i stedet for kun
+treningsdata» forteller den neste leseren (ofte deg selv) hva som faktisk
+skjedde.</p>
+<p><strong>Ikke sjekk inn alt.</strong> Rådata, store filer, hemmeligheter (passord, API-nøkler)
+og automatisk genererte filer bør ikke ligge i repoet. Det styrer vi med en
+<code class="docutils literal notranslate"><span class="pre">.gitignore</span></code>-fil:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span># .gitignore
+data/raw/          # store rådatafiler
+*.pkl              # lagrede modeller
+.env               # API-nøkler og passord
+__pycache__/
+.ipynb_checkpoints/
+</pre></div>
+</div>
+<blockquote>
+<div><p><strong>Merk:</strong> API-nøkler og passord skal <em>aldri</em> ligge i koden eller i repoet. Et
+vanlig mønster er å legge dem i en <code class="docutils literal notranslate"><span class="pre">.env</span></code>-fil som er listet i <code class="docutils literal notranslate"><span class="pre">.gitignore</span></code>.</p>
+</div></blockquote>
+</section>
+<section id="kodestruktur">
+<h2>Kodestruktur<a class="headerlink" href="#kodestruktur" title="Permalink til denne oversikten">#</a></h2>
+<p>Kode leses langt oftere enn den skrives. Litt struktur gjør koden lettere å
+forstå, lettere å feilsøke og mindre utsatt for feil.</p>
+<p><strong>Skriv funksjoner i stedet for å kopiere og lime.</strong> Hvis du gjør den samme
+beregningen flere ganger, lag en funksjon. Da finnes logikken ett sted: retter du
+en feil, retter du den overalt. Dette prinsippet kalles ofte <em>DRY</em> – «Don’t
+Repeat Yourself».</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s2">&quot;temp&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mf">4.0</span><span class="p">,</span> <span class="mf">8.0</span><span class="p">,</span> <span class="mf">12.0</span><span class="p">],</span> <span class="s2">&quot;vind&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mf">2.0</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">,</span> <span class="mf">9.0</span><span class="p">]})</span>
+
+<span class="c1"># FØR: samme beregning kopiert for hver kolonne – lett å gjøre en skrivefeil</span>
+<span class="n">df</span><span class="p">[</span><span class="s2">&quot;temp_norm&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;temp&quot;</span><span class="p">]</span> <span class="o">-</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;temp&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span> <span class="o">/</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;temp&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">std</span><span class="p">()</span>
+<span class="n">df</span><span class="p">[</span><span class="s2">&quot;vind_norm&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;vind&quot;</span><span class="p">]</span> <span class="o">-</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;vind&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span> <span class="o">/</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;vind&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">std</span><span class="p">()</span>
+<span class="n">df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>temp</th>
+      <th>vind</th>
+      <th>temp_norm</th>
+      <th>vind_norm</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>4.0</td>
+      <td>2.0</td>
+      <td>-1.0</td>
+      <td>-0.949158</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>8.0</td>
+      <td>5.0</td>
+      <td>0.0</td>
+      <td>-0.094916</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>12.0</td>
+      <td>9.0</td>
+      <td>1.0</td>
+      <td>1.044074</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># ETTER: én funksjon, brukt for hver kolonne</span>
+<span class="k">def</span> <span class="nf">standardiser</span><span class="p">(</span><span class="n">kolonne</span><span class="p">):</span>
+    <span class="s1">&#39;Trekk fra middelverdien og del på standardavviket.&#39;</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">kolonne</span> <span class="o">-</span> <span class="n">kolonne</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span> <span class="o">/</span> <span class="n">kolonne</span><span class="o">.</span><span class="n">std</span><span class="p">()</span>
+
+<span class="k">for</span> <span class="n">navn</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;temp&quot;</span><span class="p">,</span> <span class="s2">&quot;vind&quot;</span><span class="p">]:</span>
+    <span class="n">df</span><span class="p">[</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">navn</span><span class="si">}</span><span class="s2">_norm&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">standardiser</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">navn</span><span class="p">])</span>
+<span class="n">df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>temp</th>
+      <th>vind</th>
+      <th>temp_norm</th>
+      <th>vind_norm</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>4.0</td>
+      <td>2.0</td>
+      <td>-1.0</td>
+      <td>-0.949158</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>8.0</td>
+      <td>5.0</td>
+      <td>0.0</td>
+      <td>-0.094916</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>12.0</td>
+      <td>9.0</td>
+      <td>1.0</td>
+      <td>1.044074</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<blockquote>
+<div><p><strong>Et viktig forbehold:</strong> her regner vi ut middelverdi og standardavvik fra
+<em>hele</em> datasettet. I en ekte modell ville dette være datalekkasje
+(<em>data leakage</em>) – vi skal alltid tilpasse slike transformasjoner kun på
+treningsdata, akkurat som vi gjorde med imputering. (I praksis bruker vi gjerne
+<code class="docutils literal notranslate"><span class="pre">StandardScaler</span></code> fra <code class="docutils literal notranslate"><span class="pre">scikit-learn</span></code> nettopp fordi den skiller <code class="docutils literal notranslate"><span class="pre">fit</span></code> på
+treningsdata fra <code class="docutils literal notranslate"><span class="pre">transform</span></code> på validerings- og testdata.)</p>
+</div></blockquote>
+<p><strong>Gi ting beskrivende navn.</strong> <code class="docutils literal notranslate"><span class="pre">gjennomsnittstemperatur</span></code> er bedre enn <code class="docutils literal notranslate"><span class="pre">g</span></code>, <code class="docutils literal notranslate"><span class="pre">x2</span></code>
+eller <code class="docutils literal notranslate"><span class="pre">tmp</span></code>. Den lille ekstra skrivingen sparer mye gjetting senere.</p>
+<p><strong>Kommentarer skal forklare <em>hvorfor</em>, ikke <em>hva</em>.</strong> Koden viser allerede hva som
+skjer. En god kommentar forteller hvorfor du gjorde et valg:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Vi filtrerer bort negative priser fordi de skyldes en kjent målefeil i 2021</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;pris&quot;</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+<p><strong>Notebook eller modul?</strong> Notebooks er gode til utforsking, fortelling og
+rapporter. Men når koden vokser, eller når den samme funksjonen skal brukes flere
+steder, er det ryddigere å flytte den ut i en vanlig Python-fil (en <em>modul</em>,
+f.eks. <code class="docutils literal notranslate"><span class="pre">forberedelse.py</span></code>) og importere den. En vanlig arbeidsdeling er:
+<em>funksjoner i moduler, fortellingen i notebooken.</em></p>
+</section>
+<section id="datahandtering">
+<h2>Datahåndtering<a class="headerlink" href="#datahandtering" title="Permalink til denne oversikten">#</a></h2>
+<p><strong>Skill mellom rå og bearbeidet data.</strong> En velprøvd mappestruktur ser slik ut:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>prosjekt/
+├── data/
+│   ├── raw/          # rådata, røres aldri
+│   └── processed/    # data etter opprydding, generert av kode
+├── notebooks/        # utforsking og rapporter
+├── src/              # gjenbrukbare funksjoner (moduler)
+├── requirements.txt
+└── README.md         # hva er dette prosjektet, og hvordan kjøres det?
+</pre></div>
+</div>
+<p>Poenget er at alt i <code class="docutils literal notranslate"><span class="pre">processed/</span></code> skal kunne <em>gjenskapes</em> fra <code class="docutils literal notranslate"><span class="pre">raw/</span></code> ved å kjøre
+koden. Da kan du trygt slette <code class="docutils literal notranslate"><span class="pre">processed/</span></code> og lage det på nytt – og du vet at det
+alltid er i synk med koden din.</p>
+<p><strong>Skriv en datakatalog (<em>data dictionary</em>).</strong> En kort beskrivelse av hver variabel
+– navn, enhet, mulige verdier, og hva «manglende» betyr – er gull verdt. Husk
+diskusjonen om manglende data: betyr en tom celle «null», «vet ikke», eller «ikke
+målt»? Det bør stå et sted.</p>
+<p><strong>Dokumenter hvor dataene kommer fra.</strong> Kilde, nedlastingsdato og lisens. Data endrer seg over
+tid, så en analyse uten dato er vanskelig å etterprøve.</p>
+</section>
+<section id="enkle-tester-og-fornuftsjekker">
+<h2>Enkle tester og fornuftsjekker<a class="headerlink" href="#enkle-tester-og-fornuftsjekker" title="Permalink til denne oversikten">#</a></h2>
+<p>I programvareutvikling skriver man formelle tester. I data science holder det
+ofte langt å legge inn enkle <strong>fornuftssjekker</strong> (<em>sanity checks</em>) – små
+påstander om at dataene og resultatene ser fornuftige ut. En <code class="docutils literal notranslate"><span class="pre">assert</span></code>-setning
+stopper koden umiddelbart hvis noe er galt, slik at en feil ikke får forplante seg
+stille gjennom hele analysen.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+    <span class="s2">&quot;alder&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">34</span><span class="p">,</span> <span class="mi">52</span><span class="p">,</span> <span class="mi">19</span><span class="p">,</span> <span class="mi">67</span><span class="p">,</span> <span class="mi">41</span><span class="p">],</span>
+    <span class="s2">&quot;kjonn&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;K&quot;</span><span class="p">,</span> <span class="s2">&quot;M&quot;</span><span class="p">,</span> <span class="s2">&quot;M&quot;</span><span class="p">,</span> <span class="s2">&quot;K&quot;</span><span class="p">,</span> <span class="s2">&quot;M&quot;</span><span class="p">],</span>
+<span class="p">})</span>
+
+<span class="c1"># Fornuftssjekker: stopp tidlig hvis noe er åpenbart galt</span>
+<span class="k">assert</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;alder&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">between</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">120</span><span class="p">)</span><span class="o">.</span><span class="n">all</span><span class="p">(),</span> <span class="s2">&quot;Urimelige aldersverdier!&quot;</span>
+<span class="k">assert</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;kjonn&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">([</span><span class="s2">&quot;K&quot;</span><span class="p">,</span> <span class="s2">&quot;M&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">all</span><span class="p">(),</span> <span class="s2">&quot;Uventede verdier i kjonn!&quot;</span>
+<span class="k">assert</span> <span class="n">df</span><span class="o">.</span><span class="n">notna</span><span class="p">()</span><span class="o">.</span><span class="n">all</span><span class="p">()</span><span class="o">.</span><span class="n">all</span><span class="p">(),</span> <span class="s2">&quot;Det finnes manglende verdier!&quot;</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Alle fornuftssjekker passerte.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Alle fornuftssjekker passerte.
+</pre></div>
+</div>
+</div>
+</div>
+<p>Prøv gjerne å endre <code class="docutils literal notranslate"><span class="pre">34</span></code> til <code class="docutils literal notranslate"><span class="pre">200</span></code> i cellen over og kjøre på nytt – da ser du at
+sjekken fanger opp problemet umiddelbart, i stedet for at den urimelige verdien
+sniker seg inn i modellen.</p>
+<p>Nyttige ting å sjekke underveis:</p>
+<ul class="simple">
+<li><p><strong>Form og størrelse:</strong> har datarammen det antallet rader og kolonner du
+forventer etter en sammenslåing eller filtrering?</p></li>
+<li><p><strong>Verdiområder:</strong> er priser ikke-negative, sannsynligheter mellom 0 og 1,
+datoer innenfor perioden du studerer?</p></li>
+<li><p><strong>Ingen datalekkasje:</strong> brukte du bare treningsdata til å tilpasse imputering,
+skalering og modell?</p></li>
+<li><p><strong>Sammenlign med en grunnlinjemodell (<em>baseline</em>):</strong> er den avanserte modellen
+faktisk bedre enn å bare gjette middelverdien eller den vanligste klassen? Hvis
+ikke, er det ofte et tegn på en feil.</p></li>
+</ul>
+</section>
+<section id="etikk-og-ansvar">
+<h2>Etikk og ansvar<a class="headerlink" href="#etikk-og-ansvar" title="Permalink til denne oversikten">#</a></h2>
+<p>Beste praksis handler ikke bare om kode, men også om konsekvensene av arbeidet
+vårt. Vi går grundig gjennom dette i kapittelet om studiedesign, så her nøyer vi
+oss med en påminnelse: tenk gjennom personvern og GDPR når du jobber med
+personopplysninger, vær oppmerksom på skjevhet (<em>bias</em>) i data og modeller, og vær
+åpen om begrensningene i analysen din. Transparens, at andre kan se hva du har
+gjort og hvorfor, er like mye en etisk dyd som en teknisk en, og det er nettopp
+det reproduserbarhet og god dokumentasjon gir oss.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "dsbook"
+        },
+        kernelOptions: {
+            kernelName: "dsbook",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'dsbook'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="implementation.html" title="forrige page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">forrige</p>
+            <p class="prev-next-title">Implementere data science løsninger</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="studydesign.html" title="neste page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">neste</p>
+        <p class="prev-next-title">Studiedesign</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Nello Blaser, Pekka Parviainen<br/>
+  
+      &copy; Copyright 2022, 2026.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>
