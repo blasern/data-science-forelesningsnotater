@@ -604,103 +604,6 @@ title="Print to PDF"
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span> <span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">3</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="ne">----&gt; </span><span class="mi">3</span> <span class="kn">import</span> <span class="nn">scipy.stats</span> <span class="k">as</span> <span class="nn">stats</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">load_diabetes</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="kn">import</span> <span class="nn">plotly.express</span> <span class="k">as</span> <span class="nn">px</span>
-
-<span class="n">File</span> <span class="o">~/</span><span class="n">anaconda3</span><span class="o">/</span><span class="n">envs</span><span class="o">/</span><span class="n">dsbook</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.11</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">scipy</span><span class="o">/</span><span class="n">stats</span><span class="o">/</span><span class="fm">__init__</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">467</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="sd">&quot;&quot;&quot;</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span><span class="sd"> .. _statsrefmanual:</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span><span class="sd"> </span>
-<span class="sd">   (...)</span>
-<span class="g g-Whitespace">    </span><span class="mi">462</span><span class="sd"> </span>
-<span class="g g-Whitespace">    </span><span class="mi">463</span><span class="sd"> &quot;&quot;&quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">465</span> <span class="kn">from</span> <span class="nn">._warnings_errors</span> <span class="kn">import</span> <span class="p">(</span><span class="n">ConstantInputWarning</span><span class="p">,</span> <span class="n">NearConstantInputWarning</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">466</span>                                <span class="n">DegenerateDataWarning</span><span class="p">,</span> <span class="n">FitError</span><span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">467</span> <span class="kn">from</span> <span class="nn">._stats_py</span> <span class="kn">import</span> <span class="o">*</span>
-<span class="g g-Whitespace">    </span><span class="mi">468</span> <span class="kn">from</span> <span class="nn">._variation</span> <span class="kn">import</span> <span class="n">variation</span>
-<span class="g g-Whitespace">    </span><span class="mi">469</span> <span class="kn">from</span> <span class="nn">.distributions</span> <span class="kn">import</span> <span class="o">*</span>
-
-<span class="n">File</span> <span class="o">~/</span><span class="n">anaconda3</span><span class="o">/</span><span class="n">envs</span><span class="o">/</span><span class="n">dsbook</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.11</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">scipy</span><span class="o">/</span><span class="n">stats</span><span class="o">/</span><span class="n">_stats_py</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">46</span>
-<span class="g g-Whitespace">     </span><span class="mi">44</span> <span class="kn">import</span> <span class="nn">scipy.special</span> <span class="k">as</span> <span class="nn">special</span>
-<span class="g g-Whitespace">     </span><span class="mi">45</span> <span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">linalg</span>
-<span class="ne">---&gt; </span><span class="mi">46</span> <span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">distributions</span>
-<span class="g g-Whitespace">     </span><span class="mi">47</span> <span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">_mstats_basic</span> <span class="k">as</span> <span class="n">mstats_basic</span>
-<span class="g g-Whitespace">     </span><span class="mi">48</span> <span class="kn">from</span> <span class="nn">._stats_mstats_common</span> <span class="kn">import</span> <span class="p">(</span><span class="n">_find_repeats</span><span class="p">,</span> <span class="n">linregress</span><span class="p">,</span> <span class="n">theilslopes</span><span class="p">,</span>
-<span class="g g-Whitespace">     </span><span class="mi">49</span>                                    <span class="n">siegelslopes</span><span class="p">)</span>
-
-<span class="n">File</span> <span class="o">~/</span><span class="n">anaconda3</span><span class="o">/</span><span class="n">envs</span><span class="o">/</span><span class="n">dsbook</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.11</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">scipy</span><span class="o">/</span><span class="n">stats</span><span class="o">/</span><span class="n">distributions</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">8</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1">#</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="c1"># Author:  Travis Oliphant  2002-2011 with contributions from</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="c1">#          SciPy Developers 2004-2011</span>
-   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="c1">#       instead of `git blame -Lxxx,+x`.</span>
-<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="c1">#</span>
-<span class="ne">----&gt; </span><span class="mi">8</span> <span class="kn">from</span> <span class="nn">._distn_infrastructure</span> <span class="kn">import</span> <span class="p">(</span><span class="n">rv_discrete</span><span class="p">,</span> <span class="n">rv_continuous</span><span class="p">,</span> <span class="n">rv_frozen</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">10</span> <span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">_continuous_distns</span>
-<span class="g g-Whitespace">     </span><span class="mi">11</span> <span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">_discrete_distns</span>
-
-<span class="n">File</span> <span class="o">~/</span><span class="n">anaconda3</span><span class="o">/</span><span class="n">envs</span><span class="o">/</span><span class="n">dsbook</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.11</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">scipy</span><span class="o">/</span><span class="n">stats</span><span class="o">/</span><span class="n">_distn_infrastructure</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">24</span>
-<span class="g g-Whitespace">     </span><span class="mi">20</span> <span class="kn">from</span> <span class="nn">scipy.special</span> <span class="kn">import</span> <span class="p">(</span><span class="n">comb</span><span class="p">,</span> <span class="n">chndtr</span><span class="p">,</span> <span class="n">entr</span><span class="p">,</span> <span class="n">xlogy</span><span class="p">,</span> <span class="n">ive</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">22</span> <span class="c1"># for root finding for continuous distribution ppf, and max likelihood</span>
-<span class="g g-Whitespace">     </span><span class="mi">23</span> <span class="c1"># estimation</span>
-<span class="ne">---&gt; </span><span class="mi">24</span> <span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">optimize</span>
-<span class="g g-Whitespace">     </span><span class="mi">26</span> <span class="c1"># for functions of continuous distributions (e.g. moments, entropy, cdf)</span>
-<span class="g g-Whitespace">     </span><span class="mi">27</span> <span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">integrate</span>
-
-<span class="nn">File &lt;frozen importlib._bootstrap&gt;:1231,</span> in <span class="ni">_handle_fromlist</span><span class="nt">(module, fromlist, import_, recursive)</span>
-
-<span class="nn">File ~/anaconda3/envs/dsbook/lib/python3.11/site-packages/scipy/__init__.py:211,</span> in <span class="ni">__getattr__</span><span class="nt">(name)</span>
-<span class="g g-Whitespace">    </span><span class="mi">209</span> <span class="k">def</span> <span class="fm">__getattr__</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
-<span class="g g-Whitespace">    </span><span class="mi">210</span>     <span class="k">if</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">submodules</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">211</span>         <span class="k">return</span> <span class="n">_importlib</span><span class="o">.</span><span class="n">import_module</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;scipy.</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">212</span>     <span class="k">else</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">213</span>         <span class="k">try</span><span class="p">:</span>
-
-<span class="nn">File ~/anaconda3/envs/dsbook/lib/python3.11/importlib/__init__.py:126,</span> in <span class="ni">import_module</span><span class="nt">(name, package)</span>
-<span class="g g-Whitespace">    </span><span class="mi">124</span>             <span class="k">break</span>
-<span class="g g-Whitespace">    </span><span class="mi">125</span>         <span class="n">level</span> <span class="o">+=</span> <span class="mi">1</span>
-<span class="ne">--&gt; </span><span class="mi">126</span> <span class="k">return</span> <span class="n">_bootstrap</span><span class="o">.</span><span class="n">_gcd_import</span><span class="p">(</span><span class="n">name</span><span class="p">[</span><span class="n">level</span><span class="p">:],</span> <span class="n">package</span><span class="p">,</span> <span class="n">level</span><span class="p">)</span>
-
-<span class="n">File</span> <span class="o">~/</span><span class="n">anaconda3</span><span class="o">/</span><span class="n">envs</span><span class="o">/</span><span class="n">dsbook</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.11</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">scipy</span><span class="o">/</span><span class="n">optimize</span><span class="o">/</span><span class="fm">__init__</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">401</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="sd">&quot;&quot;&quot;</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span><span class="sd"> =====================================================</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span><span class="sd"> Optimization and root finding (:mod:`scipy.optimize`)</span>
-<span class="sd">   (...)</span>
-<span class="g g-Whitespace">    </span><span class="mi">397</span><span class="sd"> </span>
-<span class="g g-Whitespace">    </span><span class="mi">398</span><span class="sd"> &quot;&quot;&quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">400</span> <span class="kn">from</span> <span class="nn">._optimize</span> <span class="kn">import</span> <span class="o">*</span>
-<span class="ne">--&gt; </span><span class="mi">401</span> <span class="kn">from</span> <span class="nn">._minimize</span> <span class="kn">import</span> <span class="o">*</span>
-<span class="g g-Whitespace">    </span><span class="mi">402</span> <span class="kn">from</span> <span class="nn">._root</span> <span class="kn">import</span> <span class="o">*</span>
-<span class="g g-Whitespace">    </span><span class="mi">403</span> <span class="kn">from</span> <span class="nn">._root_scalar</span> <span class="kn">import</span> <span class="o">*</span>
-
-<span class="n">File</span> <span class="o">~/</span><span class="n">anaconda3</span><span class="o">/</span><span class="n">envs</span><span class="o">/</span><span class="n">dsbook</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.11</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">scipy</span><span class="o">/</span><span class="n">optimize</span><span class="o">/</span><span class="n">_minimize</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">31</span>
-<span class="g g-Whitespace">     </span><span class="mi">29</span> <span class="kn">from</span> <span class="nn">._lbfgsb_py</span> <span class="kn">import</span> <span class="n">_minimize_lbfgsb</span>
-<span class="g g-Whitespace">     </span><span class="mi">30</span> <span class="kn">from</span> <span class="nn">._tnc</span> <span class="kn">import</span> <span class="n">_minimize_tnc</span>
-<span class="ne">---&gt; </span><span class="mi">31</span> <span class="kn">from</span> <span class="nn">._cobyla_py</span> <span class="kn">import</span> <span class="n">_minimize_cobyla</span>
-<span class="g g-Whitespace">     </span><span class="mi">32</span> <span class="kn">from</span> <span class="nn">._slsqp_py</span> <span class="kn">import</span> <span class="n">_minimize_slsqp</span>
-<span class="g g-Whitespace">     </span><span class="mi">33</span> <span class="kn">from</span> <span class="nn">._constraints</span> <span class="kn">import</span> <span class="p">(</span><span class="n">old_bound_to_new</span><span class="p">,</span> <span class="n">new_bounds_to_old</span><span class="p">,</span>
-<span class="g g-Whitespace">     </span><span class="mi">34</span>                            <span class="n">old_constraint_to_new</span><span class="p">,</span> <span class="n">new_constraint_to_old</span><span class="p">,</span>
-<span class="g g-Whitespace">     </span><span class="mi">35</span>                            <span class="n">NonlinearConstraint</span><span class="p">,</span> <span class="n">LinearConstraint</span><span class="p">,</span> <span class="n">Bounds</span><span class="p">,</span>
-<span class="g g-Whitespace">     </span><span class="mi">36</span>                            <span class="n">PreparedConstraint</span><span class="p">)</span>
-
-<span class="n">File</span> <span class="o">~/</span><span class="n">anaconda3</span><span class="o">/</span><span class="n">envs</span><span class="o">/</span><span class="n">dsbook</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.11</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">scipy</span><span class="o">/</span><span class="n">optimize</span><span class="o">/</span><span class="n">_cobyla_py</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">17</span>
-<span class="g g-Whitespace">     </span><span class="mi">14</span> <span class="kn">from</span> <span class="nn">threading</span> <span class="kn">import</span> <span class="n">RLock</span>
-<span class="g g-Whitespace">     </span><span class="mi">16</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="ne">---&gt; </span><span class="mi">17</span> <span class="kn">from</span> <span class="nn">scipy.optimize</span> <span class="kn">import</span> <span class="n">_cobyla</span> <span class="k">as</span> <span class="n">cobyla</span>
-<span class="g g-Whitespace">     </span><span class="mi">18</span> <span class="kn">from</span> <span class="nn">._optimize</span> <span class="kn">import</span> <span class="n">OptimizeResult</span><span class="p">,</span> <span class="n">_check_unknown_options</span>
-<span class="g g-Whitespace">     </span><span class="mi">19</span> <span class="k">try</span><span class="p">:</span>
-
-<span class="ne">KeyboardInterrupt</span>: 
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -747,6 +650,8 @@ Det følger direkte fra definisjonen at fordelingsfunksjoner tar verdier mellom 
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="_images/eda_8_0.svg" src="_images/eda_8_0.svg" /></div>
 </div>
 <p>For eksempelet med ventetid der bybanen kommer nøyaktig hver 10. minutt, så blir det følgende fordelinsfunksjon:</p>
 <div class="cell tag_hide-input docutils container">
@@ -758,6 +663,8 @@ Det følger direkte fra definisjonen at fordelingsfunksjoner tar verdier mellom 
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="_images/eda_10_0.svg" src="_images/eda_10_0.svg" /></div>
 </div>
 <p>Denne fordelingen heter også uniformfordeling mellom 0 og 10.</p>
 <p>I tillegg til fordelingsfunksjonen bruker vi også andre funksjoner for å beskrive fordelinger. Diskrete fordelinger (altså fordelinger med endelig mange mulige utfall) kan beskrives med hjelp av sannsynlihgetsmassefunksjonen. Det er bare sannsynligheten for at en stokastisk variabel er akkurat x.</p>
@@ -790,6 +697,8 @@ Det følger direkte fra definisjonen at fordelingsfunksjoner tar verdier mellom 
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="_images/eda_16_0.svg" src="_images/eda_16_0.svg" /></div>
 </div>
 <p><strong>Normalfordeling:</strong> Normalfordelingen er en av de mest brukte kontinuerlige fordelingsfunksjonene. Formelen for tetthet har er</p>
 <div class="math notranslate nohighlight">
@@ -815,6 +724,8 @@ Det følger direkte fra definisjonen at fordelingsfunksjoner tar verdier mellom 
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="_images/eda_19_0.svg" src="_images/eda_19_0.svg" /></div>
 </div>
 <p>Her er grafen av tetthetsfunksjonen. Funksjonen er sentrert ved <span class="math notranslate nohighlight">\(\mu\)</span> og <span class="math notranslate nohighlight">\(\sigma\)</span> bestemmer hvor stor spredning det er. Omtrent 68% av masse er mellom <span class="math notranslate nohighlight">\(-\sigma\)</span> og <span class="math notranslate nohighlight">\(\sigma\)</span>. 95% av massen ligger mellom <span class="math notranslate nohighlight">\(-2\sigma\)</span> og <span class="math notranslate nohighlight">\(2\sigma\)</span>.</p>
 <div class="cell tag_hide-input docutils container">
@@ -834,6 +745,8 @@ Det følger direkte fra definisjonen at fordelingsfunksjoner tar verdier mellom 
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="_images/eda_21_0.svg" src="_images/eda_21_0.svg" /></div>
 </div>
 <p>Her er fordelingsfunksjonen for normalfordelingen.</p>
 </section>
@@ -952,6 +865,8 @@ I Bergen regner det i snitt 200 dager per år. Anta at du hører værmeldingen s
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="_images/eda_35_0.svg" src="_images/eda_35_0.svg" /></div>
 </div>
 <p>For data med skjeve fordelinger eller med uteliggere er medianen mer robust fordi den ikke påvirkes av ekstremverdier og gir et bedre bilde av den «typiske» verdien.</p>
 <div class="cell tag_hide-input docutils container">
@@ -979,6 +894,8 @@ I Bergen regner det i snitt 200 dager per år. Anta at du hører værmeldingen s
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="_images/eda_37_0.svg" src="_images/eda_37_0.svg" /></div>
 </div>
 <p>For kategoriske data eller multimodale fordelinger er modus ofte mest nyttig fordi det identifiserer den hyppigst forekommende verdien.</p>
 <div class="cell tag_hide-input docutils container">
@@ -1007,6 +924,8 @@ I Bergen regner det i snitt 200 dager per år. Anta at du hører værmeldingen s
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="_images/eda_39_0.svg" src="_images/eda_39_0.svg" /></div>
 </div>
 <p>Her er det noen eksempler med hvilket lokaliseringsmål man typisk ville brukt:</p>
 <p><strong>Lønn i en bedrift:</strong> Medianen brukes ofte for å beskrive lønnsnivået, siden middelverdien kan påvirkes kraftig av noen få svært høye lønninger.</p>
@@ -1038,6 +957,8 @@ I Bergen regner det i snitt 200 dager per år. Anta at du hører værmeldingen s
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="_images/eda_42_0.svg" src="_images/eda_42_0.svg" /></div>
 </div>
 <p>Her ser vi eksempelet om middelverdien av myntkast. Vi ser at det er mye støy når vi har få myntkast og at middelverdien stabiliserer seg jo flere observasjoner vi har.</p>
 <p>Mer generelt, så sier store talls lov at jo flere observasjoner en har, desto nærmere vil middelverdien av observasjonene være den sanne forventningsverdien. Når datamengden øker, vil middelverdien bli mindre påvirket av uteliggere og gi en mer nøyaktig representasjon av den sentrale tendensen i dataene.</p>
@@ -1063,6 +984,8 @@ I Bergen regner det i snitt 200 dager per år. Anta at du hører værmeldingen s
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="_images/eda_45_0.svg" src="_images/eda_45_0.svg" /></div>
 </div>
 <p>Husk at variansen til normalfordelingen er <span class="math notranslate nohighlight">\(\sigma^2\)</span>.</p>
 <div class="math notranslate nohighlight">
@@ -1094,6 +1017,8 @@ I Bergen regner det i snitt 200 dager per år. Anta at du hører værmeldingen s
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="_images/eda_48_0.svg" src="_images/eda_48_0.svg" /></div>
 </div>
 <p>Hvordan velger vi hvilket spredningsmål vi skal bruke?</p>
 <p>Husk at empirisk varians defineres gjennom middelverdien og median er et kvantil. Så hvis vi bruker middelverdien som lokaliseringsmål, så bruker vi empirisk varians som spredningsmål.</p>
@@ -1143,6 +1068,8 @@ I praksis betyr et bredt konfidensintervall at vi har stor usikkerhet i estimate
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="_images/eda_53_0.svg" src="_images/eda_53_0.svg" /></div>
 </div>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
@@ -1156,6 +1083,8 @@ I praksis betyr et bredt konfidensintervall at vi har stor usikkerhet i estimate
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="_images/eda_54_0.svg" src="_images/eda_54_0.svg" /></div>
 </div>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
@@ -1170,6 +1099,8 @@ I praksis betyr et bredt konfidensintervall at vi har stor usikkerhet i estimate
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="_images/eda_55_0.svg" src="_images/eda_55_0.svg" /></div>
 </div>
 <p>Det siste eksempelet viser også at selv om det er en sammenheng mellom variablene, så er ikke det nødvendigvis en lineær sammenheng, så korrelasjon kan være nesten 0, selv om det er en sterk sammenheng.</p>
 <p>At to variabler er korrelerte betyr at de varierer sammen, ikke at den ene forårsaker den andre. Det finnes fire vanlige forklaringer på en observert korrelasjon:</p>
@@ -1197,6 +1128,8 @@ I praksis betyr et bredt konfidensintervall at vi har stor usikkerhet i estimate
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="_images/eda_59_0.svg" src="_images/eda_59_0.svg" /><img alt="_images/eda_59_1.svg" src="_images/eda_59_1.svg" /></div>
 </div>
 <p>Det eksempelet viser hvor viktig det er å visualisere data. For eksempel ser vi her en dinosaur og en stjerne og mange andre helt forskjellige dataset som har samme middelverdi og empirisk varians på både x- og y-aksen og samme korrelasjon. Likevel får vi helt forskjellige mønstre. Men visuelt kan vi enkelt se forskjellen. Det viser at vi kan gå glipp av masse viktig informasjon hvis vi bare ser på statistiske mål og ikke visualiserer data.</p>
 <section id="univariate-data">
@@ -1218,6 +1151,8 @@ I praksis betyr et bredt konfidensintervall at vi har stor usikkerhet i estimate
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="_images/eda_63_0.svg" src="_images/eda_63_0.svg" /></div>
 </div>
 <p>For numeriske data kan vi gjøre noe lignende og lage et histogram. I histogrammet deler vi den numeriske variablen opp i intervaller. Så visualiserer vi en søyle per interval som viser sannsynligheten for å være i dette intervalet. Her ser vi alder av pasasjerer i titanic-datasettet.</p>
 <div class="cell tag_hide-input docutils container">
@@ -1236,6 +1171,8 @@ I praksis betyr et bredt konfidensintervall at vi har stor usikkerhet i estimate
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="_images/eda_66_0.svg" src="_images/eda_66_0.svg" /></div>
 </div>
 <p>Hvilke intervaller man velger er avgjørende for hvordan histogrammet vil se ut. Her lager vi histogrammer med mange intervaller, litt færre intervaller, og veldig få intervaller.</p>
 <div class="cell docutils container">
@@ -1246,6 +1183,8 @@ I praksis betyr et bredt konfidensintervall at vi har stor usikkerhet i estimate
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="_images/eda_68_0.svg" src="_images/eda_68_0.svg" /></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1255,6 +1194,8 @@ I praksis betyr et bredt konfidensintervall at vi har stor usikkerhet i estimate
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="_images/eda_69_0.svg" src="_images/eda_69_0.svg" /></div>
 </div>
 <p>Antall intervaller er noe vi må velge og kalles for hyperparameter av metoden. Hvis vi bruker for mange intervaller blir det veldig mye støy. Hvis vi velger for få, så mister vi informasjon.</p>
 <p>Et alternativ til histogrammer kan være tetthetsestimater med kjernetetthetsestimering. Vi går ikke gjennom teorien av denne metoden i detalj. Men det har fordelen at det blir et kontinuerlig tetthetsestimat.
@@ -1277,6 +1218,8 @@ Som for histogrammer avhenger tetthetsestimatet av en hyperparameter som heter b
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="_images/eda_72_0.svg" src="_images/eda_72_0.svg" /></div>
 </div>
 <p>Vi kan også bruke en automatisk metode for å regne ut båndbredder som ofte (men ikke alltid) fungerer ganske bra.</p>
 <div class="cell docutils container">
@@ -1295,6 +1238,8 @@ Som for histogrammer avhenger tetthetsestimatet av en hyperparameter som heter b
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="_images/eda_74_0.svg" src="_images/eda_74_0.svg" /></div>
 </div>
 </section>
 <section id="bivariate-data">
@@ -1308,6 +1253,8 @@ Som for histogrammer avhenger tetthetsestimatet av en hyperparameter som heter b
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="_images/eda_76_0.svg" src="_images/eda_76_0.svg" /></div>
 </div>
 <p>En annen ting man kan gjøre med to numeriske variabler er å bruke en generalisering av kjernetetthetsestimering som vi har sett på univariate data. Her er det altså sånn at jo mørkere blå figuren er, jo tettere ligger data i det området.</p>
 <div class="cell docutils container">
@@ -1319,6 +1266,8 @@ Som for histogrammer avhenger tetthetsestimatet av en hyperparameter som heter b
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="_images/eda_78_0.svg" src="_images/eda_78_0.svg" /></div>
 </div>
 <p>I dette tilfelle er kanskje ikke dette like nyttig som scatterplottet. Men det finnes mange tilfeller, der tetthet er nyttigere enn datapunkter. Spesielt når det er mye data. Her er et eksempel.</p>
 <div class="cell tag_hide-input docutils container">
@@ -1341,6 +1290,8 @@ Som for histogrammer avhenger tetthetsestimatet av en hyperparameter som heter b
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="_images/eda_81_0.svg" src="_images/eda_81_0.svg" /></div>
 </div>
 <p>Fra scatterplottet ser vi ikke så mye.</p>
 <div class="cell docutils container">
@@ -1352,6 +1303,8 @@ Som for histogrammer avhenger tetthetsestimatet av en hyperparameter som heter b
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="_images/eda_83_0.svg" src="_images/eda_83_0.svg" /></div>
 </div>
 <p>Men tettheten viser veldig tydelig at data kommer fra en sirkel med mye støy.</p>
 <p>Tidsrekker er data der observasjonene er ordnet i tid, for eksempel daglig temperatur, timevis strømpris eller månedlig salg. Det som skiller tidsrekker fra vanlige datasett er at rekkefølgen av observasjonene har betydning, og at nærliggende tidspunkter ofte er mer like hverandre enn tidspunkter som ligger langt fra hverandre. Dette kalles for autokorrelasjon (engelsk: autocorrelation).</p>
@@ -1368,6 +1321,8 @@ Som for histogrammer avhenger tetthetsestimatet av en hyperparameter som heter b
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="_images/eda_87_0.svg" src="_images/eda_87_0.svg" /></div>
 </div>
 <p>På grunn av linjen kan vi enkelt se trender: økningen i forventet levealder var relativt konstant mellom 1950 og 1990 og har blitt brattere mellom 1990 og 2010. Dette hadde vært vanskelig å se i en scatterplott.</p>
 <p>For kategoriske data kan vi enkelt utvide søylediagrammer til å visualisere to egenskaper ved hjelp av farge. Vi bruker x-aksen for den ene kategoriske variablen og fargen for å visualisere den andre.</p>
@@ -1381,6 +1336,8 @@ Som for histogrammer avhenger tetthetsestimatet av en hyperparameter som heter b
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="_images/eda_90_0.svg" src="_images/eda_90_0.svg" /></div>
 </div>
 <p>Her ser vi for eksempel at det er flere laveregradsemner på høsten enn på våren, mens det er flere PhD-kurs på høsten enn på våren.</p>
 <p>Vi kan også vise semesteret på x-aksen og nivået som farge.</p>
@@ -1393,6 +1350,8 @@ Som for histogrammer avhenger tetthetsestimatet av en hyperparameter som heter b
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="_images/eda_92_0.svg" src="_images/eda_92_0.svg" /></div>
 </div>
 <p>Her ser vi for eksempel at forskjellen mellom antall masteremner og antall laveregradsemner er større om våren enn om høsten.</p>
 <p>Valg av hva som visualiseres på x-aksen og hva som visualiseres som farge bør være basert på hvilke sammenligninger som er mest interessante.</p>
@@ -1414,6 +1373,8 @@ Som for histogrammer avhenger tetthetsestimatet av en hyperparameter som heter b
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="_images/eda_97_0.svg" src="_images/eda_97_0.svg" /></div>
 </div>
 <p>Her ser vi at selv om de hadde samme middelverdi, så kan median varere en god del. For eksempel datasettet ’dots’ har median som er nesten lik 25%-kvantil. Datasettet ’wide_lines’ på den andre siden har en median som ligger mye nærmere 75%-kvantilen enn 25%-kvantilen.</p>
 </section>
@@ -1439,6 +1400,8 @@ Som for histogrammer avhenger tetthetsestimatet av en hyperparameter som heter b
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="_images/eda_103_0.svg" src="_images/eda_103_0.svg" /></div>
 </div>
 <p>Et alternativ som kan fungere i noen tilfeller er å bruke parallelle koordinater. Der lager vi en akse for hver variabel parallelt til hverandre. Så lager vi en linje for hver datapunkt som forbinner alle variablene. Det kan være en effektiv visualisering. Men her må vi huske at visualiseringen avhenger sterkt av rekkefølgen av aksene, så de må velges forsiktig.</p>
 <div class="cell docutils container">
@@ -1450,6 +1413,8 @@ Som for histogrammer avhenger tetthetsestimatet av en hyperparameter som heter b
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="_images/eda_105_0.svg" src="_images/eda_105_0.svg" /></div>
 </div>
 <p>Men også dette fungerer ikke bra for for mange dimensjoner. Der må vi bruke dimensjonalitetsreduksjon. Det vil si at vi reduserer dimensjonen av data, sånn at vi kan vise de i en vanlig scatterplott.</p>
 <p>Det finnes mange dimensjonalitetsreduksjonsmetoder og de har alle litt forskjellige egeneskaper. Men i dette kurset kommer vi ikke til å se nærmere på de. Det viktigste å huske er at alle dimensjonalitetsreduksjoner endrer på data, så det kan kun brukes for å få intuisjon for data. Her viser vi hva som skjer når vi bruker dimensjonalitetsreduksjonsmetoden PCA på diabetes-datasettet.</p>
@@ -1464,6 +1429,8 @@ Som for histogrammer avhenger tetthetsestimatet av en hyperparameter som heter b
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="_images/eda_107_0.svg" src="_images/eda_107_0.svg" /></div>
 </div>
 <p>Dette er vanskelig å tolke. Hva skjer hvis vi bruker dimensjonalitetsreduksjonsmetoden tSNE i stedet?</p>
 <div class="cell docutils container">
@@ -1478,6 +1445,17 @@ Som for histogrammer avhenger tetthetsestimatet av en hyperparameter som heter b
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/ppa045/anaconda3/envs/dsbook/lib/python3.11/site-packages/sklearn/manifold/_t_sne.py:800: FutureWarning:
+
+The default initialization in TSNE will change from &#39;random&#39; to &#39;pca&#39; in 1.2.
+
+/Users/ppa045/anaconda3/envs/dsbook/lib/python3.11/site-packages/sklearn/manifold/_t_sne.py:810: FutureWarning:
+
+The default learning rate in TSNE will change from 200.0 to &#39;auto&#39; in 1.2.
+</pre></div>
+</div>
+<img alt="_images/eda_109_1.svg" src="_images/eda_109_1.svg" /></div>
 </div>
 <p>Hvis vi bruker tSNE på diabetes-data, så ser vi to forskjellige klustre. Kan vi gjette hva klustre betyr?</p>
 <div class="cell docutils container">
@@ -1488,6 +1466,8 @@ Som for histogrammer avhenger tetthetsestimatet av en hyperparameter som heter b
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="_images/eda_111_0.svg" src="_images/eda_111_0.svg" /></div>
 </div>
 <p>I stor grad har tSNE valgt å bruke kjønn for å dele data i to grupper. Det viser også at man bør være forsiktig når man interpreterer resultater fra dimensjonalitetsreduksjon. Det er ofte nyttig å fargelegge resultatene fra dimensjonalitetsreduksjon etter forskjellige variabler for å finne ut hva som er ansvarlig for mønstre vi ser.</p>
 </section>
@@ -1508,6 +1488,8 @@ Som for histogrammer avhenger tetthetsestimatet av en hyperparameter som heter b
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="_images/eda_114_0.svg" src="_images/eda_114_0.svg" /></div>
 </div>
 <section id="farger">
 <h4>Farger<a class="headerlink" href="#farger" title="Permalink til denne oversikten">#</a></h4>
@@ -1547,6 +1529,8 @@ Som for histogrammer avhenger tetthetsestimatet av en hyperparameter som heter b
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="_images/eda_116_0.svg" src="_images/eda_116_0.svg" /></div>
 </div>
 <p>Vanligvis bruker vi sekvensielle fargeskala for numeriske eller ordinale data.  Her er noen eksempler av sekvensielle fargeskalaer. Flere kan du se på ved hjelp av <code class="docutils literal notranslate"><span class="pre">px.colors.sequential.swatches_continuous()</span></code>.</p>
 <div class="cell tag_hide-input docutils container">
@@ -1590,6 +1574,8 @@ Som for histogrammer avhenger tetthetsestimatet av en hyperparameter som heter b
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="_images/eda_118_0.svg" src="_images/eda_118_0.svg" /></div>
 </div>
 <p>Vi bruker en divergerende fargeskala hvis det er et meningsfullt midtpunkt i numeriske eller ordinale data og for å understreke ytterpunktene. Et typisk eksempel er korrelasjon, der 0 korrelasjon er et naturlig midpunkt og vi kan være mest interesserte i sterkt positivt eller negativt korrelerte variabler.</p>
 <p>Her er noen eksempler av divergerende fargeskalaer. Flere kan du se på ved hjelp av <code class="docutils literal notranslate"><span class="pre">px.colors.diverging.swatches_continuous()</span></code>.</p>
@@ -1607,6 +1593,8 @@ Som for histogrammer avhenger tetthetsestimatet av en hyperparameter som heter b
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="_images/eda_120_0.svg" src="_images/eda_120_0.svg" /></div>
 </div>
 <p>I tillegg til valg av fargeskala, så er det én ting til vi alltid bør tenke på når vi velger ut farger. Vi bør aldri bruke rød og grønn i samme figuren. Mer enn 99% av alle fargeblinde mennesker lider av rød-grønn fargesynsmangel. Rundt 8% av alle menn og 0.5% av alle kvinner lider av det. Det er enkelt å ungå å bruke begge de to fargene i samme figuren.</p>
 </section>
