@@ -1,0 +1,562 @@
+
+<!DOCTYPE html>
+
+<html lang="nb">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Data science-prosessen &#8212; Innføring i data science</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Søk" href="search.html" />
+    <link rel="next" title="Data" href="data.html" />
+    <link rel="prev" title="Innføring i data science" href="intro.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="nb">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Innføring i data science</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Innføring i data science
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Data science-prosessen
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="data.html">
+   Data
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="eda.html">
+   Utforskende dataanalyse
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="modeling.html">
+   Datamodellering
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="variables.html">
+   Manglende data og variabelutvinning
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="communication.html">
+   Datakommunikasjon
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="implementation.html">
+   Implementere data science løsninger
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="beste_praksis.html">
+   Beste praksis i data science
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="studydesign.html">
+   Studiedesign
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/blasern/data-science-forelesningsnotater/main?urlpath=tree/process.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/blasern/data-science-forelesningsnotater"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/blasern/data-science-forelesningsnotater/issues/new?title=Issue%20on%20page%20%2Fprocess.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="_sources/process.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#viktige-sporsmal">
+   Viktige spørsmål
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#hva-er-egentlig-sporsmalet">
+     Hva er egentlig spørsmålet?
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#hva-slags-data-kan-brukes-for-a-svare-pa-sporsmalet">
+     Hva slags data kan brukes for å svare på spørsmålet?
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#hva-kan-vi-sammenligne-med">
+     Hva kan vi sammenligne med?
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#hva-er-de-relevante-etiske-sporsmalene">
+     Hva er de relevante etiske spørsmålene?
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Data science-prosessen</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#viktige-sporsmal">
+   Viktige spørsmål
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#hva-er-egentlig-sporsmalet">
+     Hva er egentlig spørsmålet?
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#hva-slags-data-kan-brukes-for-a-svare-pa-sporsmalet">
+     Hva slags data kan brukes for å svare på spørsmålet?
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#hva-kan-vi-sammenligne-med">
+     Hva kan vi sammenligne med?
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#hva-er-de-relevante-etiske-sporsmalene">
+     Hva er de relevante etiske spørsmålene?
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="data-science-prosessen">
+<h1>Data science-prosessen<a class="headerlink" href="#data-science-prosessen" title="Permalink til denne oversikten">#</a></h1>
+<p>Data science-prosessen består av flere steger:</p>
+<ul class="simple">
+<li><p>Studiedesign og datainnsamling</p></li>
+<li><p>Dataforberedelse og -håndtering</p></li>
+<li><p>Utforskende dataanalyse</p></li>
+<li><p>Datamodellering</p></li>
+<li><p>Kommunikasjon og implementasjon</p></li>
+</ul>
+<p>Første steget er kanskje den viktigst: planlegging. Vi begynner ved å definere et presist spørsmål. Hvis vi vet ikke hva vi ønsker for å oppnå, kan vi ende opp å bruke mye tid unødvendig. Planleggingsfasen inneholder også etiske og samfunnmessige vurderinger, studiedesign, og datainnsamling.</p>
+<p>Neste steger er å forberede data for analysen. Dette inkluderer datahåndtering og lagring.</p>
+<p>Selve dataanalysen består av to deler: Utforskende dataanalyse og datamodellering. I utforskende dataanalyse prøver vi å bli kjent med data. Her bruker vi statistiske metoder og visualisering. I datamodelleringsfasen lager vi prediksjonsmodeller. Her er det vanlig å bruke maskinlæring.</p>
+<p>Dataanalysen er ikke nyttig hvis ingen vet om det eller kan ikke bruke modellene våre. Derfor må vi kommunisere funnene våre og/eller implementere løsninger.</p>
+<p>Vi kommer til å gå dypere inn i hver steg senere.</p>
+<p>En ting til å legge merke til er at selv om det kan se ut at data science-prosessen er lineær er den i praksis ofte sirkulær. Det vi finner ut i ett steg fører ofte til at vi må gå tilbake og gjøre om på et tidligere steg. Kanskje viser den utforskende dataanalysen at spørsmålet vårt egentlig ikke gir mening med de dataene vi har. Kanskje viser modelleringen at vi trenger en variabel vi ikke samlet inn. Dette er ikke et tegn på at noe har gått galt, det er en naturlig og forventet del av arbeidet. Ingen klarer å planlegge et data science-prosjekt perfekt fra første forsøk, og et prosjekt der man aldri går tilbake og justerer noe, er mer sannsynlig et tegn på at man ikke har sett nøye nok etter enn et tegn på et vellykket prosjekt.</p>
+<section id="viktige-sporsmal">
+<h2>Viktige spørsmål<a class="headerlink" href="#viktige-sporsmal" title="Permalink til denne oversikten">#</a></h2>
+<p>Et data science prosjekt begynner ved å stille et presist spørsmål.</p>
+<section id="hva-er-egentlig-sporsmalet">
+<h3>Hva er egentlig spørsmålet?<a class="headerlink" href="#hva-er-egentlig-sporsmalet" title="Permalink til denne oversikten">#</a></h3>
+<p>Det aller første — og kanskje viktigste — steget er å finne ut nøyaktig hva vi prøver å finne ut av. Et spørsmål som ved første øyekast virker presist, viser seg ofte å skjule mange uavklarte valg. Tenk på et eksempel som å predikere eksamenskarakterene til studentene i dette kurset. Det høres konkret ut, men: Skal prediksjonen skje nå, midt i semesteret, eller rett før eksamen? Har vi tilgang til alle tidligere eksamensresultater? Kan vi be studentene ta en prøveeksam? Hvor god må prediksjonen være? Er vi fornøyde hvis vi treffer riktig karakter for halvparten av studentene? Og hvis vi bommer, er det like ille å predikere en A når fasiten er en B, som å predikere en F? Alt dette må avklares før vi i det hele tatt begynner å se på data.</p>
+</section>
+<section id="hva-slags-data-kan-brukes-for-a-svare-pa-sporsmalet">
+<h3>Hva slags data kan brukes for å svare på spørsmålet?<a class="headerlink" href="#hva-slags-data-kan-brukes-for-a-svare-pa-sporsmalet" title="Permalink til denne oversikten">#</a></h3>
+<p>Når spørsmålet er presisert, må vi finne ut hva slags data som finnes eller kan skaffes. Det enkleste er om det allerede finnes data som er offentlig tilgjengelig, eller i det minste tilgjengelig for oss. Må vi samle inn data selv, blir prosjektet fort dyrere og tar lengre tid.</p>
+<p>Vi må også vurdere hvor mye data vi trenger. Skal vi oppdage en sjelden bivirkning av et medikament, trenger vi svært mange pasienter. Skal vi bare finne ut om medikamentet virker i det hele tatt, holder det kanskje med noen få.</p>
+</section>
+<section id="hva-kan-vi-sammenligne-med">
+<h3>Hva kan vi sammenligne med?<a class="headerlink" href="#hva-kan-vi-sammenligne-med" title="Permalink til denne oversikten">#</a></h3>
+<p>Et resultat er bare nyttig i sammenligning med et alternativ. Vi trenger derfor et utgangspunkt eller en grunnlinjemodell (<em>baseline</em>) å måle oss mot. Tenk deg at du er data science-konsulent for en nettbutikk som ønsker et anbefalingssystem. Har butikken ikke noe system fra før, er alternativet å ikke anbefale noe i det hele tatt, men en svært enkel løsning, som å anbefale de mest solgte produktene, vil sannsynligvis allerede gi en forbedring. Da bør vi sammenligne det avanserte anbefalingssystemet vårt med begge disse alternativene: ingen anbefaling, og den enkle mest-solgt-anbefalingen. Uten en slik sammenligning vet vi ikke om den kompliserte modellen faktisk er verdt innsatsen.</p>
+</section>
+<section id="hva-er-de-relevante-etiske-sporsmalene">
+<h3>Hva er de relevante etiske spørsmålene?<a class="headerlink" href="#hva-er-de-relevante-etiske-sporsmalene" title="Permalink til denne oversikten">#</a></h3>
+<p>Til slutt må vi aldri glemme å stille de etiske spørsmålene. Hovedspørsmålet er alltid: kan dette prosjektet skade noen? Men det er nyttig å bryte dette ned i mer konkrete spørsmål.</p>
+<p>Personvern og datainnsamling. Samler vi inn personopplysninger? Har vi lov til det, og kunne vi oppnådd det samme med anonymiserte eller aggregerte data?</p>
+<p>Konsekvenser av feil. Hva skjer hvis modellen tar feil? I noen sammenhenger er en feilprediksjon en mindre ulempe (vi anbefaler feil bok). I andre sammenhenger, som medisinske data eller ressursfordeling i offentlig sektor, kan feil ha alvorlige konsekvenser for enkeltpersoner.</p>
+<p>Skjevhet og diskriminering (bias og fairness). Kan modellen føre til systematisk dårligere behandling av bestemte grupper? Det klassiske eksempelet er ansettelsesmodeller: hvis et selskap historisk har ansatt flere menn enn kvinner, og vi trener en modell på disse historiske dataene, vil modellen ofte lære seg og videreføre det samme mønsteret, selv om vi aldri eksplisitt ber den ta hensyn til kjønn. Skjevhet kan komme fra dataene (datasettet representerer ikke virkeligheten godt, for eksempel en underrepresentert gruppe), eller fra modellen selv (en algoritme med antagelser som ikke passer like godt for alle grupper). Det er derfor viktig å spørre: er datasettet vårt representativt for alle gruppene modellen skal brukes på? Og gir modellen sammenlignbar ytelse på tvers av grupper, eller er den systematisk dårligere for noen?</p>
+<p>Åpenhet og forklarbarhet. Kan vi forklare hvorfor modellen gir de prediksjonene den gir, til de som blir påvirket av beslutningen? I noen sammenhenger, spesielt der beslutninger har store konsekvenser for enkeltpersoner, som helse, forsikring eller strafferett kan det være et krav (og i EU delvis et juridisk krav under GDPR) at en person kan få en forklaring på en automatisert beslutning.</p>
+<p>Konsekvenser av selve studiedesignet. Etiske spørsmål handler ikke bare om hva modellen gjør etterpå, men også om hvordan vi samler inn data underveis. Skal vi for eksempel undersøke om et nytt medikament virker, er det fra et rent statistisk perspektiv best å gi noen pasienter medikamentet og andre placebo. Men finnes det allerede en fungerende behandling, er det uetisk å nekte den til kontrollgruppen bare for å få et renere eksperiment.</p>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "dsbook"
+        },
+        kernelOptions: {
+            kernelName: "dsbook",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'dsbook'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="intro.html" title="forrige page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">forrige</p>
+            <p class="prev-next-title">Innføring i data science</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="data.html" title="neste page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">neste</p>
+        <p class="prev-next-title">Data</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Nello Blaser, Pekka Parviainen<br/>
+  
+      &copy; Copyright 2022, 2026.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>
